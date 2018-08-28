@@ -1,0 +1,118 @@
+/*-- ---头部标题开始--- --*/
+
+body {
+	background-color: #ffffff;
+}
+
+.home-head {
+	width: 100%;
+	height: 110px;
+	background-color: #1B82D1;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+}
+
+.home-head-msg>img {
+	width: 82px;
+	height: 78px;
+}
+
+.home-head .home-head-title {
+	font-size: 2.8rem;
+	color: #FFFFFF;
+	margin: 0 auto;
+	line-height: 110px
+}
+
+.home-head .home-head-msg {
+	position: absolute;
+	left: 26px;
+	top: 28px;
+}
+
+.head-search-input {
+	position: relative;
+	z-index: 6;
+	/*width: calc(100% - 300px);*/
+	width: 0;
+	overflow: hidden;
+	height: 60px;
+	line-height: 60px;
+	top: -80px;
+	margin: 0 auto;
+	background-color: #1B82D1;
+}
+
+.head-search-input input {
+	font-size: 36px;
+	color: #666666;
+	padding: 0 15px;
+	height: 60px;
+	line-height: 60px;
+	/*padding-bottom: 10px;*/
+}
+
+.mui-slider {
+	height: 470px;
+
+}
+
+/*input::-webkit-input-placeholder {
+	position: relative;
+	top: 20px;
+	height: 60px;
+}*/
+
+
+/*-- ---头部标题结束--- --*/
+
+.home-head {
+	width: 100%;
+	height: 110px;
+	background-color: #1B82D1;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+}
+
+.home-head-weather {
+	width: 150px;
+	height: 110px;
+	position: absolute;
+	padding-top: 0px;
+}
+
+.home-head-weather img {
+	width: 70px;
+	height: 70px;
+	display: block;
+	margin: 0 auto;
+}
+
+.home-head-weather span {
+	display: block;
+	color: #ffffff;
+	font-size: 28px;
+	text-align: center;
+	line-height: 28px;
+}
+
+.home-head .home-head-title {
+	font-size: 2.8rem;
+	color: #FFFFFF;
+	margin: 0 auto;
+	line-height: 110px;
+	text-align: center;
+}
+
+.home-head .home-head-search {
+	position: absolute;
+	right: 40px;
+	top: 24px;
+}
+
+.home-head-search>img {
+	width: 70px;
+	height: 70px;
+}

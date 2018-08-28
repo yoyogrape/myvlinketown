@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>主题介绍</title>
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-subpage-meetinglink-theme.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="meetinglink-theme-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>主题介绍</span>
+		</div>
+		<div class="meetinglink-theme-text">
+			<span>
+				<span style="font-size: 3.2rem;color: #1B82D1;">世界机器人大会  </span>是经国务院批准，北京市人民政府、工业和信息化部、中国科学技术协会共同主办的国际会议。世界机器人大会从2015年起至今共举行了三届，已经成为沟通中国与世界、融合科技与产业的重要平台。 [2]
+			<br><br>2018世界机器人大会以“共创智慧新动能 共享开放新时代”为主题，由“论坛”、“博览会”和“大赛”三大板块构成。
+			<br><br>据悉，大会论坛在往届的基础上，将以分享思想创见、探讨前沿趋势、引领学术方向为中心，融入新元素，挖掘新亮点，为全球机器人学术、产业、研究、应用等领域精英搭建起交流平台。论坛由3天的主论坛和20多场专题论坛组成，来自美、俄、德、日、韩等国300多位业界专家和企业领袖，将对基础技术、创新、应用和实践等话题进行探讨和交流。美国机械工程师学会（ASME）、英国工程技术学会（IET）、俄罗斯机器人协会（RAR）等16家国际组织将作为支持机构全面参与大会。
+			</span>
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+	</script>
+
+</html>

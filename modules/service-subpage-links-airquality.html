@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>空气质量</title>
+		<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+
+		<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+		<link href="../css/public-title.css" rel="stylesheet" />
+		<link href="../css/service-subpage-links-airquality.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+		<script src="../js/jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script>
+
+	</head>
+
+	<body>
+		<div style="height: 110px;"></div>
+
+		<!---------------标题开始---------------->
+		<div class="mainlink-trouble-title fixed">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>空气质量查询</span>
+		</div>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+
+		<!---------------标题结束---------------->
+
+		<!--===============内容开始===============-->
+		<div class="airquality-body">
+			<!-------------头部展示开始------------->
+			<div class="airquality-head">
+				<div style="display: none;" class="airquality-head-position">
+					<span><!--北京--></span>
+					<img src="../images/airquality-selectcity.png" />
+				</div>
+				<div class="airquality-head-info">
+					<img src="../images/airquality-details.png" />
+				</div>
+				<div class="airquality-head-showdata">
+					<div class="airquality-plug">
+						<div class="GaugeMeter" id="PreviewGaugeMeter_2" data-percent="48" data-append="" data-size="700" data-width="40" data-color="#FFA500" data-back="#E3E7EB" data-theme="White" data-back="RGBa(0,0,0,.1)" data-animate_gauge_colors="#000" data-animate_text_colors="#ffffff" data-width="15" data-label="" data-style="Arch"></div>
+					</div>
+					<div class="airquality-num">
+						<span>126</span>
+
+					</div>
+					<div class="airquality-text">
+						<span><!--轻度污染--></span>
+					</div>
+				</div>
+			</div>
+			<!-------------头部展示结束------------->
+			<script>
+				$(document).ready(function() {
+					//GaugeMeter
+					$(".GaugeMeter").gaugeMeter();
+
+					//Sticky Table Header
+					var tables = $("table.StickyHeader");
+					tables.each(function(i) {
+						var table = tables[i];
+						var theadClone = $(table).find("thead").clone(true);
+						var stickyHeader = $("<div></div>").addClass("StickyHeader Hide");
+						stickyHeader.append($("<table></table")).find("table").append(theadClone);
+						$(table).after(stickyHeader);
+
+						var tableHeight = $(table).height();
+						var tableWidth = $(table).width() + Number($(table).css("padding-left").replace(/px/ig, "")) + Number($(table).css("padding-right").replace(/px/ig, "")) + Number($(table).css("border-left-width").replace(/px/ig, "")) + Number($(table).css("border-right-width").replace(/px/ig, ""));
+
+						var headerCells = $(table).find("thead th");
+						var headerCellHeight = $(headerCells[0]).height();
+
+						var no_fixed_support = false;
+						if(stickyHeader.css("position") == "Absolute") {
+							no_fixed_support = true;
+						}
+
+						var stickyHeaderCells = stickyHeader.find("th");
+						//stickyHeader.css("width", tableWidth);
+						stickyHeader.css("width", "100%");
+
+						/*
+						for (i=0; i<headerCells.length; i++) {
+							var headerCell = $(headerCells[i]);
+							var cellWidth = headerCell.width();
+							$(stickyHeaderCells[i]).css("width", cellWidth);
+						}
+						*/
+						var cellWidth = $(headerCells[0]).width() + 1;
+						$(stickyHeaderCells[0]).attr("style", "width:" + cellWidth + "px !important");
+
+						var cutoffTop = $(table).offset().top;
+						var cutoffBottom = tableHeight + cutoffTop - headerCellHeight;
+
+						$(window).scroll(function() {
+							var currentPosition = $(window).scrollTop();
+							if(currentPosition > cutoffTop && currentPosition < cutoffBottom) {
+								stickyHeader.removeClass("Hide");
+								if(no_fixed_support) {
+									stickyHeader.css("top", currentPosition + "px");
+								}
+							} else {
+								stickyHeader.addClass("Hide");
+							}
+						});
+					});
+
+				});
+			</script>
+			<!-------------位置信息展示开始------------->
+			<div class="airquality-main-position">
+				<div class="airquality-main-title">
+					<span>位置更换</span>
+					<img src="../images/airquality-position.png" />
+				</div>
+				<div class="airquality-main-body">
+					<div class="airquality-body-item">
+						<div class="airquality-item-left">
+							<div class="airquality-item-name">
+								<span>磁器口</span>
+							</div>
+							<div class="airquality-item-param">
+								<div class="airquality-item-num">
+									<span>36</span>
+								</div>
+								<div class="airquality-item-level">
+									<span>优</span>
+								</div>
+							</div>
+						</div>
+						<div class="airquality-item-splitline"></div>
+						<div class="airquality-item-right">
+							<div class="airquality-item-name">
+								<span>海淀黄庄</span>
+							</div>
+							<div class="airquality-item-param">
+								<div class="airquality-item-num">
+									<span>123</span>
+								</div>
+								<div class="airquality-item-level">
+									<span>轻度污染</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="airquality-body-item">
+						<div class="airquality-item-left">
+							<div class="airquality-item-name">
+								<span>南锣鼓巷</span>
+							</div>
+							<div class="airquality-item-param">
+								<div class="airquality-item-num">
+									<span>163</span>
+								</div>
+								<div class="airquality-item-level ">
+									<span>中度污染</span>
+								</div>
+							</div>
+						</div>
+						<div class="airquality-item-splitline"></div>
+						<div class="airquality-item-right">
+							<div class="airquality-item-name">
+								<span>颐和园</span>
+							</div>
+							<div class="airquality-item-param">
+								<div class="airquality-item-num">
+									<span>265</span>
+								</div>
+								<div class="airquality-item-level">
+									<span>重度污染</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-------------位置信息展示结束------------->
+
+			<!-------------污染物展示开始------------->
+			<div class="airquality-main-pollutant" style="display: none;">
+				<div class="airquality-pollutant-title">
+					<span>污染物</span>
+				</div>
+				<div class="airquality-pollutant-body">
+					<div class="airquality-pollutant-item">
+						<div class="pollutant-item-left">
+							<div class="pollutant-subitem-up">
+								<span>59</span>
+								<span>PM2.5</span>
+							</div>
+							<div class="pollutant-subitem-middle">
+								<span>良</span>
+								<span>μg/m<sup>3</sup></span>
+							</div>
+							<div class="pollutant-subitem-down">
+								<img src="../images/progressbar.png" />
+							</div>
+						</div>
+						<div class="pollutant-item-right">
+							<div class="pollutant-subitem-up">
+								<span>53</span>
+								<span>PM10</span>
+							</div>
+							<div class="pollutant-subitem-middle">
+								<span>良</span>
+								<span>μg/m<sup>3</sup></span>
+							</div>
+							<div class="pollutant-subitem-down">
+								<img src="../images/progressbar.png" />
+							</div>
+						</div>
+					</div>
+					<div class="airquality-pollutant-item">
+						<div class="pollutant-item-left">
+							<div class="pollutant-subitem-up">
+								<span>28</span>
+								<span>O<sup>3</sup></span>
+							</div>
+							<div class="pollutant-subitem-middle">
+								<span>良</span>
+								<span>μg/m<sup>3</sup></span>
+							</div>
+							<div class="pollutant-subitem-down">
+								<img src="../images/progressbar.png" />
+							</div>
+						</div>
+						<div class="pollutant-item-right">
+							<div class="pollutant-subitem-up">
+								<span>36</span>
+								<span>NO<sub>2</sub></span>
+							</div>
+							<div class="pollutant-subitem-middle">
+								<span>良</span>
+								<span>μg/m<sub>3</sub></span>
+							</div>
+							<div class="pollutant-subitem-down">
+								<img src="../images/progressbar.png" />
+							</div>
+						</div>
+					</div>
+					<div class="airquality-pollutant-item">
+						<div class="pollutant-item-left">
+							<div class="pollutant-subitem-up">
+								<span>1000</span>
+								<span>CO</span>
+							</div>
+							<div class="pollutant-subitem-middle">
+								<span>良</span>
+								<span>μg/m<sup>3</sup></span>
+							</div>
+							<div class="pollutant-subitem-down">
+								<img src="../images/progressbar.png" />
+							</div>
+						</div>
+						<div class="pollutant-item-right">
+							<div class="pollutant-subitem-up">
+								<span>2</span>
+								<span>SO<sub>2</sub></span>
+							</div>
+							<div class="pollutant-subitem-middle">
+								<span>良</span>
+								<span>μg/m<sup>3</sup></span>
+							</div>
+							<div class="pollutant-subitem-down">
+								<img src="../images/progressbar.png" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-------------污染物展示结束------------->
+
+			<!-------------生活指数展示开始------------->
+			<div class="airquality-foot-lifenum">
+
+				<div class="airquality-lifenum-title">
+					<span>生活指数</span>
+				</div>
+				<div class="airquality-lifenum-body">
+					<div class="lifenum-body-item">
+						<div class="lifenum-item-left">
+							<img src="../images/air-chenlian.png" />
+							<div class="lifenum-item-name">
+								<span>晨练指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>适宜</span>
+							</div>
+						</div>
+						<div class="lifenum-item-center">
+							<img src="../images/air-chuanyi.png" />
+							<div class="lifenum-item-name">
+								<span>穿衣指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>炎热</span>
+							</div>
+						</div>
+						<div class="lifenum-item-right">
+							<img src="../images/air-fangsai.png" />
+							<div class="lifenum-item-name">
+								<span>防晒指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>较弱</span>
+							</div>
+						</div>
+
+					</div>
+					<div class="lifenum-body-item">
+						<div class="lifenum-item-left">
+							<img src="../images/air-jiaotong.png" />
+							<div class="lifenum-item-name">
+								<span>交通指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>适宜</span>
+							</div>
+						</div>
+						<div class="lifenum-item-center">
+							<img src="../images/air-lukuang.png" />
+							<div class="lifenum-item-name">
+								<span>路况指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>炎热</span>
+							</div>
+						</div>
+						<div class="lifenum-item-right">
+							<img src="../images/air-qiche.png" />
+							<div class="lifenum-item-name">
+								<span>洗车指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>较弱</span>
+							</div>
+						</div>
+
+					</div>
+					<div class="lifenum-body-item">
+						<div class="lifenum-item-left">
+							<img src="../images/air-yuehui.png" />
+							<div class="lifenum-item-name">
+								<span>约会指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>适宜</span>
+							</div>
+						</div>
+						<div class="lifenum-item-center">
+							<img src="../images/air-ziwaixian.png" />
+							<div class="lifenum-item-name">
+								<span>紫外线指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>炎热</span>
+							</div>
+						</div>
+						<div class="lifenum-item-right">
+							<img src="../images/air-lvyouzhishu.png" />
+							<div class="lifenum-item-name">
+								<span>旅游指数</span>
+							</div>
+							<div class="lifenum-item-type">
+								<span>较弱</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-------------生活指数展示结束------------->
+		</div>
+		<!--===============内容结束===============-->
+	</body>
+
+
+  <script>
+  	  var ariQuality = {
+  	  	init:function(){
+  	  		this.getData()
+  	  	},
+  	  	getData:function(){
+/*  	  			var airData = {
+				"city": "北京",
+				"level": "三级（轻度污染）",
+				"update": "2018-07-2113:00:00",
+				"aqi": "105",
+				"pm25": "78",
+				"pm10": "84",
+				"co": "0.92",
+				"no2": "14",
+				"031h": "200",
+				"038h": "117",
+				"so2": "3",
+				"data": [{
+					"position_name": "万寿西宫",
+					"aqi": "89",
+					"level": "良",
+					"primary_pollutant": "细颗粒物(PM2.5)",
+					"pm25": "66",
+
+					"pm10": "77",
+					"co": "0.9",
+					"no2": "12",
+					"o31h": "148",
+					"o38h": "102",
+					"so2": "4"
+				}, {
+					"position_name": "定陵",
+					"aqi": "139",
+					"level": "轻度污染",
+					"primary_pollutant": "细颗粒物(PM2.5)",
+					"pm25": "106",
+					"pm10": "117",
+					"co": "1.0",
+					"no2": "17",
+					"o31h": "168",
+					"o38h": "101",
+					"so2": "3"
+				}, {
+					"position_name": "东四",
+					"aqi": "101",
+					"level": "轻度污染",
+					"primary_pollutant": "臭氧1小时",
+					"pm25": "66",
+					"pm10": "74",
+					"co": "0.8",
+					"no2": "12",
+					"o31h": "202",
+					"o38h": "121",
+					"so2": "1"
+				}, {
+					"position_name": "天坛",
+					"aqi": "95",
+					"level": "良",
+					"primary_pollutant": "臭氧1小时",
+					"pm25": "61",
+					"pm10": "78",
+					"co": "0.9",
+					"no2": "11",
+					"o31h": "196",
+					"o38h": "117",
+					"so2": "5"
+				}, {
+					"position_name": "农展馆",
+					"aqi": "118",
+					"level": "轻度污染",
+					"primary_pollutant": "臭氧1小时",
+					"pm25": "60",
+					"pm10": "66",
+					"co": "0.9",
+					"no2": "17",
+					"o31h": "236",
+					"o38h": "136",
+					"so2": "3"
+				}, {
+					"position_name": "官园",
+					"aqi": "105",
+					"level": "轻度污染",
+					"primary_pollutant": "臭氧1小时",
+					"pm25": "66",
+					"pm10": "86",
+					"co": "0.9",
+					"no2": "19",
+					"o31h": "209",
+					"o38h": "127",
+					"so2": "1"
+				}, {
+					"position_name": "海淀区万柳",
+					"aqi": "118",
+					"level": "轻度污染",
+					"primary_pollutant": "细颗粒物(PM2.5)",
+					"pm25": "89",
+					"pm10": "90",
+					"co": "1.0",
+					"no2": "25",
+					"o31h": "227",
+					"o38h": "136",
+					"so2": "10"
+				}, {
+					"position_name": "顺义新城",
+					"aqi": "125",
+					"level": "轻度污染",
+					"primary_pollutant": "细颗粒物(PM2.5)",
+					"pm25": "95",
+					"pm10": "_",
+					"co": "0.8",
+					"no2": "6",
+					"o31h": "228",
+					"o38h": "125",
+					"so2": "3"
+				}, {
+					"position_name": "怀柔镇",
+					"aqi": "118",
+					"level": "轻度污染",
+					"primary_pollutant": "细颗粒物(PM2.5)",
+					"pm25": "89",
+					"pm10": "98",
+					"co": "1.0",
+					"no2": "9",
+					"o31h": "163",
+					"o38h": "92",
+					"so2": "3"
+				}, {
+					"position_name": "昌平镇",
+					"aqi": "139",
+					"level": "轻度污染",
+					"primary_pollutant": "细颗粒物(PM2.5)",
+					"pm25": "106",
+					"pm10": "_",
+					"co": "1.1",
+					"no2": "17",
+					"o31h": "241",
+					"o38h": "116",
+					"so2": "4"
+				}, {
+					"position_name": "奥体中心",
+					"aqi": "88",
+					"level": "良",
+					"primary_pollutant": "臭氧1小时",
+					"pm25": "60",
+					"pm10": "73",
+					"co": "0.8",
+					"no2": "15",
+					"o31h": "190",
+					"o38h": "115",
+					"so2": "3"
+				}, {
+					"position_name": "古城",
+					"aqi": "109",
+					"level": "轻度污染",
+					"primary_pollutant": "细颗粒物(PM2.5)",
+					"pm25": "82",
+					"pm10": "84",
+					"co": "0.9",
+					"no2": "10",
+					"o31h": "198",
+					"o38h": "119",
+					"so2": "3"
+				}]*/
+  	  		
+  	  			mui.ajax({
+				type: "get",
+				url: URLS.airQuality + "?id=beijing&jsoncallback=?",
+				async: true,
+				dataType: "jsonp",
+				jsonp: "jsoncallback",
+				timeout: 6000,
+				success: function(data) {
+					data = JSON.parse(data); //将数据转换成json对象
+					ariQuality.setAirData(data);
+
+				},
+				error: function(xhr, type, errorThrown) {
+					//plus.nativeUI.toast(errorThrown);
+					//console.log('空气质量获取数据失败');
+				}
+			});
+						mui.ajax({
+				type: "get",
+				url: URLS.lifeIndex + "?id=%E5%8C%97%E4%BA%AC&jsoncallback=?",
+				async: true,
+				dataType: "jsonp",
+				jsonp: "jsoncallback",
+				timeout: 6000,
+				success: function(data) {
+					data = JSON.parse(data); //将数据转换成json对象
+
+				},
+				error: function(xhr, type, errorThrown) {
+					//plus.nativeUI.toast(errorThrown);
+					//console.log('穿衣指数数据获取失败');
+
+				}
+			});
+  	  	},
+  	  	
+			//--将获取到的天气信息写入页面--
+			setAirData:function (data) {
+				//显示城市
+				$('.airquality-head-position span').html(data.city);
+				//显示污染程度
+				var airLevel_str = data.level.substring(data.level.indexOf('（') + 1, data.level.indexOf('）'))
+				$('.airquality-text span').html(airLevel_str);
+
+				//空气指数
+				$('.airquality-num span').html(data.aqi);
+				//--各地点空气质量--
+				for(var i = 0; i < 4; i++) {
+					var subPosition = data.data[i];
+					$('.airquality-main-body').find('.airquality-item-name span').eq(i).html(subPosition.position_name);
+					$('.airquality-main-body').find('.airquality-item-num span').eq(i).html(subPosition.aqi);
+
+					//subPosition.level
+					var airLevel = subPosition.level;
+					$('.airquality-main-body').find('.airquality-item-level span').eq(i).html(subPosition.level);
+					if(airLevel == '优' || airLevel == '良') {
+						$('.airquality-main-body').find('.airquality-item-level').eq(i).addClass('airquality-you');
+					}
+					if(airLevel == '轻度污染') {
+						$('.airquality-main-body').find('.airquality-item-level').eq(i).addClass('airquality-qingdu');
+					}
+					if(airLevel == '中度污染') {
+						$('.airquality-main-body').find('.airquality-item-level').eq(i).addClass('airquality-zhongdu');
+					}
+					if(airLevel == '重度污染') {
+						$('.airquality-main-body').find('.airquality-item-level').eq(i).addClass(' airquality-Height-zhongdu');
+					}
+
+				}
+			},
+  	  	bindEvent:function(){}
+  	  }
+  	  
+  	  window.addEventListener("ariQuality",function(){
+  	  	       ariQuality.init();
+  	  })
+  </script>
+</html>

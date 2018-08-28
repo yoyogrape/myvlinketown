@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>个人中心-关于</title>
+		<link href="../css/myself-subpage-about.css" rel="stylesheet" />
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+	</head>
+
+	<body>
+		<div style="height: 40px;">
+		</div>
+		<div class="mainlink-suivey-title">
+			<div style="height: 40px; width: 80px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>关于铁岭</span>
+		</div>
+
+		<div class="myself-about-body">
+			<div class="about-head">
+				<div class="about-head-logo">
+					<img src="../images/vlink-yizhuangLOGO.png" />
+				</div>
+				<div class="about-head-title">
+					<span>无限铁岭</span>
+				</div>
+			</div>
+			<div class="about-info">
+				<div class="about-info-item">
+					<div class="about-item-img">
+						<img src="../images/myself-about-guanwang.png" />
+					</div>
+					<div class="about-item-text">
+						<div class="item-name">
+							<span>www.ebda.cn</span>
+						</div>
+						<div class="item-dsc">
+							<span>官方网站</span>
+						</div>
+					</div>
+				</div>
+				<div class="about-info-item">
+					<div class="about-item-img">
+						<img src="../images/myself-about-phonenum.png" />
+					</div>
+					<div class="about-item-text">
+						<div class="item-name">
+							<span>57780001/57781234</span>
+						</div>
+						<div class="item-dsc">
+							<span>客服热线</span>
+						</div>
+					</div>
+				</div>
+				<div class="about-info-item" id="btn_QRcode">
+					<div class="about-item-img">
+						<img src="../images/myself-about-weichat.png" />
+					</div>
+					<div class="about-item-text">
+						<div class="item-name">
+							<span>无限铁岭</span>
+						</div>
+						<div class="item-dsc">
+							<span>微信公众号</span>
+						</div>
+					</div>
+				</div>
+				<div class="about-info-item">
+					<div class="about-item-img">
+						<img src="../images/myself-about-email.png" />
+					</div>
+					<div class="about-item-text">
+						<div class="item-name">
+							<span>******@etowm.com</span>
+						</div>
+						<div class="item-dsc">
+							<span>电子邮箱</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+
+		mui("#btn_QRcode")[0].addEventListener("tap", function() {
+			mui.openWindow({
+				url: 'myself-subpage-QRcode.html'
+			});
+		});
+	</script>
+
+</html>

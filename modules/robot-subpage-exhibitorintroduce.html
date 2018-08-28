@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<title>展商介绍</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-subpage-alltimelink-heatdistribution.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/jquery.charfirst.pinyin.js" defer="defer"></script>
+		<script src="../js/sort.js" defer="defer"></script>
+		<style type="text/css">
+			ul li {
+				list-style: none;
+			}
+			
+			a {
+				text-decoration: none;
+				cursor: pointer;
+			}
+			
+			#letter {
+				width: 100px;
+				height: 100px;
+				border-radius: 5px;
+				font-size: 75px;
+				color: #555;
+				text-align: center;
+				line-height: 100px;
+				background: rgba(145, 145, 145, 0.6);
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				margin: -50px 0px 0px -50px;
+				z-index: 99;
+				display: none;
+			}
+			
+			#letter img {
+				width: 50px;
+				height: 50px;
+				float: left;
+				margin: 25px 0px 0px 25px;
+			}
+			
+			.sort_box {
+				width: 100%;
+				padding-top: 15px;
+				overflow: auto;
+			}
+			
+			.sort_list {
+				padding: 10px 60px 10px 80px;
+				position: relative;
+				height: 55px;
+				line-height: 55px;
+				border-bottom: 1px solid #ddd;
+			}
+			
+			.sort_list .num_logo {
+				width: 50px;
+				height: 50px;
+				border-radius: 10px;
+				overflow: hidden;
+				position: absolute;
+				top: 5px;
+				left: 20px;
+			}
+			
+			.sort_list .num_logo img {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			
+			.sort_list .num_name {
+				color: #000;
+			}
+			
+			.sort_letter {
+				height: 30px;
+				line-height: 30px;
+				padding-left: 20px;
+				color: #787878;
+				font-size: 14px;
+				border-bottom: 1px solid #ddd;
+			}
+			
+			.initials {
+				position: fixed;
+				top: 47px;
+				right: 0px;
+				height: 100%;
+				width: 15px;
+				padding-right: 10px;
+				text-align: center;
+				font-size: 12px;
+				z-index: 99;
+				background: rgba(145, 145, 145, 0);
+			}
+			
+			.initials li img {
+				width: 14px;
+			}
+		</style>
+	</head>
+
+	<div style="height: 25px;"></div>
+
+	<body id="btn_goback2">
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>展商列表</span>
+		</div>
+
+		<div style="margin-top: 25px;">
+
+			<div id="letter"></div>
+			<div class="sort_box">
+				<!--<div class="sort_list">
+					<div class="num_logo"><img src="http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png" /></div>
+					<div class="num_name">哈工大</div>
+				</div>
+				<div class="sort_list">
+					<div class="num_logo"><img src="http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png" /></div>
+					<div class="num_name">京东</div>
+				</div>
+				<div class="sort_list">
+					<div class="num_logo"><img src="http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png" /></div>
+					<div class="num_name">猎豹移动</div>
+				</div>
+
+				<div class="sort_list">
+					<div class="num_logo"><img src="http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png" /></div>
+					<div class="num_name">北京展团</div>
+				</div>
+				<div class="sort_list">
+					<div class="num_logo"><img src="http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png" /></div>
+					<div class="num_name">SMC</div>
+				</div>
+				<div class="sort_list">
+					<div class="num_logo"><img src="http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png" /></div>
+					<div class="num_name">新松</div>
+				</div>
+				<div class="sort_list">
+					<div class="num_logo"><img src="http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png" /></div>
+					<div class="num_name">中瑞福宁</div>
+				</div>-->
+
+			</div>
+			<div class="initials">
+				<ul>
+
+				</ul>
+			</div>
+		</div>
+
+	</body>
+
+	<script type="text/javascript">
+		mui.init({
+			gestureConfig: {
+				swipe: true, //默认为true   
+				longtap: true,
+			}
+		})
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+		var productPage = null;
+		mui.plusReady(function() {
+			productPage = mui.preload({
+				url: "robot-subpage-exhibitorintroduce-product.html",
+				id: "robot-subpage-exhibitorintroduce-product"
+			});
+
+		});
+
+		var exhibitorintroduce = {
+			init: function() {
+				exhibitorintroduce.getData();
+			},
+			getData: function() {
+				var jsonObj = {
+					condition: {},
+					order: "id",
+					rowCount: 10,
+					sort: "id",
+					startRow: 0,
+					totalRecord: 0
+				};
+
+				mui.ajax({
+					type: "post",
+					url: URLS.getExhibitor + "?jsoncallback=?",
+					async: true,
+					data: JSON.stringify(jsonObj),
+					dataType: "jsonp",
+					contentType: "application/json;charset=utf-8",
+					jsonp: "jsoncallback",
+					headers: {
+						"Accept": "*/*"
+					},
+					timeout: 1000,
+					success: function(data) {
+						data = JSON.parse(data); //将数据转换成json对象
+						exhibitorintroduce.initExhibitorList(data);
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log('请求展商列表失败');
+					}
+				});
+
+			},
+			bindEvent: function() {
+				$('.sort_list').on("click", function() {
+					if(productPage) {
+						mui.fire(productPage, 'update', { //触发事件
+							exhibitorId: this.id
+						});
+						productPage.show('slide-in-right', 300); //显示详情页
+
+					}
+				});
+			},
+			initExhibitorList: function(data) {
+				var exhibitorListHtml = '';
+				for(var i = 0; i < data.data.datas.length; i++) {
+					var exhibitorItem = data.data.datas[i];
+					var exhibitorItemHtml = '<div class="sort_list" id=\"' + exhibitorItem.id + '\"><div class="num_logo"><img src=\"' + exhibitorItem.logoSrc + '\"/></div><div class="num_name">' + exhibitorItem.name + '</div></div>';
+					exhibitorListHtml += exhibitorItemHtml;
+				}
+				$('.sort_box').empty().append(exhibitorListHtml);
+				exhibitorintroduce.bindEvent();
+				exhibitorintroduce.loadScript();
+			},
+			loadScript: function() {
+				var myScript = document.createElement("script");
+				var myScript2 = document.createElement("script");
+				myScript.src = "../js/jquery.charfirst.pinyin.js";
+				myScript2.src = "../js/sort.js";
+				document.body.appendChild(myScript).appendChild(myScript2);
+			}
+		};
+
+		window.addEventListener("exhibitorintroduce", function(event) {
+			exhibitorintroduce.init();
+		})
+	</script>
+
+</html>

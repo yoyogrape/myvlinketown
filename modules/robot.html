@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>robot</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+		<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public-news-list.css" rel="stylesheet" />
+		<link href="../css/public-title-header.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/robot.css" />
+
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+		<script src="../js/grape.tools.js"></script>
+
+		<style type="text/css">
+			.mui-pull-bottom-pocket {
+				position: relative;
+				bottom: 0;
+				height: 140px;
+				/*background-color: azure;*/
+			}
+			
+			.mui-pull-caption {
+				font-size: 30px;
+			}
+			
+			.mui-pull {
+				bottom: 70px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- ---头部标题开始--- -->
+		<div style="width: 100%;height: 110px;"></div>
+		<div class="home-head">
+			<div class="home-head-weather" id="btn_weather">
+				<img src="../images/weather-fine-sun2.png" />
+				<span>32℃</span>
+			</div>
+			<div class="home-head-title">
+				<span>机器人大会</span>
+			</div>
+			<div class="home-head-search">
+				<img src="../images/home-head-search.png" />
+			</div>
+			<div class="head-search-input">
+				<input type="text" name="" id="searchInput" value="" />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		</script>
+
+		<!-- ---头部标题结束--- -->
+
+		<!-- ---轮播图开始--- -->
+		<div class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!--支持循环，需要重复图片节点-->
+				<!--<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="../images/banner4.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner1.jpg" /></a>
+
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner2.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner3.jpg" /></a>
+					<div class="banner-advertisement">
+						<span>广告</span>
+					</div>
+				</div>-->
+				<!--<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner4.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/robot-head-bannerimg.png" /></a>
+				</div>-->
+
+				<!--支持循环，需要重复图片节点-->
+				<!--<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="../images/banner1.jpg" /></a>
+				</div>-->
+			</div>
+		</div>
+
+		<!-- ---轮播图结束--- -->
+
+		<!-- ---滚动公告开始--- -->
+		<div class="home-scroll-noties">
+			<div class="scroll-noties-img">
+				<img src="../images/home-YiZhuang.png" />
+			</div>
+
+			<div class="scroll-noties-item">
+				<ul>
+					<!--<li>
+						<div class="scroll-noties-title">
+							公告
+						</div>
+						<div class="scroll-noties-text">
+							<span>第1条公告第1条公告第1条公告</span>
+						</div>
+					</li>
+					<li>
+						<div class="scroll-noties-title">
+							公告
+						</div>
+						<div class="scroll-noties-text">
+							<span>第2条公告</span>
+						</div>
+					</li>
+					<li>
+						<div class="scroll-noties-title">
+							公告
+						</div>
+						<div class="scroll-noties-text">
+							<span>第3条公告</span>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+
+		</div>
+
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- ---滚动公告结束--- -->
+
+		<div class="home-height" style="height: 20px; background-color: #E0E1E5;"></div>
+		<!-- ---功能区开始--- -->
+		<div class="home-ability">
+			<div class="home-ability-body">
+				<table>
+					<tr>
+						<td>
+							<div id="btn_time">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-meetingtime.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>展会日程</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div id="btn_exhibitorintroduce">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-park.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>展商介绍</span>
+								</div>
+							</div>
+						</td>
+
+						<td>
+							<div id="btn_exhibitionhallservice">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-venuetour.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>展馆服务</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div id="btn_heatdistribution">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-heatmap.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>现场热力图</span>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="btn_net_ticket">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-ticket.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>购票通道</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<a id="oneKey">
+								<div id="">
+									<div class="ability-body-img">
+										<img src="../images/robot-linkimg-salvation.png" />
+									</div>
+									<div class="ability-body-text">
+										<span>一键救助</span>
+									</div>
+								</div>
+							</a>
+						</td>
+
+						<td>
+							<div id="btn_gotrouble">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-submittrouble.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>网络支持</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="ability-body-img" id="btn_more">
+								<img src="../images/robot-linkimg-more.png" />
+							</div>
+							<div class="ability-body-text">
+								<span>周边</span>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- ---功能区结束--- -->
+
+		<div class="home-height" style="height: 20px; background-color: #E0E1E5;"></div>
+		<!-- ---今日要闻开始--- -->
+		<div class="home-scroll-news">
+
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view mui-table-view-chevron" id="list">
+
+					</ul>
+				</div>
+			</div>
+
+			<!--<div class="scroll-news-title">
+				<span>今日要闻</span>
+			</div>
+			<div class="scroll-news-item" id="">
+				<div class="scroll-news-body">
+					<div class="news-body-play">
+						<img src="../images/play.png" />
+					</div>
+					<div class="news-body-img">
+						<img src="../images/home-news1.png" />
+					</div>
+					<div class="news-body-text">
+						<span>春运即将拉</span>
+						<div class="date-eyeBox">
+							<div class="news-time">
+								2018-01-31
+							</div>
+							<div class="news-eye">
+								10
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<!--无图片新闻-->
+			<!--<div class="scroll-news-item" id="">
+				<div class="scroll-news-body-T">
+					<div class="news-body-text-T">
+						<span>春运即将拉开帷幕，</span>
+						<div class="date-eyeBox">
+							<div class="news-time-T">
+								2018-01-31
+							</div>
+							<div class="news-eye-T">
+								10
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<!--多图片新闻-->
+			<!--<div class="scroll-news-item auto" id="">
+				<div class="scroll-news-body-IMGS">
+					<div class="news-body-text-IMGS">
+						<span>春运即将拉开帷幕，退票潮将至“减漏”正幕，退票潮将至“减漏”正</span>
+						<div class="news-body-imgs-IMGS">
+							<img src="../images/home-news4.png" />
+							<img src="../images/home-news2.png" />
+							<img src="../images/home-news1.png" />
+						</div>
+						<div class="date-eyeBox">
+							<div class="news-time-IMGS">
+								2018-01-31
+							</div>
+							<div class="news-eye-IMGS">
+								10
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+
+			<!--广告-->
+			<!--<div class="scroll-news-item auto" id="">
+				<div class="scroll-news-body-advertisement">
+					<div class="news-body-text-advertisement">
+						<span>春运即将拉开帷幕，退票潮将至“减漏”正幕，退票潮将至“减漏”正</span>
+						<div class="news-body-imgs-advertisement">
+							<img src="../images/home-news4.png" />
+						</div>
+						<div class="date-eyeBox">
+							<div class="news-time-IMGS news-time-advertisement">
+								<span>广告</span>
+								<span>2018-01-31</span>
+							</div>
+							<div class="news-eye-IMGS">
+								10
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+
+		</div>
+		<!-- ---今日要闻结束--- -->
+
+	</body>
+	<script type="text/javascript">
+		var searchText_str = ''; //搜索关键字
+		
+		var curWebView = null;
+
+		var subpageNews = null;
+		var subpageTrouble = null; //优化完成
+		var subpageHeatdistribution = null; //优化完成
+		var subpageTime = null; //优化完成
+		var subpageExhibitionHallService = null; //优化完成
+		var subpageEditmodules = null; //优化完成
+		var netTicket = null; //优化完成
+		var subpageAround = null; //优化完成
+		var subpageWeather = null; //优化完成
+
+		mui.plusReady(function() {
+			
+			curWebView = plus.webview.currentWebview();
+
+			
+
+	        	window.addEventListener("toast",function(event){
+	        		  plus.nativeUI.toast(event.detail.message,{
+	        		  	verticalAlign:"top"
+	        		  });
+	        	})
+			
+			
+			window.addEventListener("showWaiting",function(){
+				 plus.nativeUI.showWaiting("", {
+						background: "rgba(0,0,0,0.1)",
+
+					});
+			})
+			window.addEventListener("closeWaiting",function(){
+					plus.nativeUI.closeWaiting();
+			})
+			//==================获取新闻列表开始 ==================
+
+			subpageNews = mui.preload({
+				url: 'sub-show-news.html',
+				id: 'sub-show-news'
+			});
+			subpageTrouble = mui.preload({
+				url: 'robot-mainlinkpage-trouble.html',
+				id: 'robot-mainlinkpage-trouble',
+			});
+
+			subpageHeatdistribution = mui.preload({
+				url: 'robot-subpage-alltimelink-heatdistribution.html',
+				id: 'robot-subpage-alltimelink-heatdistribution',
+			});
+			subpageTime = mui.preload({
+				url: 'robot-subpage-meetinglink-time.html',
+				id: 'robot-subpage-meetinglink-time',
+			});
+			subpageExhibitionHallService = mui.preload({
+				url: 'robot-subpage-exhibitionhallservice.html',
+				id: 'robot-subpage-exhibitionhallservice',
+			});
+			subpageEditmodules = mui.preload({
+				url: 'home-subpage-editmodules.html',
+				id: 'home-subpage-editmodules'
+			});
+
+			netTicket = mui.preload({
+				url: "robot-subpage-alltimelink-netticket.html",
+				id: "robot-subpage-alltimelink-netticket"
+			})
+
+			subpageAround = mui.preload({
+				url: 'robot-subpage-exhibitorintroduce.html',
+				id: 'robot-subpage-exhibitorintroduce'
+			});
+
+			subpageWeather = mui.preload({
+				url: 'service-subpage-links-weather.html',
+				id: 'service-subpage-links-weather'
+			});
+			mui("#btn_exhibitorintroduce")[0].addEventListener("tap", function() {
+				if(subpageAround) {
+					subpageAround.show("slide-in-right", 300, false);
+					mui.fire(subpageAround, "exhibitorintroduce", {});
+				}
+			});
+
+			mui("#btn_more")[0].addEventListener("tap", function() {
+				if(subpageEditmodules) {
+					subpageEditmodules.show("slide-in-right", 300, false);
+					mui.fire(subpageEditmodules, "editmodules", {});
+				}
+			});
+			mui("#btn_gotrouble")[0].addEventListener("tap", function() {
+				$.ajax({
+					url: URLS.getLoginUser,
+					type: "get",
+					dataType: "json",
+					async: false,
+					success: function(data) {
+						//						console.log(JSON.stringify(data));
+						if(data.code != 200) {
+
+							mui.openWindow({
+								id: 'myself-personalcenter-passLogin'
+							});
+
+						} else {
+							if(subpageTrouble) {
+								subpageTrouble.show("slide-in-right", 300, false);
+								mui.fire(subpageTrouble, "trouble", {});
+							}
+						}
+					}
+				});
+
+			});
+			mui("#btn_net_ticket")[0].addEventListener("tap", function() {
+				if(netTicket) {
+					netTicket.show("slide-in-right", 300, false);
+					mui.fire(netTicket, "netticket", {});
+				}
+			});
+			mui("#btn_heatdistribution")[0].addEventListener("tap", function() {
+				if(subpageHeatdistribution) {
+					subpageHeatdistribution.show("slide-in-right", 300, false);
+					mui.fire(subpageHeatdistribution, "heatdistribution", {});
+				}
+			});
+
+			mui("#btn_time")[0].addEventListener("tap", function() {
+				if(subpageTime) {
+					subpageTime.show("slide-in-right", 300, false);
+					mui.fire(subpageTime, "meetingLikeTime", {});
+
+				}
+
+			});
+
+			mui("#btn_exhibitionhallservice")[0].addEventListener("tap", function() {
+				if(subpageExhibitionHallService) {
+					subpageExhibitionHallService.show("slide-in-right", 300, false);
+					mui.fire(subpageExhibitionHallService, "exhibitionhallservice", {});
+				}
+			});
+
+			//http://10.168.10.54:8080/app/api/news/getNewsList
+
+			//--------搜索页面--------
+			//--------搜索页面--------
+			//--------搜索页面--------
+
+			//搜索页面的触发事件
+			mui(".home-head-search")[0].addEventListener("tap", function() {
+				var inputWidth = $(".head-search-input").width();
+				//点击的时候获取关键字
+				searchText_str = $('#searchInput').val();
+				//调用ajax进行关键字请求
+				robot.initNewsList();
+				if(inputWidth > 0) {
+					//点击是搜索事件
+					$(".head-search-input").animate({
+						width: '0'
+					});
+				} else {
+					$(".head-search-input").animate({
+						width: '600px'
+					});
+				}
+			});
+			//监听软键盘的搜索按钮
+			mui(".home-head-search")[0].addEventListener("keypress", function(event) {
+				//			document.getElementsByClassName("home-head-search")[0].addEventListener("keypress", function(event) {
+				count = 0;
+				searchTextMark = $('#searchInput').val();
+				if(event.keyCode == "13") {
+					document.activeElement.blur(); //收起虚拟键盘
+					pulluploading();
+					$(".head-search-input").animate({
+						width: '0'
+					});
+				}
+			});
+
+			//==================获取新闻列表结束 ==================
+
+			//------左上角天气加载开始---------
+			//获取当前地理位置然后添加天气信息。如果不能获取当前位置信息默认显示北京的天气。
+			//北京:101010100
+			var cityId = 101010100;
+			var weatherData = getCityWeather(cityId);
+			//console.log('天气数据值'+weatherData);
+			//将天气信息存进本地
+			localStorage.setItem('weatherData', JSON.stringify(weatherData));
+			localStorage.setItem('cityIds', '101010100');
+			var weatherType = weatherData.forecast[0].type;
+			var weatherTemp = weatherData.wendu;
+			if(weatherType == '晴') {
+				$(".home-head-weather img").attr("src", "../images/weather-fine-sun2.png")
+			} else if(weatherType.indexOf('雨') != -1) {
+				$(".home-head-weather img").attr("src", "../images/weather-fine-rain.png")
+			} else {
+				$(".home-head-weather img").attr("src", "../images/weather-fine-cloudy.png")
+			}
+			$(".home-head-weather span").text(weatherTemp + "℃");
+
+			//------左上角天气加载结束---------
+
+			mui("#btn_weather")[0].addEventListener("tap", function() {
+				if(subpageWeather) {
+					subpageWeather.show("slide-in-right", 300, false);
+					//触发详情页面的newsId事件
+					mui.fire(subpageWeather, 'creatLocalWeather', {
+						id: 101010100
+					});
+				}
+
+			});
+
+		})
+	</script>
+
+	<script>
+		robot = {
+			startRowMark: 0,
+
+			init: function() {
+				
+				mui.fire(curWebView,"showWaiting",null)
+				this.initBanner();
+				this.initT();
+				this.initNewsList();
+				this.initOneKey();
+			},
+			initOneKey: function() {
+				$.ajax({
+					url: URLS.getHelpPhone,
+					type: "get",
+					dataType: "json",
+					success: function(data) {
+						if(data.code == 200) {
+							data = data.data;
+							$("#oneKey").prop("href", "tel:" + data);
+						}
+					}
+				})
+			},
+			initBanner: function() {
+				//获得slider插件对象
+				var gallery = mui('.mui-slider');
+				setTimeout(function() {
+					gallery.slider({
+						interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+					});
+				}, 1500);
+
+				//请求轮播图片信息
+
+				mui.ajax({
+					type: "get",
+					url: URLS.getRobotBanner + "&jsoncallback=?",
+					async: true,
+					dataType: "jsonp",
+					jsonp: "jsoncallback",
+					timeout: 1000,
+					success: function(data) {
+						//						console.log(data)
+						data = JSON.parse(data); //将数据转换成json对象
+						robot.getHomeBanner(data);
+					},
+					error: function(xhr, type, errorThrown) {
+						//						plus.nativeUI.toast(errorThrown);
+						mui.fire(curWebView,"toast",{
+							message:"网路连接失败!"
+						})
+					}
+				});
+
+			},
+			getHomeBanner: function(data) {
+				var bannerHtmlList = '';
+				var firstBannerHtml = '';
+				var lastBannerHtml = '';
+				var banenerHtml = '';
+				for(var i = 0; i < data.data.length; i++) {
+					var banner = data.data[i];
+
+					var fireObj = {};
+					if(banner.hrefSrc != null) {
+						fireObj.newsId = banner.hrefSrc;
+						fireObj.title = null;
+						fireObj.time = null;
+						fireObj.source = null;
+
+					}
+
+					var bannerType = banner.bannerType;
+					if(bannerType == '广告') {
+						banenerHtml = '<div class="mui-slider-item" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><a href="#"><img src=\"' + banner.imgSrc + '\"/></a><div class="banner-advertisement"><span>广告</span></div></div>';
+					} else {
+						banenerHtml = '<div class="mui-slider-item" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><a href="#"><img src=\"' + banner.imgSrc + '\"/></a></div>';
+					}
+
+					bannerHtmlList += banenerHtml;
+					if(i == 0) {
+						if(bannerType == '广告') {
+							firstBannerHtml = '<div class="mui-slider-item" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><a href="#"><img src=\"' + banner.imgSrc + '\"/></a><div class="banner-advertisement"><span>广告</span></div></div>';
+						} else {
+							firstBannerHtml = '<div class="mui-slider-item" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><a href="#"><img src=\"' + banner.imgSrc + '\"/></a></div>';
+						}
+					}
+
+					if(i == data.data.length - 1) {
+						if(bannerType == '广告') {
+							lastBannerHtml = '<div class="mui-slider-item" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><a href="#"><img src=\"' + banner.imgSrc + '\"/></a><div class="banner-advertisement"><span>广告</span></div></div>';
+						} else {
+							lastBannerHtml = '<div class="mui-slider-item" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><a href="#"><img src=\"' + banner.imgSrc + '\"/></a></div>';
+						}
+					}
+				}
+
+				$(".mui-slider-group").empty().append(lastBannerHtml).append(bannerHtmlList).append(firstBannerHtml);
+			},
+			initT: function() {
+
+				// 调用 公告滚动函数
+				setInterval(scrollNotesUp, 3000);
+
+				function scrollNotesUp() {
+					$(".scroll-noties-item ul").animate({
+						marginTop: "-70px"
+					}, 1500, function() {
+						$(this).css({
+							marginTop: "0"
+						}).find(":first").appendTo(this);
+					})
+				}
+
+				//请求公告信息
+				mui.ajax({
+					type: "get",
+					url: URLS.getNotes + "?jsoncallback=?",
+					async: true,
+					dataType: "jsonp",
+					jsonp: "jsoncallback",
+					timeout: 1000,
+					success: function(data) {
+						//							console.log('请求公告的data：'+data)
+						data = JSON.parse(data); //将数据转换成json对象
+						robot.createNotesHtml(data);
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log('公告信息请求失败');
+						//						plus.nativeUI.toast(errorThrown);
+					}
+				});
+
+			},
+			createNotesHtml: function(data) {
+				var noteHtmlList = '';
+				for(var i = 0; i < data.data.length; i++) {
+					var note = data.data[i];
+					var noteHtml = '<li><div class="scroll-noties-title">公告</div><div class="scroll-noties-text"><span>' + note.content + '</span></div></li>';
+					noteHtmlList += noteHtml;
+				}
+				$(".scroll-noties-item ul").empty().append(noteHtmlList).append(noteHtmlList);
+
+			},
+
+			initNewsList: function() {
+				//					searchText_str = ''
+				var jsonObj = {
+					condition: {
+						"newsColumnId": 4,
+						"isStick": 0
+					},
+					order: "desc",
+					rowCount: 5,
+					sort: "pushTime",
+					startRow: 0,
+					totalRecord: 0
+				}
+				if(searchText_str != '') {
+					//如果有输入关键字，说明是搜索调用，添加关键字搜索
+					jsonObj.condition.searchText = searchText_str;
+				} else {
+					jsonObj.condition.searchText = '';
+				}
+
+				//加载今日要闻title
+				var newsTitle = '<div class="scroll-news-title"><span>大会要闻</span></div>';
+				$("#list").empty().append(newsTitle)
+
+				//首次进入页面请求新闻列表
+				mui.ajax({
+					type: "post",
+					url: URLS.getNewsList + "?jsoncallback=?",
+					async: true,
+					data: JSON.stringify(jsonObj),
+					dataType: "jsonp",
+					contentType: "application/json;charset=utf-8",
+					jsonp: "jsoncallback",
+					headers: {
+						"Accept": "*/*"
+					},
+					timeout: 1000,
+					success: function(data) {
+						data = JSON.parse(data); //将数据转换成json对象
+						robot.creatNewsList(data);
+						robot.addPullUpLoading(data); //绑定加载更多事件
+
+					},
+					complete:function(){
+						mui.fire(curWebView,"closeWaiting",null)
+					},
+					error: function(xhr, type, errorThrown) {
+							mui.fire(curWebView,"toast",{
+							message:"网路连接失败!"
+						})
+						console.log('请求新闻列表失败');
+					}
+
+				});
+			},
+			addPullUpLoading: function(data) {
+				//					console.log('---绑定上拉刷新---')
+				//成功以后进行绑定上拉刷新
+				mui.init({
+					pullRefresh: {　　
+						swipeBack: false, //关闭左滑关闭功能
+						container: "#pullrefresh", //下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+						up: {
+							auto: false,
+							show: true,
+							contentinit: '上拉显示更多',
+							contentdown: '上拉显示更多',
+							contentrefresh: '正在加载...',
+							callback: pulluploading
+						}
+					}
+				});
+				//上拉刷新的时候确定从第几条开始，然后检查搜索框是否有数据-----sjn-----加载的时候看是不是搜索，如果是搜索那么按照搜索条件进行加载数据。
+
+				var searchTextMark = searchText_str;
+				var count = 0,
+					total = data.data.totalRecord; //一共的条数判断是否加载完毕。
+				//执行上拉刷新
+				function pulluploading() {
+					//					console.log('---执行上拉刷新---')
+					var _self = this;
+					robot.startRowMark += 5; //从第六条开始加载下一次的数据
+					var jsonObj = {
+						condition: {
+							"newsColumnId": 4,
+							"isStick": 0
+						},
+						order: "desc",
+						rowCount: 5,
+						sort: "pushTime",
+						startRow: robot.startRowMark,
+						totalRecord: total
+					}
+					if(searchTextMark != '') {
+						jsonObj.condition.searchText = searchTextMark;
+					} else {
+						jsonObj.condition.searchText = '';
+					}
+
+					mui.ajax({
+						type: "post",
+						url: URLS.getNewsList + "?jsoncallback=?",
+						async: true,
+						data: JSON.stringify(jsonObj),
+						dataType: "jsonp",
+						contentType: "application/json;charset=utf-8",
+						jsonp: "jsoncallback",
+						headers: {
+							"Accept": "*/*"
+						},
+						beforeSend:function(){
+							mui.fire(curWebView,"showWaiting",null)
+						},
+						timeout: 1000,
+						success: function(data) {
+
+							//下拉刷新获取数据成功
+							data = JSON.parse(data); //将数据转换成json对象
+
+							//							console.log('---请求从第' + robot.startRowMark + '条开始---');
+							//							console.log('---显示的条数：' + $("#list").children("li").length + '--- 一共条数：' + total + '---')
+
+							if($("#list").children("li").length >= total) {
+								//判断如果加载到最后最后一条那么显示没有更多了；
+								_self.endPullupToRefresh(true);
+								return;
+							}
+
+							//否则就增加新闻
+							robot.creatNewsList(data);
+							plus.nativeUI.closeWaiting();
+							setTimeout(function() { //1.5秒后隐藏正在加载的样式
+								_self.endPullupToRefresh(false);
+							}, 1500);
+
+						},
+						complete:function(){
+							mui.fire(curWebView,"closeWaiting",null)
+						},
+						error: function(xhr, type, errorThrown) {
+							mui.fire(curWebView,"toast",{
+							message:"网路连接失败!"
+						})
+							_self.endPullupToRefresh(false);
+							//显示网络不可用
+						}
+					});
+				}
+
+			},
+
+			creatNewsList: function(data) {
+
+				var newList = '';
+
+				for(var i = 0; i < data.data.datas.length; i++) {
+
+					var news = data.data.datas[i];
+
+					var newsType = news.newsType;
+					var img_src = news.imgSrc;
+					var title = news.title;
+					var newsId = news.id;
+					var source = news.source;
+					var interviewNum = news.interviewNum;
+
+					var time1 = news.pushTime;
+					var time2 = '';
+					if(time1) {
+						time1 = news.pushTime.substring(0, news.pushTime.indexOf("T"));
+						time2 = news.pushTime.substring(0, news.pushTime.indexOf("T")) + " " + news.pushTime.substring(news.pushTime.indexOf("T") + 1, news.pushTime.indexOf(".000"));
+					}
+					var fireObj = {};
+					fireObj.title = title;
+					fireObj.newsId = newsId;
+					fireObj.time = time2;
+					fireObj.source = source;
+					var newHtml = '';
+					//---广告---
+					if(newsType == 'ADVERT_NEWS') {
+						newHtml = '<li><div class="scroll-news-item auto" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-advertisement"><div class="news-body-text-advertisement"><span>' + title + '</span><div class="news-body-imgs-advertisement"><img src="' + img_src + '"/></div><div class="date-eyeBox"><div class="news-time-IMGS news-time-advertisement"><span>广告</span><span>' + time1 + '</span></div><div class="news-eye-IMGS">' + interviewNum + '</div></div></div></div></div></li>';
+
+					}
+					if(newsType == 'VIDEO_NEWS') {
+						newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body"><div class="news-body-play"><img src="../images/play.png"/></div><div class="news-body-img"><img src=\"' + img_src + '\"/></div><div class="news-body-text"><span>' + title + '</span><div class="date-eyeBox"><div class="news-time">' + time1 + '</div><div class="news-eye">' + interviewNum + '</div></div></div></div></div></li>';
+					}
+					if(newsType == 'TEXT_NEWS') {
+						newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-T"><div class="news-body-text-T"><span> ' + title + '</span><div class="date-eyeBox"><div class="news-time-T">' + time1 + '</div><div class="news-eye-T">' + interviewNum + '</div></div></div></div></div></li>';
+					}
+					if(newsType == 'IMAGE_NEWS') {
+						var miniImgSrc = news.miniImgSrc;
+						var imgArr;
+						if(miniImgSrc) {
+							imgArr = miniImgSrc.split(',');
+							if(imgArr.length > 1) { //多图片新闻
+								var img_srcs = '';
+								for(var j = 0; j < 3; j++) {
+									var img_src = '<img src=\"' + imgArr[j] + '\"/>';
+									img_srcs += img_src;
+								}
+								newHtml = '<li><div class="scroll-news-item auto" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-IMGS"><div class="news-body-text-IMGS"><span>' + title + '</span><div class="news-body-imgs-IMGS">' + img_srcs + '</div><div class="date-eyeBox"><div class="news-time-IMGS">' + time1 + '</div><div class="news-eye-IMGS">' + interviewNum + '</div></div></div></div></div></li>';
+							} else { //单图片新闻
+								newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body"><div class="news-body-img"><img src=\"' + img_src + '\"/></div><div class="news-body-text"><span>' + title + '</span><div class="date-eyeBox"><div class="news-time">' + time1 + '</div><div class="news-eye">' + interviewNum + '</div></div></div></div></div></li>';
+							}
+
+						}
+
+					}
+					if(img_src == "" || img_src == null) { //如果没有图片，视频按文字新闻处理
+						newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-T"><div class="news-body-text-T"><span> ' + title + '</span><div class="date-eyeBox"><div class="news-time-T">' + time1 + '</div><div class="news-eye-T">' + interviewNum + '</div></div></div></div></div></li>';
+
+					}
+					newList += newHtml;
+				}
+
+				$("#list").append(newList);
+
+				//监听新闻点击详情
+				mui(".home-scroll-news").on("tap", ".scroll-news-item", function() {
+					//参数（新闻标题，时间，Id）：
+					var newsInfo = this.id;
+					//获得详情页面
+					if(subpageNews) {
+
+						//打开详情页面          
+						subpageNews.show("slide-in-right", 300, false);
+						//触发详情页面的newsId事件
+						mui.fire(subpageNews, 'creatNewsInfo', {
+							newsInfo: newsInfo
+						});
+					}
+
+				});
+				//监听banner点击事件
+				mui(".mui-slider-group").on("tap", ".mui-slider-item", function() {
+
+					var newsInfo = this.id;
+					var infoObj = JSON.parse(newsInfo);
+
+					if(!$.isEmptyObject(infoObj)) {
+						if(subpageNews) {
+							subpageNews.show("slide-in-riight", 300, false);
+							//触发详情页面的newsId事件
+							mui.fire(subpageNews, 'creatNewsInfo', {
+								newsInfo: newsInfo
+							});
+						}
+					}
+
+				});
+
+			}
+
+		}
+
+		var flag = true;
+		if(flag) {
+			robot.init();
+				flag = false;
+		}
+
+		window.addEventListener("init", function() {
+			robot.init();
+			robot.startRowMark = 0;
+			if(mui('#pullrefresh').pullRefresh().refresh){
+		    	mui('#pullrefresh').pullRefresh().refresh(true);
+				
+			}
+
+		
+		})
+	</script>
+
+</html>

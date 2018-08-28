@@ -1,0 +1,203 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+.subpage-myresquest-title {
+	width: 100%;
+	height: 146px;
+	background-color: #1B82D1;
+	color: #ffffff;
+}
+
+.subpage-myresquest-title img {
+	position: absolute;
+	left: 40px;
+	top: 40px;
+}
+
+.subpage-myresquest-title span {
+	display: block;
+	text-align: center;
+	line-height: 146px;
+	font-size: 3rem;
+}
+
+
+/*-- ------报障标题开始------ --*/
+
+.myresquest-body-title {
+	width: 100%;
+	height: 120px;
+	/*background-color: #FFFCF4;*/
+}
+
+.myresquest-body-title span {
+	font-size: 40px;
+	color: #333333;
+}
+
+.title-left,
+.title-center,
+.title-right {
+	float: left;
+	width: calc(100%/3);
+	line-height: 120px;
+	text-align: center;
+	height: 120px;
+	position: relative;
+}
+
+.title-bluebur:after {
+	content: "";
+	background-color: #1B82D1;
+	position: absolute;
+	left: calc((100% - 200px)/2);
+	width: 200px;
+	height: 7px;
+	top: 113px;
+	border-radius: 5px;
+}
+
+.body-title-bottomline {
+	width: 100%;
+	height: 1px;
+	background-color: #E0E1E5;
+}
+
+
+/*-- ------报障标题结束------ --*/
+
+
+/*==========show全部开始==========*/
+
+.myresquest-showall {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.showall-item {
+	height: 320px;
+	/*background-color: azure;*/
+	position: relative;
+}
+
+.showall-item span {
+	font-size: 36px;
+	line-height: 80px;
+}
+
+.showall-item-title {
+	height: 80px;
+	padding-top: 50px;
+}
+
+.showall-item-title span {
+	font-size: 38px;
+}
+
+.showall-item-text {
+	height: 80px;
+	width: 700px;
+	overflow: hidden;
+	white-space: nowrap; //使其不换行
+	text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	font-size: 40px;
+	color: #666666;
+	position: relative;
+	top: 30px;
+}
+
+.showall-item-text span {
+	color: #666666;
+}
+
+.showall-item-state {
+	width: 120px;
+	height: 80px;
+	text-align: center;
+	position: absolute;
+	right: 0px;
+	top: 131px;
+}
+
+.showall-item-bottomline {
+	width: 100%;
+	height: 1px;
+	background-color: #E0E1E5;
+	position: absolute;
+	bottom: 0px;
+}
+
+
+/*==========show全部结束==========*/
+
+
+/*==========show处理中开始==========*/
+
+.myresquest-processing {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.processing-item {
+	height: 320px;
+	/*background-color: azure;*/
+	position: relative;
+}
+
+.processing-item-title {
+	height: 60px;
+	padding-top: 60px;
+	color: #333333;
+}
+
+.processing-item-title span {
+	font-size: 40px;
+	line-height: 38px;
+}
+
+.processing-item-text span {
+	font-size: 38px;
+	line-height: 70px;
+	color: #666666;
+}
+
+.processing-item-text {
+	position: relative;
+	top: 60px;
+}
+
+
+/*==========show处理中结束==========*/
+
+.myresquest-done {
+	width: 90%;
+	margin: 0 auto;
+}

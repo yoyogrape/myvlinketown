@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>大会日程</title>
+		<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-subpage-meetinglink-time.css" rel="stylesheet" />
+		<script src="../js/url.properties.js"></script>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+	</head>
+
+	<body style="background-color: #ffffff;">
+		<div style="height: 40px;">
+
+		</div>
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>大会日程</span>
+		</div>
+
+		<div class="meetingtime-body">
+			<!--<div class="meetingtime-body-item">
+				<div class="meetingtime-item-date">
+					<span>8月15日</span>
+				</div>
+				<div class="meetingtime-item-content">
+					<div class="item-lefttime">
+						<span>09:00-10:00</span>
+					</div>
+					<div class="item-righttext-list">
+						<div class="item-righttext">
+							<span>开幕式</span>
+						</div>
+					</div>
+				</div>
+				<div class="meetingtime-item-content">
+					<div class="item-lefttime">
+						<span>10:00-12:00</span>
+					</div>
+					<div class="item-righttext-list">
+						<div class="item-righttext">
+							<span>主会场    国际战略与合作</span>
+						</div>
+					</div>
+				</div>
+				<div class="meetingtime-item-content">
+					<div class="item-lefttime">
+						<span>12:00-18:00</span>
+					</div>
+					<div class="item-righttext-list">
+						<div class="item-righttext">
+							<span>主会场  基础技术与创新</span>
+						</div>
+						<div class="item-righttext">
+							<span>专题论坛一：机器人标准化体系</span>
+						</div>
+						<div class="item-righttext">
+							<span>专题论坛二：机器人操作系统</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="meetingtime-body-item">
+				<div class="meetingtime-item-date">
+					<span>8月15日</span>
+				</div>
+				<div class="meetingtime-item-content">
+					<div class="item-lefttime">
+						<span>09:00-10:00</span>
+					</div>
+					<div class="item-righttext-list">
+						<div class="item-righttext">
+							<span>开幕式</span>
+						</div>
+					</div>
+				</div>
+				<div class="meetingtime-item-content">
+					<div class="item-lefttime">
+						<span>10:00-12:00</span>
+					</div>
+					<div class="item-righttext-list">
+						<div class="item-righttext">
+							<span>主会场    国际战略与合作</span>
+						</div>
+					</div>
+				</div>
+				<div class="meetingtime-item-content">
+					<div class="item-lefttime">
+						<span>12:00-18:00</span>
+					</div>
+					<div class="item-righttext-list">
+						<div class="item-righttext">
+							<span>主会场  基础技术与创新</span>
+						</div>
+						<div class="item-righttext">
+							<span>专题论坛一：机器人标准化体系</span>
+						</div>
+						<div class="item-righttext">
+							<span>专题论坛二：机器人操作系统</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="meetingtime-body-item">-->
+			<!--<div class="meetingtime-item-date">
+				<span>8月15日</span>
+			</div>
+			<div class="meetingtime-item-content">
+				<div class="item-lefttime">
+					<span>09:00-10:00</span>
+				</div>
+				<div class="item-righttext-list">
+					<div class="item-righttext">
+						<span>开幕式</span>
+					</div>
+				</div>
+			</div>
+			<div class="meetingtime-item-content">
+				<div class="item-lefttime">
+					<span>10:00-12:00</span>
+				</div>
+				<div class="item-righttext-list">
+					<div class="item-righttext">
+						<span>主会场    国际战略与合作</span>
+					</div>
+				</div>
+			</div>
+			<div class="meetingtime-item-content">
+				<div class="item-lefttime">
+					<span>12:00-18:00</span>
+				</div>
+				<div class="item-righttext-list">
+					<div class="item-righttext">
+						<span>主会场  基础技术与创新</span>
+					</div>
+					<div class="item-righttext">
+						<span>专题论坛一：机器人标准化体系</span>
+					</div>
+					<div class="item-righttext">
+						<span>专题论坛二：机器人操作系统</span>
+					</div>
+				</div>
+
+			</div>-->
+		</div>
+		</div>
+
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+
+			var meetingLikeTime = {
+				init: function() {
+					this.initData();
+				},
+				initData: function() {
+					mui.ajax({
+						type: "get",
+						url: URLS.getMeetingTime + "?jsoncallback=?",
+						async: true,
+						dataType: "jsonp",
+						jsonp: "jsoncallback",
+						timeout: 1000,
+						success: function(data) {
+							data = JSON.parse(data); //将数据转换成json对象
+							meetingLikeTime.initMeetingTable(data);
+						},
+						error: function(xhr, type, errorThrown) {
+							console.log('获取大会日程信息失败。')
+						}
+					});
+				},
+				initMeetingTable: function(data) {
+					var meetingTimeTable = '';
+					var dateArr = []; //用于存放日期数组，来判断是否重复；
+					var htmlArr = []; //和日期对应的存放对应日期拼接的字符串
+					for(var i = 0; i < data.data.length; i++) {
+						var item = data.data[i];
+						var newdate = new Date(item.date.substring(0,item.date.indexOf("T")).replace(/\-/g, "/"));
+						var item_date_str = (newdate.getMonth() + 1) + '月' + newdate.getDate() + '日';
+
+						//---每个时间点和内容---
+						var itemContentArr = item.schedule.split('||'); //将时间节点下的标题内容进行分割；
+						var meetingtime_item_contentList = ''; //存放每个时间节点下的list内容；
+
+						if(itemContentArr.length > 1) { //统一时间节点下多条内容时；
+							var meetingtime_item_content = '';
+							for(var j = 0; j < itemContentArr.length; j++) {;
+								meetingtime_item_content += '<div class="item-righttext"><span>' + itemContentArr[j] + '</span></div>';
+							}
+							meetingtime_item_contentList = '<div class="meetingtime-item-content"><div class="item-lefttime"><span>' + item.time + '</span></div><div class="item-righttext-list">' + meetingtime_item_content + '</div></div>';
+						} else {
+
+							meetingtime_item_contentList = '<div class="meetingtime-item-content"><div class="item-lefttime"><span>' + item.time + '</span></div><div class="item-righttext-list"><div class="item-righttext"><span>' + item.schedule + '</span></div></div></div>';
+						}
+
+						//判断当前日期在对应数组dateArr中的位置，然后将html相应位置中的字符串取出来进行拼接；
+
+						//---对生成头部日期的处理---开始---
+						var date = item_date_str;
+						var num = $.inArray(date, dateArr);
+						if(num == -1) {
+							dateArr.push(date);
+							htmlArr.push(meetingtime_item_contentList);
+						} else {
+							htmlArr[num] += meetingtime_item_contentList;
+						}
+						//---对生成头部日期的处理---结束---
+					}
+
+					//将数组中的html片段取出进行整体拼接
+
+					var $meetingtime_body = $('.meetingtime-body').empty();
+					for(var a = 0; a < dateArr.length; a++) {
+
+						var html_str = htmlArr[a];
+						var meetingtime_item_date = '<div class="meetingtime-item-date"><span>' + dateArr[a] + '</span></div>';
+						var meetingtime_body_item = '<div class="meetingtime-body-item">' + meetingtime_item_date + html_str + '</div>';
+						$meetingtime_body.append(meetingtime_body_item);
+
+					}
+
+				}
+			};
+			window.addEventListener("meetingLikeTime", function() {
+				meetingLikeTime.init();
+			})
+		</script>
+	</body>
+
+</html>

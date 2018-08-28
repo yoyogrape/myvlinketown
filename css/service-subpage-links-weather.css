@@ -1,0 +1,190 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+.bodybg-fine {
+	background-image: url("../images/weatherborderbg-fine.png");
+	/*background="../images/service-subpagelinks-weatherimgbg.png"*/
+}
+
+.bodybg-thunderstorm {
+	background-image: url("../images/weatherborderbg-rain.png");
+}
+
+.weather-todayview-city {
+	color: #ffffff;
+	font-size: 3.6rem;
+	text-align: center;
+	margin-top: 60px;
+}
+
+.weather-todayview-temperature {
+	color: #ffffff;
+	font-size: 16rem;
+	height: 128px;
+	text-align: center;
+	margin-top: 200px;
+}
+
+.weather-todayview-temperature sup {
+	font-size: 6rem;
+	position: relative;
+	left: 20px;
+	top: -65px;
+}
+
+.weather-todayview-environment {
+	text-align: center;
+	position: relative;
+}
+
+.todayview-type,
+.todayview-temps {
+	color: #ffffff;
+	font-size: 3.6rem;
+	margin-top: 60px;
+}
+
+.todayview-environment {
+	margin-top: 50px;
+}
+
+.todayview-environment span {
+	color: #ffffff;
+	font-size: 3.6rem;
+	margin-top: 60px;
+}
+
+.todayview-environment-bg {
+	position: absolute;
+	bottom: -36px;
+	width: 410px;
+	height: 120px;
+	border-radius: 100px;
+	background-color: #ffffff;
+	opacity: 0.2;
+	left: calc(( 100% - 410px)/2);
+}
+
+.todayview-environment img {
+	position: relative;
+	top: 20px;
+	right: 20px;
+}
+
+
+/*未来5天天气情况*/
+
+.subpagelinks-weather-selectlocation img {
+	position: relative;
+	top: 50px;
+	left: 45px;
+}
+
+.subpagelinks-weather-tomorrow {
+	margin-top: 260px;
+}
+
+.subpagelinks-weather-tomorrow span {
+	font-size: 2.5rem;
+	color: #ffffff;
+}
+
+.subpagelinks-weather-tomorrow .weather-tomorrow-title {
+	width: 80%;
+	margin-left: 30px;
+	margin-bottom: 50px;
+}
+
+.bottom-centerborder {
+	width: calc((100% - 60px));
+	height: 1px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	opacity: 0.5;
+}
+
+.weather-tomorrow-body {
+	width: 100%;
+	height: 200px;
+	position: relative;
+}
+
+.weather-tomorrow-bodybg-fine {
+	background-color: #2085D2;
+}
+.weather-tomorrow-bodybg-rain {
+	background-color: #06296B;
+}
+.weather-tomorrow-date {
+	font-size: 2.5rem;
+	color: #ffffff;
+	width: 260px;
+	line-height: 190px;
+	left: 30px;
+	position: relative;
+}
+
+.weather-tomorrow-date,
+.weather-tomorrow-img {
+	float: left;
+}
+
+.weather-tomorrow-img {
+	position: relative;
+	top: 50px;
+	left: 222px;
+}
+
+.weather-tomorrow-temps {
+	float: right;
+	line-height: 190px;
+	right: 30px;
+	position: relative;
+	width: 204px;
+}
+
+.weather-tomorrow-temps span span {
+	color: #ffffff;
+    opacity: 0.5;
+}
+
+.bottom-centerborder-date {
+	width: calc((100% - 60px));
+	height: 1px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	opacity: 0.3
+}
+
+.bottom-centerborder-date {
+	position: absolute;
+	bottom: 0px;
+	left: 30px;
+}

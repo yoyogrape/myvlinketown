@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/service-subpage-linksstartend.css" rel="stylesheet" />
+		<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+		<title>起终点查询</title>
+	</head>
+
+	<body>
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>起终点查询</span>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+		<!--  -----------------始末站title开始-----------------  -->
+		<div class="busline-main">
+			<div class="busline-body-station">
+				<span>海户屯路</span>
+				<img src="../images/busline-station-img.png" />
+				<span>宽街口南站</span>
+			</div>
+			<div class="busline-body-bustime">
+				<div class="start-bustime">
+					<span>首</span>
+					<span>05:20</span>
+				</div>
+				<div class="end-bustime">
+					<span>末</span>
+					<span>22:20</span>
+				</div>
+			</div>
+			<div class="busline-main-bottomline"></div>
+		</div>
+		<!--  -----------------始末站title结束-----------------  -->
+
+		<!--  -----------------换乘方案列表开始-----------------  -->
+		<div class="startend-stations-body">
+			<div class="startend-stations-item">
+				<div class="startend-busname">
+					<span>441路  （或34路，311路）</span>
+				</div>
+				<div class="startend-text">
+					<span>直达，共六站，步行643米，约29分钟</span>
+				</div>
+			</div>
+			<div class="startend-stations-item">
+				<div class="startend-busname">
+					<span>441路  （或34路，311路）</span>
+				</div>
+				<div class="startend-text">
+					<span>直达，共六站，步行643米，约29分钟</span>
+				</div>
+			</div>
+			<div class="startend-stations-item">
+				<div class="startend-busname">
+					<span>441路  （或34路，311路）</span>
+				</div>
+				<div class="startend-text">
+					<span>直达，共六站，步行643米，约29分钟</span>
+				</div>
+			</div>
+			
+		</div>
+
+		<!--  -----------------换乘方案列表结束-----------------  -->
+	</body>
+
+</html>

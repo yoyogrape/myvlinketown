@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<title>WIFI热点分布</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-subpage-alltimelink-heatdistribution.css" rel="stylesheet" />
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+		<script src="../js/mui.min.js"></script>
+	</head>
+
+	<body>
+		<div style="height: 25px;"></div>
+		<div class="mainlink-suivey-title">
+			<div style="height: 40px; width: 80px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>WIFI热点分布</span>
+		</div>
+		<div id="framBox">
+
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+
+		var heatdistribution = {
+			init: function() {
+				this.getURL();
+			},
+			getURL: function() {
+				mui.ajax({
+					type: "get",
+					url: URLS.getHeatMap,
+					async: true,
+					dataType: "json",
+					timeout: 1000,
+					success: function(data) {
+						//						console.log('热力图' + JSON.stringify(data));
+						heatdistribution.initIframe(data);
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log('请求热力图url失败')
+					}
+				});
+			},
+			initIframe: function(data) {
+				document.getElementById("framBox").innerHTML = '<iframe src="' + data.data + '" width="100%" height="100%"></iframe>';
+			}
+		}
+
+		//		var heatdistribution = {
+		//			init: function() {
+		//				this.initFram();
+		//			},
+		//			initFram: function() {
+		//				document.getElementById("framBox").innerHTML = '<iframe src="http://121.69.196.97:9092/wiFieSight-BJ-2017/index.html" width="100%" height="100%"></iframe>';
+		//			}
+		//		}
+		window.addEventListener("heatdistribution", function() {
+			heatdistribution.init();
+		})
+	</script>
+
+</html>

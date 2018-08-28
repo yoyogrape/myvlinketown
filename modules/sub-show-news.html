@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+
+		<title>sub-show-news</title>
+		<link href="../css/public-title.css" rel="stylesheet" />
+		<link href="../css/sub-show-news.css" rel="stylesheet" />
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+		<style type="text/css">
+			.news-body p,
+			.news-body span {
+				line-height: 60px!important;
+				font-size: 40px!important;
+				margin: 0px!important;
+				color: #333333!important;
+			}
+			
+			.news-body img {
+				width: 100%!important;
+			}
+			
+			video {
+				background: black;
+				border: none!important;
+				outline: none;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fffffff!important;">
+		<div style="height: 110px;"></div>
+
+		<!---------------标题开始---------------->
+		<div class="mainlink-trouble-title fixed">
+			<div style="height: 110px; width: 160px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>新闻资讯</span>
+
+			<div id="share" class="mui-icon iconfont icon-send mui-pull-right"><img src="../images/news-share.png" /></div>
+		</div>
+
+		<!---------------标题结束---------------->
+		<div class="news-main">
+			<div class="news-title">
+				<span><!--俄罗斯世界杯蓝军成大赢家：两人夺冠 一人金手套 一人获银球奖两人夺冠 一人金手套 一人获银球奖--></span>
+			</div>
+			<div class="news-time">
+				<div class="news-source">
+					<span><!--来源：新华社--></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span><!--2018-07-18 18:44--></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="news-body">
+
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var title = "";
+		var shareConetent = "";
+		var newsId = "";
+		var shareHref = "";
+		mui.init({
+			gestureConfig: {
+				tap: true, //默认为true
+			}
+		});
+
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			$('.news-body').html("");
+			$('.news-title span').html("");
+			$('.news-source span:last-child').html("");
+			$('.news-source span:first-child').html("");
+			mui.back();
+
+		});
+		/*分享*/
+		(function() {
+			$("#share")[0].addEventListener("tap", function() {
+				openShare();
+			})
+
+			function openShare() {
+				shareWebview();
+			}
+			mui.plusReady(function() {
+				ws = plus.webview.currentWebview();
+				//关闭splash页面；
+				plus.navigator.closeSplashscreen();
+			})
+			var sharew;
+			var ws = null;
+			/**
+			 *分享窗口
+			 */
+			function shareWebview() {
+
+				if(sharew) { // 避免快速多次点击创建多个窗口
+					return;
+				}
+				var url = "";
+				$.ajax({
+					type: "get",
+					url: URLS.getShareUrl,
+					async: false,
+					dataType: "json",
+					success: function(data) {
+						if(data.code == 200) {
+							url = data.data
+						}
+					}
+				});
+				var top = plus.display.resolutionHeight - 134;
+				var href = "share.html";
+				sharew = plus.webview.create(href, "share.html", {
+					width: '100%',
+					height: '134',
+					top: top,
+					scrollIndicator: 'none',
+					scalable: false,
+					popGesture: 'none'
+				}, {
+					shareInfo: {
+						"href": url + "/app/share/wechat/sendWechat?newsId=" + newsId,
+						"title": title,
+						"content": removeHTMLTag(shareConetent.substr(0, 600)),
+						"pageSourceId": ws.id
+					}
+				});
+				sharew.addEventListener("loaded", function() {
+					sharew.show('slide-in-bottom', 300);
+				}, false);
+				// 显示遮罩层  
+				ws.setStyle({
+					mask: "rgba(0,0,0,0.5)"
+				});
+				// 点击关闭遮罩层
+				ws.addEventListener("maskClick", closeMask, false);
+			}
+
+			function removeHTMLTag(str) {
+				str = str.replace(/<[^>]+>/g, ""); //去掉所有的html标记
+				return str;
+			}
+
+			function closeMask() {
+				ws.setStyle({
+					mask: "none"
+				});
+				//避免出现特殊情况，确保分享页面在初始化时关闭 
+				if(!sharew) {
+					sharew = plus.webview.getWebviewById("share.html");
+				}
+				if(sharew) {
+					sharew.close();
+					sharew = null;
+				}
+			}
+
+			window.closeMask = closeMask;
+		})()
+
+		document.addEventListener('creatNewsInfo', function(event) {
+			//获得事件参数
+			var newsInfo = event.detail.newsInfo;
+			newsInfo = JSON.parse(newsInfo);
+			if(newsInfo.title == null || newsInfo.time == null) {
+				//是点击banner来连接的新闻
+				//调用ajax调取对应id的新闻信息
+				creatNewsBody(newsInfo.newsId, 1);
+			} else { //新闻点击进来的
+				//---根据事件参数进行新闻的显示---
+				//显示新闻标题
+				$('.news-title span').html(newsInfo.title);
+				//显示时间
+				$('.news-source span:last-child').html(newsInfo.time);
+				//显示来源
+				$('.news-source span:first-child').html(newsInfo.source);
+				//调用ajax调取对应id的新闻信息
+				creatNewsBody(newsInfo.newsId, 2);
+
+			}
+			shareHref = getShareHref(); //分享url地址
+			title = newsInfo.title;
+			newsId = newsInfo.newsId;
+			creatNewsBody(newsId);
+
+		});
+
+		function getShareHref() {
+			var href = "";
+			$.ajax({
+				type: "get",
+				url: URLS.getShareUrl,
+				async: false,
+				success: function(data) {
+					if(data.code == 200) {
+						href = data.data;
+					}
+				}
+			});
+			return href;
+		}
+		//请求新闻内容
+		function creatNewsBody(newsId, num) {
+
+			//-------songjn-------newsId------给ajax------
+			mui.ajax({
+				type: "get",
+				url: URLS.getNewsInfo + "?newsId=" + newsId,
+				async: true,
+				dataType: "json",
+				timeout: 1000,
+				success: function(data) {
+
+					if(num == 1) {
+						//显示新闻标题
+						$('.news-title span').html(data.data.title);
+						//显示时间
+						var time = data.data.createTime.substring(0, data.data.createTime.indexOf('T'));
+						$('.news-source span:last-child').html(time);
+						//显示来源
+						$('.news-source span:first-child').html(data.data.source);
+					}
+					$('.news-body').empty().append(data.data.content);
+
+					//将数据写到body中
+
+					shareConetent = data.data.content;
+					//格式化文章内容
+
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log('请求新闻内容失败')
+					//						plus.nativeUI.toast(errorThrown);
+				}
+			});
+
+		}
+	</script>
+
+</html>

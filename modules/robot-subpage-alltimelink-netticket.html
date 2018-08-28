@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<title>购票通道</title>
+			<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+
+		<link href="../css/robot-subpage-alltimelink-heatdistribution.css" rel="stylesheet" />
+	</head>
+
+	<body style="padding-top: 16px;">
+		<div style="height: 25px;"></div>
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>购票通道</span>
+		</div>
+	    <div id="iframBox"></div>
+
+		<a id="btn_goback"></a>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+//		var ifm = document.getElementById("myiframe");
+//		//		ifm.height = document.documentElement.clientHeight;
+//		ifm.height = window.innerHeight;
+
+         var netticket = {
+         	 init:function(){
+         	 	this.initFram();
+         	 },
+         	 initFram:function(){
+         	 	document.getElementById("iframBox").innerHTML=' <iframe src="http://wre2018.meeting.cie-info.org.cn/app/getticketinfo?id=45" width="100%" height="100%"></iframe>';
+         	 }
+         }
+         window.addEventListener("netticket",function(){
+         	netticket.init();
+         })
+	</script>
+
+</html>

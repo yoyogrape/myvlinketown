@@ -1,0 +1,169 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+
+/*-- ---头部标题开始--- --*/
+
+/*-- ---头部标题结束--- --*/
+
+
+/*-- ---轮播图开始--- --*/
+.mui-slider-item img{
+	height: 500px;
+}
+
+/*-- ---轮播图结束--- --*/
+
+
+/*-- ---功能区开始--- --*/
+
+.home-ability {
+	width: 100%;
+	height: 365px;
+	background-color: #FFFFFF;
+}
+
+.home-ability .home-ability-body {
+	width: 98%;
+	margin: 0 auto;
+	/*padding-top: 45px;*/
+}
+
+.home-ability .home-ability-body>table {
+	width: 100%;
+}
+
+.home-ability .home-ability-body>table tr {
+	height: 180px;
+}
+
+.ability-body-img {
+	width: 120px;
+	margin: 0 auto;
+}
+
+.ability-body-img>img {
+	/*width: 120px;*/
+	height: 120px;
+}
+
+.ability-body-text {
+	/*width: 180px;*/
+	margin: 0 auto;
+	color: #666666;
+	text-align: center;
+	font-size: 1.85rem;
+	line-height: 38px;
+}
+
+
+/*-- ---功能区结束--- --*/
+
+
+/*-- ---滚动公告开始--- --*/
+
+.home-scroll-noties {
+	width: 100%;
+	height: 190px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+
+.scroll-noties-img {
+	margin-left: 60px;
+	margin-top: 40px;
+}
+
+.scroll-noties-img>img {
+	width: 110px;
+	height: 110px;
+}
+
+.scroll-noties-item {
+	width: 700px;
+	/*单行显示，超出隐藏*/
+	height: 115px;
+	/*固定公告栏显示区域的高度*/
+	position: relative;
+	top: 45px;
+	overflow: hidden;
+	left: 50px;
+}
+
+.scroll-noties-item ul li {
+	list-style: none;
+	/*以下为了单行显示，超出隐藏*/
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height: 70px;
+}
+
+.home-scroll-noties .scroll-noties-img,
+.home-scroll-noties .scroll-noties-text,
+.scroll-noties-title,
+.scroll-noties-text {
+	float: left;
+}
+
+.scroll-noties-title {
+	width: 74px;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid #FF7810;
+	text-align: center;
+	line-height: 36px;
+	color: #FF7810;
+	font-size: 1.6rem;
+}
+
+.scroll-noties-item>ul {
+	margin: 0;
+}
+
+.scroll-noties-text {
+	padding-left: 20px;
+	line-height: 37px;
+	font-size: 1.7rem;
+	width: 610px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.scroll-noties-text>a {
+	color: #777777;
+}
+
+
+/*-- ---滚动公告结束--- --*/
+
+

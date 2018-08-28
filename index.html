@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<!--<script src="js/mui.min.js"></script>-->
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+
+		<style>
+			/*设置导航按钮显示图片*/
+			
+			.mui-icon-home1 {
+				background: url(images/nav-home.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-tab-item.mui-active .mui-icon-home1 {
+				background: url(images/nav-home-choose.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-icon-infomation {
+				background: url(images/nav-info.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-tab-item.mui-active .mui-icon-infomation {
+				background: url(images/nav-info-choose.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-icon-robot {
+				background: url(images/nav-robot.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-icon-service {
+				background: url(images/nav-service.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-tab-item.mui-active .mui-icon-service {
+				background: url(images/nav-service-choose.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-icon-myself {
+				background: url(images/nav-myself.png);
+				background-size: 100% 100%;
+			}
+			
+			.mui-tab-item.mui-active .mui-icon-myself {
+				background: url(images/nav-myself-choose.png);
+				background-size: 100% 100%;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!-- ---底部导航栏开始--- -->
+		<nav class="mui-bar mui-bar-tab">
+			<a id="defaultTab" href="modules/home.html" class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-home1"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a href="modules/information.html" class="mui-tab-item">
+				<span class="mui-icon mui-icon-infomation"></span>
+				<span class="mui-tab-label">资讯</span>
+			</a>
+			<a href="modules/robot.html" class="mui-tab-item">
+				<span class="mui-icon mui-icon-robot"></span>
+				<span class="mui-tab-label">机器人大会</span>
+			</a>
+			<a href="modules/service.html" class="mui-tab-item">
+				<span class="mui-icon mui-icon-service"></span>
+				<span class="mui-tab-label">铁岭服务</span>
+			</a>
+			<a href="modules/myself.html" class="mui-tab-item">
+				<span class="mui-icon mui-icon-myself"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<!--<div class="nav-robot">
+			<img src="images/nav-robot.png" />
+		</div>-->
+		<!-- ---底部导航栏结束--- -->
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		mui.init(); //初始化mui
+		var subpages = ['modules/home.html', 'modules/information.html', 'modules/robot.html', 'modules/service.html', 'modules/myself.html'];
+		var subpage_style = {
+			top: 0,
+			bottom: '51px'
+		};
+
+		var aniShow = {};
+
+		//创建子页面，首个选项卡页面显示，其它均隐藏；
+		mui.plusReady(function() {
+
+			function plusReady() {
+				// 设置系统状态栏背景色
+				plus.navigator.setStatusBarBackground('#18609B');
+			}
+
+			if(window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener('plusready', plusReady, false);
+			}
+			var self = plus.webview.currentWebview();
+			var all = plus.webview.all();
+
+			for(var i = 0; i < 5; i++) {
+
+				var temp = {};
+
+				var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+				if(i > 0) {
+					sub.hide();
+				} else {
+					temp[subpages[i]] = "true";
+					mui.extend(aniShow, temp);
+				}
+				self.append(sub);
+
+			}
+			mui.oldback = mui.back;
+			var clickNum = 0;
+			mui.back = function(event) {
+				clickNum++;
+				if(clickNum > 1) {
+					plus.runtime.quit();
+				} else {
+					mui.toast("再按一次退出应用");
+				}
+				setTimeout(function() {
+					clickNum = 0;
+				}, 1000);
+				return false;
+			};
+
+			//当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			//选项卡点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				var target = plus.webview.getWebviewById(targetTab);
+				console.log(targetTab)
+				mui.fire(target, "init", {});
+
+				if(targetTab == activeTab) {
+					return;
+				}
+
+				if(mui.os.ios || aniShow[targetTab]) {
+					plus.webview.show(targetTab);
+				} else {
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow, temp);
+					plus.webview.show(targetTab, "fade-in", 300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+		});
+		//模拟点击事件
+		var defaultTab = document.getElementById("defaultTab");
+		mui.trigger(defaultTab, 'tap');
+	</script>
+
+</html>

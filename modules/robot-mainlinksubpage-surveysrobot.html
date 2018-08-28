@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-mainlinksubpage-surveysrobot.css" rel="stylesheet" />
+		<script src="../js/url.properties.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.11.3.min.js">
+			
+		</script>
+	</head>
+
+	<body  style="background-color: #ffffff;">
+		<div class="suiveyrobot-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span id="title"></span>
+		</div>
+		<script src="../js/mui.min.js"></script>
+
+
+		<div class="suiveyrobot-body">
+			<div class="suiveyrobot-question1">
+				<div class="question-title">
+					<span id="firstQuestion"></span>
+				</div>
+				<div id="radioBox" class="question-content">
+				
+					<!--<div class="key-item">
+						<label class="demo--label">
+							<input class="demo--radio" type="radio" name="demo-checkbox1">
+        					<span class="demo--checkbox demo--radioInput"></span>
+        					<span>比较好&nbsp;&nbsp;&nbsp;(80)</span>
+    					</label>
+					</div>
+					<div class="key-item">
+						<label class="demo--label">
+							<input class="demo--radio" type="radio" name="demo-checkbox1">
+        					<span class="demo--checkbox demo--radioInput"></span>
+        					<span>一般&nbsp;&nbsp;&nbsp;(60)</span>
+    					</label>
+					</div>
+					<div class="key-item">
+						<label class="demo--label">
+							<input class="demo--radio" type="radio" name="demo-checkbox1">
+        					<span class="demo--checkbox demo--radioInput"></span>
+        					<span>比较差&nbsp;&nbsp;&nbsp;(40)</span>
+    					</label>
+					</div>-->
+				</div>
+			</div>
+			<div class="suiveyrobot-question2">
+				<div class="question-title">
+					<span id="senQuestion"></span>
+				</div>
+				<div class="key-content">
+					<textarea style="line-height: 60px;padding: 20px;" name="questionText" rows="" cols=""></textarea>
+				</div>
+			</div>
+			<div class="suiveyrobot-question-submit" id="btn_submit">
+				<span>提交</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+			var data = null;
+			window.addEventListener("getData",function(event){
+				$("textarea[name='questionText']").val("");
+				data = event.detail.data;
+				if(data){
+					data = JSON.parse(data);
+						$("#title").html(data["title"]);
+					$("#firstQuestion").html("1."+data["titleOne"]);
+					$("#senQuestion").html("2."+data["titleTwo"]);
+					var str = "";
+                    data["oneContent"] = JSON.parse(data["oneContent"]);
+					$.each(data["oneContent"], function(key,val) {
+						str += '<div  class="key-item">\
+						<label class="demo--label">\
+							<input class="demo--radio" type="radio" value="'+key+'" name="demo-checkbox1">\
+        					<span class="demo--checkbox demo--radioInput"></span>\
+        					<span class="val">'+val+'</span>\
+    					</label>\
+					</div>'
+					});
+					
+					$("#radioBox").html(str);
+				}
+			});
+			
+             $("#btn_submit")[0].addEventListener("tap",function(){
+                    var obj = {
+                    	greeId:data["id"],
+                    	oneText:$("input[name='demo-checkbox1']:checked").parent().find(".val").html(),
+                    	oneValue:$("input[name='demo-checkbox1']:checked").val(),
+                    	title:data["title"],
+                    	titleOne:data["titleOne"],
+                    	titleTwo:data["titleTwo"],
+                    	twoText:$("textarea[name='questionText']").val()
+                    };
+
+                    if(obj.oneValue==null||obj.oneValue==""){
+                    	mui.alert("请打分!");
+                    	return;
+                    }
+                    $.ajax({
+                    	type:"post",
+                    	url:URLS.insertGreeBack,
+                    	async:true,
+                    	dataType:"json",
+                    	data:JSON.stringify(obj),
+                    	contentType:"application/json;charset = utf-8",
+                    	success:function(data){
+                    		if(data.code==200){
+                    			mui.alert("提交成功!感谢您宝贵的建议,祝你生活愉快!");
+                    			mui.back();
+                    		}
+                    	},
+                    	error:function(aa){
+                    		console.log(JSON.stringify(aa))
+                    		mui.alert("提交失败!");
+                    	}
+                    });
+             	  
+             });
+			
+			
+		</script>
+	</body>
+
+</html>

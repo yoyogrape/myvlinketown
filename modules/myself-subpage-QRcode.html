@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>关于-二维码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/myself-subpage-QRcode.css" rel="stylesheet" />
+
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+	</head>
+
+	<body>
+		<div style="height: 40px;"></div>
+		<div class="mainlink-suivey-title">
+			<div style="height: 40px; width: 80px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>微信二维码</span>
+		</div>
+		<div class="about-head">
+			<div class="about-head-logo">
+				<img src="../images/vlink-yizhuangLOGO.png" />
+			</div>
+			<div class="about-head-title">
+				<span>无限铁岭</span>
+			</div>
+		</div>
+		<div class="about-QRcode">
+			<img src="../images/myself-about-QRcode.png" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+	</script>
+
+</html>

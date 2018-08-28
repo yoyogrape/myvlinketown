@@ -1,0 +1,183 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+body {
+	background-color: #ffffff;
+}
+
+.mainlink-suivey-title {
+	width: 100%;
+	height: 40px;
+	background-color: #1B82D1;
+	color: #ffffff;
+	position: fixed;
+	top: 0px;
+	z-index: 99999;
+}
+
+.mainlink-suivey-title img {
+	position: absolute;
+	left: 14px;
+	top: 6px;
+	width: 28px;
+}
+
+.mainlink-suivey-title span {
+	display: block;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+
+/*头部图片*/
+
+.center-headimg img {
+	width: 90px;
+	border-radius: 50%;
+}
+
+.center-headimg {
+	margin-top: 40px;
+	text-align: center;
+}
+
+
+/*form表单*/
+
+.center-form-input img {
+	width: 18px;
+	height: 26px;
+}
+
+.center-form-input {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+	border-bottom: 1px solid #bfbfbf;
+	padding-bottom: 10px;
+}
+
+.center-form-input input {
+	flex-grow: 1;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 30px;
+	font-size: 16px;
+	border: 0;
+}
+
+.center-form {
+	width: 56%;
+	margin: 0 auto;
+}
+
+.center-form-link {
+	display: flex;
+	align-items: center;
+	color: #bfbfbf;
+	margin-top: 20px;
+}
+
+.center-form-link span {
+	font-size: 14px;
+}
+
+.link-left {
+	/*background-color: red;*/
+}
+
+.link-center {
+	flex-grow: 2;
+}
+
+input::-webkit-input-placeholder {
+	color: #bfbfbf;
+}
+
+input::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #bfbfbf;
+}
+
+input:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #bfbfbf;
+}
+
+input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #bfbfbf;
+}
+
+.center-form {
+	position: relative;
+}
+
+.center-form input {
+	padding: 0 20px 0;
+	margin: 0;
+}
+
+#sendChick,
+#sendChick_aa {
+	position: absolute;
+	right: 0;
+	bottom: 62px;
+	font-size: 16px;
+	color: #1B82D1;
+}
+
+
+/*登录按钮*/
+
+.btn-login,
+.btn-register {
+	width: 63%;
+	height: 45px;
+	margin: 20px auto 0;
+	text-align: center;
+	line-height: 45px;
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+.btn-login {
+	background-color: #1B82D1;
+	color: #ffffff;
+}
+
+.btn-register {
+	box-shadow: 0px 0px 5px #bfbfbf;
+}
+
+.center-button {
+	margin-top: 30px;
+}

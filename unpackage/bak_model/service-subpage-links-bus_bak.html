@@ -1,0 +1,360 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<style type="text/css">
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				font-family: "微软雅黑";
+			}
+			
+			#l-map {
+				height: 600px;
+				width: 100%;
+			}
+			
+			#r-result {
+				width: 100%;
+			}
+		</style>
+		<link href="../css/service-subpage-links-bus.css" rel="stylesheet" />
+		<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4IU3oIAMpZhfWZsMu7xzqBBAf6vMHcoa"></script>
+		<title>公交查询</title>
+
+	</head>
+
+	<body>
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>公交查询</span>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+		<!-- ------标题开始------ -->
+		<div class="myresquest-body-title">
+			<div class="title-left title-bluebur">
+				<span>公交线路</span>
+			</div>
+			<div class="title-center">
+				<span>起终点</span>
+			</div>
+			<div class="title-right">
+				<span>地图选点</span>
+			</div>
+		</div>
+		<div class="body-title-bottomline"></div>
+		<!-- ------标题结束------ -->
+
+		<!-- ============公交线路开始============ -->
+		<div class="bus-path" style="display: ;">
+			<div class="bus-path-img">
+				<img src="../images/express-form-searchimg.png" />
+			</div>
+			<div class="bus-path-input">
+				<input type="text" name="busPath" id="busPath" value="请输入公交线路" />
+			</div>
+			<div class="bottomline"></div>
+		</div>
+
+		<div class="busline-list">
+			<!--<div class="busline-list-item">
+				<div class="busline-item-title">
+					<span>58路</span>
+				</div>
+				<div class="busline-item-text">
+					<span>四惠枢纽站-故宫</span>
+				</div>
+				<div class="busline-item-bottomline"></div>
+			</div>-->
+		</div>
+
+		<!-- ============公交线路结束============ -->
+
+		<!-- ============起终点开始============ -->
+
+		<div class="bus-startend" style="display: none;">
+			<div class="bus-startend-img">
+				<img src="../images/bus-startend-img.png" />
+			</div>
+			<div class="bus-startstation-body">
+				<div class="bus-startstation">
+					<span></span>
+					<input type="text" name="" id="startStation" value="起始位置" />
+				</div>
+
+				<div class="bus-endstation">
+					<span></span>
+					<input type="text" name="" id="endStation" value="输入终点" />
+				</div>
+			</div>
+		</div>
+
+		<!-- ============起终点结束============ -->
+
+		<!-- ------标题结束------ -->
+
+		<!-- ------标题结束------ -->
+		<div id="l-map"></div>
+		<div id="r-result"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	mui.plusReady(function() {
+		//---------------百度地图API功能-------------公交线路查询开始-------------
+		var map = new BMap.Map("l-map"); // 创建Map实例
+		map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+		var swEntityList = [];
+		//用于存放每一个封装好的公交对象
+		var busline = new BMap.BusLineSearch(map, {
+			onGetBusListComplete: function(result) {
+				console.log('公交线路查询结果：'+JSON.stringify(result))
+				if(result) {
+					//生成页面中列表
+					var BuslineListHtml = createBuslineList(result.NA);
+					$(".busline-list").empty().append(BuslineListHtml)
+					//回调每条线路的详情
+					for(var i = 0, num = result.getNumBusList(); i < num; i++) {
+						var item = result.getBusListItem(i);
+						//获取每条线路的站点
+						busline.getBusLine(item);
+					}
+				}
+			}
+		});
+		var transit = new BMap.TransitRoute(map, {
+			onSearchComplete: function(results) {
+				
+				startEndTransit(results); //起终点查询结果的处理
+			}
+		});
+
+		//将回调的详细信息进行重新遍历封装
+		busline.setGetBusLineCompleteCallback(function(lineResults) {
+			
+			console.log('公交线路查询返回结果：'+JSON.stringify(lineResults));
+			
+			var swEntity = {};
+			var jsonObj = lineResults;
+			//站点名称数组
+			var BusStaions = [];
+			for(var i = 0; i < jsonObj.DB.length; i++) {
+				BusStaions.push({
+					'Name': jsonObj.DB[i].name,
+					'Lat': jsonObj.DB[i].position.lat,
+					'Lng': jsonObj.DB[i].position.lng,
+					'gk': jsonObj.DB[i].gk,
+				});
+			}
+
+			//公交车名称【58路公交车】
+			var busLineName = "";
+			if(jsonObj.name.indexOf('(') == -1) {
+				busLineName = jsonObj.name;
+			} else {
+				busLineName = jsonObj.name.substring(0, jsonObj.name.indexOf('('));
+			}
+			swEntity.Name = busLineName;
+			//起始站
+			var startStation = jsonObj.name.substring(jsonObj.name.indexOf('(') + 1, jsonObj.name.indexOf('-'));
+			swEntity.startStation = startStation;
+			//终点站
+			var endStation = jsonObj.name.substring(jsonObj.name.indexOf('-') + 1, jsonObj.name.indexOf(')'));
+			swEntity.endStation = endStation;
+			//首班时间
+			swEntity.startTime = jsonObj.startTime;
+			//末班时间
+			swEntity.endTime = jsonObj.endTime;
+			//站点数组
+			swEntity.Stations = BusStaions;
+
+			//bus的id
+			swEntity.busId = swEntity.Name + startStation + endStation;
+
+			//将生产的对象放进全局变量的集合中
+			swEntityList.push(swEntity);
+
+		})
+		//---------起终点查询结果的处理----------
+		function startEndTransit(results) {
+			//将结果封装成自己想要的对象然后作为fire参数
+
+			for(var i = 0; i < results.yr.length; i++) {
+				console.log(results.getPlan(i).getDescription(false));
+			}
+
+		}
+
+		//=========起终点查询=========
+		function busTransit(startStation, endStation) {
+			transit.search("来广营", "西单");
+		}
+		//=========查询固定线路=========
+		function busSearch(busPath_val) {
+			console.log('要查询的公交线路：'+busPath_val)
+			var busName = busPath_val;
+			busline.getBusList(busName);
+		}
+		//监听软键盘的搜索按钮
+		document.getElementById("busPath").addEventListener("keypress", function(event) {
+			if(event.keyCode == "13") {
+				document.activeElement.blur(); //收起虚拟键盘
+				var busPath_val = $("#busPath").val();
+				if(busPath_val) {
+					busSearch(busPath_val);
+				}
+			}
+		});
+
+		function createBuslineList(BuslineListArr) {
+			var BuslineListHtml = '';
+			for(var i = 0; i < BuslineListArr.length; i++) {
+				var BuslineItem = BuslineListArr[i];
+				var busName = BuslineItem.name;
+
+				//路线名
+				var busnam_result = busName.substr(0, busName.indexOf("("));
+				//始末站
+				var busStartStation = busName.substring(busName.indexOf("(") + 1, busName.indexOf("-"))
+				var busEndStation = busName.substring(busName.indexOf("-") + 1, busName.indexOf(")"))
+				busStation = busStartStation + "-->" + busEndStation;
+				//拼接的内容
+				var BuslineItem_html = '<div class="busline-list-item" id="' + busnam_result + busStartStation + busEndStation + '"><div class="busline-item-title"><span>' + busnam_result + '</span></div><div class="busline-item-text"><span>' + busStation + '</span></div><div class="busline-item-bottomline"></div></div>';
+				BuslineListHtml += BuslineItem_html;
+			}
+			return BuslineListHtml;
+		}
+		//---------------百度地图API功能-------------公交线路查询结束-------------
+
+		//	setTimeout(
+		//		mui(".busline-list").on("tap", ".busline-list-item", function() {
+		//			var buslineName = this.querySelector(".busline-item-title").querySelector("span").innerText;
+		//			var StartEndStation = this.querySelector(".busline-item-text").querySelector("span").innerText;
+		//			//console.log(this.querySelector(".busline-item-text").querySelector("span").innerText);
+		//			//console.log("==swEntityList==", swEntityList); 
+		//			var swEntityId=this.id;
+		//			for (var i = 0; i < swEntityList.length; i++) {
+		//				var busLineItem=swEntityList[i];
+		//				if(busLineItem.busId==swEntityId){
+		//					console.log(busLineItem);
+		//				}
+		//			}
+		//		}), 1500);
+		//---------------点击item触发跳转公交详情页面----start-----------
+
+		var subpageNews = mui.preload({
+			url: 'service-subpage-linksbusline.html',
+			id: 'service-subpage-linksbusline'
+		});
+		//预加载起始站查询页面
+		var subpageNews = mui.preload({
+			url: 'service-subpage-linksstartend.html',
+			id: 'service-subpage-linksstartend'
+		});
+
+		//------------监听起终点查询输入框的开始事件-----------------
+		mui(".bus-startstation-body input")[0].addEventListener("keypress", function(event) {
+			if($('#startStation').val() == '' || $('#startStation').val() == '起始位置' || $('#endStation').val() == '' || $('#endStation').val() == '输入终点') {
+				return;
+			}
+			if(event.keyCode == "13") {
+				document.activeElement.blur(); //收起虚拟键盘
+				var startStation = $('#startStation');
+				var endStation = $('#endStation');
+				busTransit(startStation, endStation);
+
+			}
+		});
+
+		//---------监听点击公交车路线查询的item点击事件----------
+		var addBuslinePage = null;
+		mui(".busline-list").on("tap", ".busline-list-item", function() {
+			var busLineHtmlId = this.id;
+			var swEntity = '';
+			for(var i = 0; i < swEntityList.length; i++) {
+				var busLineItem = swEntityList[i];
+				if(busLineItem.busId == busLineHtmlId) {
+					swEntity = busLineItem;
+				}
+			}
+			if(!addBuslinePage) {
+				addBuslinePage = plus.webview.getWebviewById('service-subpage-linksbusline');
+			}
+			mui.fire(addBuslinePage, 'creatBuslineList', {
+				swEntity: swEntity
+			});
+
+			mui.openWindow({
+				id: 'service-subpage-linksbusline'
+			});
+
+		});
+
+	});
+	//---------------点击item触发跳转公交详情页面----end-----------
+
+	//---------------清空输入框开始-------------
+	$("input").focus(function() {
+		var $val = $(this).val();
+		if($val == "请输入公交线路" || $val == "起始位置" || $val == "输入终点") {
+			$(this).val("")
+		};
+	});
+	$("#busPath").blur(function() {
+		if($("#busPath").val() == '') {
+			$("#busPath").val("请输入公交线路");
+		}
+	});
+	$("#startStation").blur(function() {
+		if($("#startStation").val() == '') {
+			$("#startStation").val("起始位置");
+		}
+
+	});
+	$("#endStation").blur(function() {
+		if($("#endStation").val() == '') {
+			$("#endStation").val("输入终点");
+		}
+
+	});
+	//--------------清空输入框结束-------------
+
+	//---------------点击头部选项卡切换页面----start-----------
+	mui(".title-left")[0].addEventListener("tap", function() {
+		document.getElementsByClassName("title-bluebur")[0].classList.remove("title-bluebur");
+		this.classList.add("title-bluebur");
+		$(".bus-path").attr("style", "display: ;");
+		$(".bus-startend").attr("style", "display: none;");
+		$(".busline-list").attr("style", "display: none;");
+		//		$(".myresquest-showall").attr("style", "display: ;");
+	});
+	mui(".title-center")[0].addEventListener("tap", function() {
+		document.getElementsByClassName("title-bluebur")[0].classList.remove("title-bluebur");
+		this.classList.add("title-bluebur");
+		$(".bus-path").attr("style", "display: none;");
+		$(".bus-startend").attr("style", "display: ;");
+		$(".busline-list").attr("style", "display: none;");
+
+		//		$(".myresquest-showall").attr("style", "display: none;");
+	});
+		mui(".title-right")[0].addEventListener("tap", function() {
+			mui.alert('')
+//			document.getElementsByClassName("title-bluebur")[0].classList.remove("title-bluebur");
+//			this.classList.add("title-bluebur");
+//			$(".bus-path").attr("style", "display: ;");
+//			$(".bus-startend").attr("style", "display: none;");
+//			$(".myresquest-showall").attr("style", "display: none;");
+		});
+	//---------------点击头部选项卡切换页面----end-----------
+</script>

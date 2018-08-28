@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/myself-personalcenter-login.css" rel="stylesheet" />
+
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+	</head>
+
+	<body>
+		<div style="height: 40px;"></div>
+		<div class="mainlink-suivey-title">
+			<div style="height: 40px; width: 80px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>注册</span>
+		</div>
+
+		<div class="center">
+			<!--头部图片开始-->
+			<div class="center-headimg">
+				<img src="../images/vlink-yizhuangLOGO.png" />
+			</div>
+			<!--form表单-->
+			<div class="center-form">
+				<div class="center-form-input">
+					<img src="../images/myself-login-username.png" />
+					<input type="text" name='regName' placeholder="请输入用户名" />
+				</div>
+				<div class="center-form-input">
+					<img src="../images/myself-login-phonenum.png" />
+					<input type="text" name='regPhone' placeholder="请输入手机号" />
+				</div>
+				<div class="center-form-input">
+					<img src="../images/myself-login-password.png" />
+					<input type="password" name='regPassWord' placeholder="请输入密码" />
+				</div>
+				<div class="center-form-input">
+					<img src="../images/myself-login-password2.png" />
+					<input type="password" name='senPassWord' placeholder="确认密码" />
+				</div>
+				<div class="center-form-link">
+					<div class="link-left" id="quickLogin">
+						<span>快速登录</span>
+					</div>
+					<div class="link-center">
+					</div>
+					<div class="link-right" id="passLogin">
+						<span>密码登录</span>
+					</div>
+				</div>
+			</div>
+			<!--登录按钮-->
+			<div class="center-button">
+				<div class="btn-login" id="btn">
+					<span>注册</span>
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+        var curWebView = null;
+		mui.plusReady(function() {
+			var self  =curWebView= plus.webview.currentWebview();
+			window.addEventListener("toast",function(event){
+	        		  plus.nativeUI.toast(event.detail.message,{
+	        		  	verticalAlign:"top"
+	        		  });
+	        	})
+			var quickLogin = mui.preload({
+				url: "myself-personalcenter-quickLogin.html'",
+				id: "myself-personalcenter-quickLogin"
+			});
+
+			var passLogin = mui.preload({
+				url: "myself-personalcenter-passLogin.html",
+				id: "myself-personalcenter-passLogin"
+			});
+
+			mui("#quickLogin")[0].addEventListener("tap", function() {
+				setTimeout(function() {
+					self.hide("none"); //隐藏当前页面
+				}, 300)
+				mui.openWindow({
+					id: 'myself-personalcenter-quickLogin'
+				});
+			});
+
+			mui("#passLogin")[0].addEventListener("tap", function() {
+				setTimeout(function() {
+					self.hide("none"); //隐藏当前页面
+				}, 300)
+				mui.openWindow({
+					id: 'myself-personalcenter-passLogin'
+				});
+			});
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+
+			var flag = true;
+
+			/*登录按钮*/
+
+			$("#btn")[0].addEventListener("tap", function() {
+
+				if(flag) {
+					var regPhone = $("input[name='regPhone']").val()
+					var regPassWord = $("input[name='regPassWord']").val()
+					var senPassWord = $("input[name='senPassWord']").val()
+					var regName = $("input[name='regName']").val()
+					if(regName.length == 0) {
+					
+						mui.fire(curWebView,"toast",{
+							message:"请输入用户名!"
+						})
+						return;
+					}
+					if(regPhone.length == 0) {
+						
+							mui.fire(curWebView,"toast",{
+							message:"请输入手机号!"
+						})
+						return;
+					}
+					var reg = /^[1][3,4,5,7,8][0-9]{9}$/
+
+					if(!reg.test(regPhone)) {
+					
+							mui.fire(curWebView,"toast",{
+							message:"请输入正确的手机号!"
+						})
+						return;
+					}
+					//  				        console.log(regPassWord,"====")
+					if(regPassWord.length == 0) {
+
+							mui.fire(curWebView,"toast",{
+							message:"请输入密码!"
+						})
+						return;
+					}
+					if(regPassWord.length < 6) {
+
+						mui.fire(curWebView,"toast",{
+							message:"密码长度至少为6位数!"
+						})
+						return;
+					}
+					if(senPassWord != regPassWord) {
+
+						mui.fire(curWebView,"toast",{
+							message:"密码和确认密码不一致!"
+						})
+						return;
+					}
+
+					var isExists = false;
+					$.ajax({
+						url: URLS.isNameExists + "?account=" + regPhone,
+						type: "get",
+						async: false,
+						success: function(data) {
+							if(data.code == 200) {
+
+								if(data.data != null) {
+
+											mui.fire(curWebView,"toast",{
+												message:"已经存在相同账号!"
+											})
+									isExists = true;
+
+								}
+							}
+						},
+						error: function() {
+							mui.fire(curWebView,"toast",{
+												message:"网络连接失败!"
+											})
+						}
+					});
+					if(isExists) {
+
+						return;
+					}
+
+					$.ajax({
+						type: "post",
+						url: URLS.register,
+						contentType: "application/json;charset=utf-8",
+						data: JSON.stringify({
+							account: regPhone,
+							password: regPassWord,
+							name: regName,
+							type: "2",
+							userType: "6"
+						}),
+						success: function(data) {
+							if(data.code == 200) {
+								if(data.data != 0) {
+								mui.fire(curWebView,"toast",{
+												message:"注册成功!"
+											})
+
+									$.ajax({
+										type: "post",
+										url: URLS.login,
+										contentType: "application/x-www-form-urlencoded",
+										dataType: "json",
+										data: {
+											userName: regPhone,
+											password: regPassWord
+										},
+										success: function(data) {
+											if(data.code == 200) {
+												mui.fire(curWebView,"toast",{
+												message:data.data
+											})
+												var cur = plus.webview.getWebviewById("modules/myself.html");
+
+												mui.fire(cur, "getLogin", null);
+												mui.back();
+											}
+
+										},
+										async: true,
+										error: function(xhr) {
+											mui.fire(curWebView,"toast",{
+												message:"网络连接失败!"
+											})
+											flag = true;
+										}
+									});
+
+								}
+							}
+							flag = true;
+
+						},
+						async: false,
+						error: function(xhr) {
+							console.log(JSON.stringify(xhr), "1")
+							flag = true;
+						}
+					});
+
+					flag = false;
+
+				}
+
+			});
+
+		})
+	</script>
+	<script type="text/javascript">
+	</script>
+
+</html>

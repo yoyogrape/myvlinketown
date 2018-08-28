@@ -1,0 +1,33 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+img{
+	width: 100%;
+	height: auto;
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的请求</title>
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/myself-subpage-myrequest.css" rel="stylesheet" />
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+
+	</head>
+
+	<body>
+		<div class="subpage-myresquest-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>我的请求</span>
+		</div>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+		<div class="subpage-myresquest-body">
+			<!-- ------报障标题开始------ -->
+			<div class="myresquest-body-title">
+				<div class="title-left title-bluebur">
+					<span>全部</span>
+				</div>
+				<div class="title-center">
+					<span>处理中</span>
+				</div>
+				<div class="title-right">
+					<span>已完成</span>
+				</div>
+			</div>
+			<div class="body-title-bottomline"></div>
+			<!-- ------报障标题结束------ -->
+
+			<!-- ==========show全部开始========== -->
+			<div class="myresquest-showall" style="display: ;">
+				<!--<div class="showall-item">
+					<div class="showall-item-title">
+						<span>标题</span>
+					</div>
+					<div class="showall-item-text">
+						<span>一楼展厅A展位网络不通，无法上网，需要及时维修</span>
+					</div>
+					<div class="showall-item-state" style="color: #1B82D1;">
+						<span>已完成</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>
+				<div class="showall-item">
+					<div class="showall-item-title">
+						<span>标题</span>
+					</div>
+					<div class="showall-item-text">
+						<span>一楼展厅A展位网络不通，无法上网，需要及时维修</span>
+					</div>
+					<div class="showall-item-state" style="color: #1B82D1;">
+						<span>已完成</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>
+				<div class="showall-item">
+					<div class="showall-item-title">
+						<span>标题</span>
+					</div>
+					<div class="showall-item-text">
+						<span>一楼展厅A展位网络不通，无法上网，需要及时维修</span>
+					</div>
+					<div class="showall-item-state" style="color: #1B82D1;">
+						<span>已完成</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>
+				<div class="showall-item">
+					<div class="showall-item-title">
+						<span>标题</span>
+					</div>
+					<div class="showall-item-text">
+						<span>一楼展厅A展位网络不通，无法上网，需要及时维修</span>
+					</div>
+					<div class="showall-item-state" style="color: #1B82D1;">
+						<span>已完成</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>-->
+			</div>
+			<!-- ==========show全部结束========== -->
+
+			<!-- ==========show处理中开始========== -->
+			<div class="myresquest-processing" style="display: none;">
+				<!-- ------item------ -->
+				<!--<div class="processing-item">
+					<div class="processing-item-title">
+						<span>处理中</span>
+					</div>
+					<div class="processing-item-text">
+						<span>
+							一楼展厅A展位网络不通，无法上网，需要及时维修。一楼展厅A展位网络不通，无法上网，需要及时维修
+						</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>
+				<div class="processing-item">
+					<div class="processing-item-title">
+						<span>处理中</span>
+					</div>
+					<div class="processing-item-text">
+						<span>
+							一楼展厅A展位网络不通，无法上网，需要及时维修。一楼展厅A展位网络不通，无法上网，需要及时维修
+						</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>-->
+
+			</div>
+			<!-- ==========show处理中结束========== -->
+
+			<!-- ==========show已完成开始========== -->
+			<div class="myresquest-done" style="display: none;">
+				<!-- ------item------ -->
+				<!--<div class="processing-item">
+					<div class="processing-item-title">
+						<span>已完成</span>
+					</div>
+					<div class="processing-item-text">
+						<span>
+							一楼展厅A展位网络不通，无法上网，需要及时维修。一楼展厅A展位网络不通，无法上网，需要及时维修
+						</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>
+				<div class="processing-item">
+					<div class="processing-item-title">
+						<span>已完成</span>
+					</div>
+					<div class="processing-item-text">
+						<span>
+							一楼展厅A展位网络不通，无法上网，需要及时维修。一楼展厅A展位网络不通，无法上网，需要及时维修
+						</span>
+					</div>
+					<div class="showall-item-bottomline"></div>
+				</div>-->
+
+			</div>
+			<!-- ==========show已完成结束========== -->
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		mui.plusReady(function() {
+			mui(".title-left")[0].addEventListener("tap", function() {
+				document.getElementsByClassName("title-bluebur")[0].classList.remove("title-bluebur");
+				this.classList.add("title-bluebur");
+				$(".myresquest-done").attr("style", "display: none;");
+				$(".myresquest-processing").attr("style", "display: none;");
+				$(".myresquest-showall").attr("style", "display: ;");
+				lookTrouble(0);
+			});
+			mui(".title-center")[0].addEventListener("tap", function() {
+				document.getElementsByClassName("title-bluebur")[0].classList.remove("title-bluebur");
+				this.classList.add("title-bluebur");
+				$(".myresquest-done").attr("style", "display: none;");
+				$(".myresquest-processing").attr("style", "display: ;");
+				$(".myresquest-showall").attr("style", "display: none;");
+				lookTrouble(1);
+			});
+			mui(".title-right")[0].addEventListener("tap", function() {
+				document.getElementsByClassName("title-bluebur")[0].classList.remove("title-bluebur");
+				this.classList.add("title-bluebur");
+				$(".myresquest-done").attr("style", "display: ;");
+				$(".myresquest-processing").attr("style", "display: none;");
+				$(".myresquest-showall").attr("style", "display: none;");
+				lookTrouble(2);
+			});
+			//---监听初始化---
+			document.addEventListener('initAllTrouble', function(event) {
+				lookTrouble(0);
+			});
+			//---查看请求的请求---
+			//---查看全部（state=0）--处理中（state=1）--已完成（state=2）；
+			function lookTrouble(param_state) {
+
+				var serviceObj = {
+					condition: {
+						state: 0
+					},
+					order: "desc",
+					rowCount: 100,
+					sort: "createTime",
+					startRow: 0,
+					totalRecord: 0
+				};
+				serviceObj.condition.state = param_state;
+				
+				mui.ajax({
+					type: "post",
+					url: URLS.getTroubleList + "?jsoncallback=?",
+					async: true,
+					data: JSON.stringify(serviceObj),
+					dataType: "jsonp",
+					contentType: "application/json;charset=utf-8",
+					jsonp: "jsoncallback",
+					headers: {
+						"Accept": "*/*"
+					},
+					timeout: 1000,
+					success: function(data) {
+						
+//						console.log('请求的trouble数据：'+data)
+						
+						data = JSON.parse(data);
+						if(param_state == 0) {
+							showAllTrouble(data);
+						} else {
+							showTrouble(data);
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.alert('查看全部报障信息失败');
+					}
+
+				});
+
+				function showAllTrouble(data) {
+					var troubleListHtml = '';
+					for(var i = 0; i < data.data.length; i++) {
+						var troubleItem = data.data[i];
+
+						var state_str = '';
+						var state = troubleItem.state;
+						if(state == 0) {
+							state_str = '未处理';
+						} else if(state == 1) {
+							state_str = '处理中';
+						} else if(state == 2) {
+							state_str = '已完成';
+						}
+						var troubleHtml = '<div class="showall-item"><div class="showall-item-title"><span>' + troubleItem.name + '</span></div><div class="showall-item-text"><span>' + troubleItem.content + '</span></div><div class="showall-item-state"style="color: #1B82D1;"><span>' + state_str + '</span></div><div class="showall-item-bottomline"></div></div>';
+
+						troubleListHtml += troubleHtml;
+
+					}
+					$('.myresquest-showall').empty().append(troubleListHtml);
+				}
+
+				function showTrouble(data) {
+					var troubleListHtml = '';
+					for(var i = 0; i < data.data.length; i++) {
+						var troubleItem = data.data[i];
+						var troubleHtml = '<div class="processing-item"><div class="processing-item-title"><span>' + troubleItem.name + '</span></div><div class="processing-item-text"><span>' + troubleItem.content + '</span></div><div class="showall-item-bottomline"></div></div>';
+						troubleListHtml += troubleHtml;
+					}
+					if(param_state == 1) {
+						$('.myresquest-processing').empty().append(troubleListHtml);
+					} else {
+						$('.myresquest-done').empty().append(troubleListHtml);
+					}
+
+				}
+
+			}
+		});
+	</script>
+
+</html>

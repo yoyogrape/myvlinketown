@@ -1,0 +1,140 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+
+/*-- ---头部头像部分开始--- --*/
+
+.myself-head-portrait {
+	width: 100%;
+	height: 612px;
+	background-color: #1B82D1;
+}
+
+.myself-head-portrait .myself-head-title {
+	font-size: 2.8rem;
+	color: #FFFFFF;
+	width: 182px;
+	margin: 0 auto;
+	line-height: 145px;
+}
+
+.myself-head-portraitimg {
+	    width: 360px;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    z-index: 2;
+    margin-left: -180px;
+}
+
+.head-portrait-bg {
+	width: 360px;
+	height: 360px;
+}
+
+.head-portrait-img {
+	display: block;
+	position: absolute;
+	top: 45px;
+	left: 55px;
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+}
+
+.myself-head-username {
+font-size: 2.8rem;
+    color: #FFFFFF;
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    top: 505px;
+    margin-left: -25%;
+    line-height: 60px;
+    z-index: 2;
+    text-align: center;
+}
+
+
+/*-- ---头部头像部分结束--- --*/
+
+
+/*-- ---主体菜单部分开始--- --*/
+
+.myself-main-submenu {
+	width: 100%;
+	height: 120px;
+	position: relative;
+}
+
+.main-submenu-titleimg,
+.main-submenu-text {
+	float: left;
+}
+
+.main-submenu-arrowsimg {
+	float: right;
+	position: relative;
+	top: 32px;
+	right: 30px;
+}
+
+.main-submenu-titleimg {
+	width: 60px;
+	height: 60px;
+	position: relative;
+	top: 32px;
+	left: 30px;
+}
+
+.main-submenu-text {
+	width: 200px;
+	height: 60px;
+	line-height: 60px;
+	display: block;
+	position: relative;
+	top: 28px;
+	left: 50px;
+	font-size: 2.6rem;
+	color: #666666;
+}
+
+.main-submenu-bottomborder {
+	background-color: #E0E1E5;
+	width: 96%;
+	height: 1px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	z-index: 2;
+}
+
+
+/*-- ---主体菜单部分结束--- --*/

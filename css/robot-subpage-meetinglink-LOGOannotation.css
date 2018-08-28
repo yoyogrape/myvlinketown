@@ -1,0 +1,81 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+body{
+	margin-bottom: 100px;
+}
+.meetinglink-LOGOannotation-title {
+	width: 100%;
+	height: 146px;
+	background-color: #1B82D1;
+	color: #ffffff;
+}
+
+.meetinglink-LOGOannotation-title img {
+	position: absolute;
+	left: 40px;
+	top: 40px;
+}
+
+.meetinglink-LOGOannotation-title span {
+	display: block;
+	text-align: center;
+	line-height: 146px;
+	font-size: 3rem;
+}
+
+.meetinglink-LOGOannotation-textbody {
+	margin-top: 50px;
+	padding-bottom: 30px;
+}
+
+.LOGOannotation-textbody-title {
+	width: 88%;
+	height: 70px;
+	margin: 0 auto;
+	text-align: left;
+	font-size: 2.8rem;
+	background-color: #E8E8E8;
+	color: #1B82D1;
+	line-height: 70px;
+}
+
+.LOGOannotation-textbody-title span {
+	padding-left: 10px;
+}
+
+.LOGOannotation-textbody-content {
+	font-size: 2.5rem;
+	text-indent: 5rem;
+	width: 88%;
+	margin: 0 auto;
+	color: #666666;
+	padding-top: 30px;
+	line-height: 60px;
+}

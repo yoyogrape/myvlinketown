@@ -1,0 +1,74 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="../css/service-subpage-links-subway.css" rel="stylesheet" />
+		<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+		<script type="text/javascript" src="https://api.map.baidu.com/api?type=subway&v=1.0&ak=4IU3oIAMpZhfWZsMu7xzqBBAf6vMHcoa"></script>
+		<title>地铁查询</title>
+		<style type="text/css">
+			#container {
+				height: 100%
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mainlink-suivey-title">
+			<div style="height: 40px; width: 80px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>地铁查询</span>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+		<!-- ------标题开始------ -->
+		<!--<div class="myresquest-body-title">
+			<div class="title-left title-bluebur">
+				<span>全线路图</span>
+			</div>
+			<div class="title-center">
+				<span>起终点</span>
+			</div>
+			<div class="title-right">
+				<span>地铁线路</span>
+			</div>
+		</div>-->
+		<div class="body-title-bottomline"></div>
+		<!-- ------标题结束------ -->
+
+		<!-- ------标题结束------ -->
+
+		<!-- ------标题结束------ -->
+
+		<!-- ------标题结束------ -->
+
+		<!-- ------标题结束------ -->
+		<div id="container"></div>
+		<script type="text/javascript">
+			var subwayCityName = '北京';
+
+			window.addEventListener("initSubway", function() {
+				var list = BMapSub.SubwayCitiesList;
+				var subwaycity = null;
+				for(var i = 0; i < list.length; i++) {
+					if(list[i].name === subwayCityName) {
+						subwaycity = list[i];
+						break;
+					}
+				}
+				// 获取北京地铁数据-初始化地铁图
+				var subway = new BMapSub.Subway('container', subwaycity.citycode);
+				subway.setZoom(0.5);
+			})
+		</script>
+	</body>
+
+</html>

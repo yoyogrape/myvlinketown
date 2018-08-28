@@ -1,0 +1,226 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+.subpagelinks-express-title {
+	width: 100%;
+	height: 450px;
+	background-color: #1B82D1;
+	color: #ffffff;
+}
+
+.subpagelinks-express-title>img {
+	position: absolute;
+	left: 40px;
+	top: 50px;
+}
+
+.subpagelinks-express-title span {
+	display: block;
+	text-align: center;
+	line-height: 164px;
+	font-size: 3rem;
+}
+
+.express-form {
+	width: 92%;
+	height: 242px;
+	background-color: #ffffff;
+	margin: 0 auto;
+	border-radius: 10px;
+	position: relative;
+}
+
+.express-form>img {
+	display: block;
+	position: absolute;
+	right: 30px;
+	top: 70px;
+}
+
+.express-form-company {
+	height: 120px;
+}
+
+.express-form-ordernum {
+	height: 120px;
+	/*background-color: blue;
+	opacity: 0.6;*/
+}
+
+.express-form-company>img {
+	position: absolute;
+	top: 30px;
+	left: 26px;
+}
+
+.express-form-ordernum>img {
+	position: absolute;
+	top: 140px;
+	left: 16px;
+}
+
+.express-form-company input,
+.express-form-ordernum input {
+	width: 73%;
+	height: 60px;
+	margin: 0 auto;
+	display: block;
+	font-size: 2.5rem;
+	color: #999999;
+}
+
+.express-form-company input {
+	position: relative;
+	top: 28px;
+	border-width: 0;
+	outline: none;
+	background-color: #ffffff;
+}
+
+.express-company-list {
+	position: absolute;
+	z-index: 5;
+	color: #333333;
+	width: 80%;
+}
+
+.express-company-list ul li {
+	list-style-type: none;
+	height: 140px;
+	position: relative;
+	left: 18px;
+	top: -71px;
+}
+
+.express-company-list ul li img,
+.express-company-list ul li span {
+	display: block;
+	float: left;
+}
+
+.express-company-list ul li img {
+	position: relative;
+	top: 34px;
+}
+
+.express-company-list ul li span {
+	height: 140px;
+	line-height: 140px;
+	width: 200px;
+	font-size: 40px;
+	text-align: left;
+	padding-left: 20px;
+}
+
+.express-company-listbg {
+	position: absolute;
+	left: 0px;
+	top: -60px;
+	height: 1527px;
+	width: 105%;
+	background-color: #ffffff;
+	border: 1px solid #E0E1E5;
+	border-radius: 10px;
+}
+
+.express-item-bottomline {
+	background: #E0E1E5;
+	width: 88%;
+	height: 1px;
+	position: absolute;
+	bottom: 0;
+	left: 100px;
+}
+
+.express-form-ordernum input {
+	position: relative;
+	top: 28px;
+	border-width: 0;
+	outline: none;
+}
+
+.form-bottomborder-line {
+	width: 68%;
+	height: 2px;
+	background-color: #EFEFF1;
+	margin: 0 auto;
+}
+
+.subpagelinks-express-body {
+	height: 1000px;
+	margin-top: 26px;
+}
+
+.subpagelinks-express-body img {
+	display: block;
+	margin: 0 auto;
+	padding-top: 300px;
+}
+
+.express-body-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.express-bodyitem-when span {
+	font-size: 2.3rem;
+}
+
+.express-bodyitem-when {
+	text-align: center;
+	position: relative;
+	left: -20px;
+	height: 110px;
+}
+
+.express-bodyitem-info {
+	width: 70%;
+	position: relative;
+	left: 30px;
+	border-bottom: 1px solid #E0E1E5;
+	padding-bottom: 70px;
+}
+
+.express-bodyitem-info {
+	padding-top: 70px;
+}
+
+.express-bodyitem-info span {
+	font-size: 2.3rem;
+}
+
+.express-bodyitem-date {
+	padding-top: 10px;
+}
+
+.express-bodyitem-date span {
+	color: #999999;
+}

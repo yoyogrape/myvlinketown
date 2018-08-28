@@ -1,0 +1,1066 @@
+{
+	"@platforms": [
+		"android",
+		"iPhone",
+		"iPad"
+	],
+	"id": "wxd1e4f6ae11861a5e",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "无限铁岭",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "1.0.15",/*应用版本名称*/
+		"code": "83"
+	},
+	"description": "com.vlink.etown",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "main.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": "http://www.dcloud.io"
+	},
+	"permissions": {
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+		"Contacts": {
+			"description": "访问系统联系人信息"
+		},
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"Messaging": {},
+		"Maps": {
+			"description": "管理地图插件"
+		},
+		"Speech": {},
+		"Webview": {},
+		"Navigator": {},
+		"NativeUI": {},
+		"NativeObj": {},
+		"Invocation": {},
+		"Runtime": {},
+		"OAuth": {},
+		"Share": {},
+		"Device": {}
+	},
+	"plus": {
+		"splashscreen": {
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": true,
+			"delay": "10"
+		},
+		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"plugins": {
+				"share": {
+					"weixin": {
+						"appid": "wxd1e4f6ae11861a5e",
+						"appsecret": "aa7dfcf31b4b6933fbde258400824de2",
+						"description": "微信分享"
+					}
+				},
+				"maps": {
+					"baidu": {
+						"appkey_ios": "4IU3oIAMpZhfWZsMu7xzqBBAf6vMHcoa",
+						"appkey_android": "4IU3oIAMpZhfWZsMu7xzqBBAf6vMHcoa",
+						"appkey": "",
+						"description": "利用百度地图进行定位，然后获取周边的酒店、加油站等信息"
+					}
+				}
+			},
+			"apple": {
+				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"frameworks": [],
+				"plistcmds": [
+					"Set :NSLocationWhenInUseUsageDescription 根据您的位置信息，您可随时掌握所在位置周边酒店、超市、加油站等。",
+					"Set :NSLocationAlwaysUsageDescription  根据您的位置信息，您可随时掌握所在位置周边酒店、超市、加油站等。",
+					"Set :NSCameraUsageDescription 暂时没有调取用户的摄像机功能"
+				]
+			},
+			"google": {
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"permissions": [
+					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+					"<uses-permission  android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+					"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.SEND_SMS\"/>",
+					"<uses-permission android:name=\"android.permission.INTERNET\"/>",
+					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SMS\"/>",
+					"<uses-permission android:name=\"android.permission.READ_SMS\"/>"
+				]
+			},
+			"orientation": [
+				"portrait-primary",
+				"portrait-secondary"
+			],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					/*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "",/*iPhone高分屏程序图标，分辨率：114x114*/
+						/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"app@2x": "unpackage/res/icons/120x120.png",
+						"app@3x": "unpackage/res/icons/180x180.png",
+						"settings@3x": "unpackage/res/icons/87x87.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"spotlight@3x": "unpackage/res/icons/120x120.png",
+						"notification@3x": "unpackage/res/icons/60x60.png",
+						"notification@2x": "unpackage/res/icons/40x40.png"
+					},
+					"ipad": {
+						"normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
+						/*iPad iOS7程序图标，分辨率：76x76*/
+						/*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						/*iPad设置页面程序图标，分辨率：29x29*/
+						"app": "unpackage/res/icons/76x76.png",
+						"app@2x": "unpackage/res/icons/152x152.png",
+						"settings": "unpackage/res/icons/29x29.png",
+						"proapp@2x": "unpackage/res/icons/167x167.png",
+						"spotlight": "unpackage/res/icons/40x40.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"notification": "unpackage/res/icons/20x20.png",
+						"notification@2x": "unpackage/res/icons/40x40.png"
+					},
+					"appstore": "unpackage/res/icons/1024x1024.png"
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png",
+					"xxxhdpi": "unpackage/res/icons/192x192.png"
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
+						"retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": ""
+					},
+					"ipad": {
+						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
+						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
+						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+						"landscape-retina7": ""
+					}
+				},
+				"android": {
+					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "",
+					"hdpi": "C:/Users/Administrator/Desktop/照片集合/start.png",
+					"xhdpi": "C:/Users/Administrator/Desktop/照片集合/start.png",
+					"xxhdpi": "C:/Users/Administrator/Desktop/照片集合/start.png"
+				}
+			}
+		},
+		"ads": {
+			"rp": false,
+			"splash": false,
+			"push": false,
+			"spot": false
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"images/blue-alarm.png",
+					"modules/home.html",
+					"css/index.css",
+					"images/nav-robot.png",
+					"images/nav-myself.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"images/nav-service.png",
+					"css/mui.min.css",
+					"images/nav-home-choose.png",
+					"images/nav-info.png",
+					"images/nav-home.png",
+					"css/app.css",
+					"images/nav-info-choose.png",
+					"images/nav-service-choose.png",
+					"images/nav-myself-choose.png",
+					"images/nav-robot1.png"
+				],
+				"refer": [
+					"modules/robot.html",
+					"modules/information.html",
+					"modules/service.html",
+					"modules/myself.html"
+				],
+				"priority": 0
+			},
+			"modules/home.html": {
+				"resources": [
+					"images/robot-linkimg-bus.png",
+					"css/home.css",
+					"images/banner2.jpg",
+					"images/banner1.jpg",
+					"images/banner4.jpg",
+					"images/home-news1.png",
+					"images/service-links-airquality.png",
+					"js/jquery-1.11.3.min.js",
+					"images/home-news4.png",
+					"images/home-news-eye.png",
+					"js/grape.tools.js",
+					"images/robot-linkimg-more.png",
+					"js/url.properties.js",
+					"images/home-news2.png",
+					"images/robot-linkimg-trafficcontrol.png",
+					"js/mui.min.js",
+					"images/service-links-meteorological.png",
+					"images/service-links-express.png",
+					"css/mui.min.css",
+					"images/home-head-search.png",
+					"images/banner3.jpg",
+					"images/robot-linkimg-park.png",
+					"images/service-links-subway.png",
+					"css/public-news-list.css",
+					"css/public-title-header.css",
+					"images/service-links-exitandentry.png",
+					"images/play.png",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/home-subpage-search.html",
+					"modules/sub-show-news.html",
+					"modules/home-subpage-editmodules.html",
+					"modules/service-subpage-links-weather.html",
+					"modules/service-subpage-links-express.html",
+					"modules/service-subpage-links-park.html",
+					"modules/service-subpage-links-airquality.html",
+					"modules/service-subpage-links-subway.html",
+					"modules/service-subpage-links-bus.html"
+				],
+				"priority": 0
+			},
+			"modules/robot.html": {
+				"resources": [
+					"images/robot-linkimg-submittrouble.png",
+					"images/robot-linkimg-trafficguide.png",
+					"images/banner2.jpg",
+					"images/robot-head-bannerimg.png",
+					"images/weather-fine-sun2.png",
+					"images/banner4.jpg",
+					"images/home-YiZhuang.png",
+					"images/robot-linkimg-heatmap.png",
+					"js/grape.tools.js",
+					"images/robot-linkimg-more.png",
+					"css/robot.css",
+					"images/robot-linkimg-venuetour.png",
+					"images/robot-linkimg-trafficcontrol.png",
+					"images/banner1.jpg",
+					"images/banner3.jpg",
+					"images/robot-linkimg-meetingtime.png",
+					"images/robot-linkimg-park.png",
+					"images/home-news-eye.png",
+					"images/home-news1.png",
+					"js/url.properties.js",
+					"images/home-news2.png",
+					"js/mui.min.js",
+					"images/home-head-search.png",
+					"js/jquery-1.11.3.min.js",
+					"images/home-news4.png",
+					"css/public-news-list.css",
+					"css/mui.min.css",
+					"css/public-title-header.css",
+					"images/weather-fine-cloudy.png",
+					"images/play.png",
+					"fonts/mui.ttf",
+					"images/robot-linkimg-ticket.png",
+					"images/robot-linkimg-salvation.png",
+					"images/weather-fine-rain.png"
+				],
+				"refer": [
+					"modules/robot-subpage-visitlink-transportation.html",
+					"modules/robot-subpage-meetinglink-time.html",
+					"modules/robot-subpage-meetinglink-theme.html",
+					"modules/robot-subpage-news.html",
+					"modules/robot-subpage-meetinglink-LOGOannotation.html",
+					"modules/robot-subpage-alltimelink-speedtest.html",
+					"modules/robot-subpage-alltimelink-heatdistribution.html",
+					"modules/robot-subpage-alltimelink-actualthermal.html",
+					"modules/home-subpage-search.html",
+					"modules/robot-mainlinkpage-trouble.html",
+					"modules/robot-mainlinkpage-surveys.html",
+					"modules/home-subpage-editmodules.html",
+					"modules/service-subpage-links-weather.html",
+					"modules/sub-show-news.html",
+					"modules/robot-subpage-around.html",
+					"modules/robot-subpage-alltimelink-netticket.html",
+					"modules/robot-subpage-exhibitorintroduce.html",
+					"modules/robot-subpage-exhibitionhallservice.html"
+				],
+				"priority": 0
+			},
+			"modules/information.html": {
+				"resources": [
+					"images/home-news1.png",
+					"images/news-banner-caijing.jpg",
+					"js/jquery-1.11.3.min.js",
+					"images/news-banner-jiankang.jpg",
+					"images/home-news4.png",
+					"js/swiper.min.js",
+					"images/home-news-eye.png",
+					"js/url.properties.js",
+					"images/news-banner-redian.jpg",
+					"css/information.css",
+					"images/home-news2.png",
+					"css/swiper.min.css",
+					"images/home-head-search.png",
+					"images/info-subpage-YiZhuangbanner.png",
+					"images/news-banner-beijing.jpg",
+					"images/info-nav-menu.png",
+					"images/news-banner-shijiebei.jpg",
+					"css/public-news-list.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/public-title-header.css",
+					"images/play.png",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"refer": [
+					"modules/sub-show-news.html",
+					"modules/info-subpage-channelcenter.html",
+					"modules/home-subpage-search.html"
+				],
+				"priority": 0
+			},
+			"main.html": {
+				"resources": [
+					"modules/home.html",
+					"modules/information.html",
+					"modules/robot.html",
+					"modules/myself.html",
+					"modules/service.html",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"modules/tabbar.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/service.html": {
+				"resources": [
+					"images/service-links-airquality.png",
+					"images/service-links-workguide.png",
+					"images/service-links-survey.png",
+					"images/service-links-forjob.png",
+					"images/service-links-MPFenquiries.png",
+					"css/service.css",
+					"images/service-links-law.png",
+					"images/service-links-education.png",
+					"images/service-links-bus.png",
+					"images/service-links-meteorological.png",
+					"images/service-links-express.png",
+					"images/service-links-socialsecurityquery.png",
+					"images/service-links-park.png",
+					"images/service-links-exitandentry.png",
+					"images/service-links-subway.png",
+					"images/service-links-trafficcontrol.png",
+					"js/mui.min.js",
+					"js/jquery-1.11.3.min.js",
+					"js/url.properties.js",
+					"images/service-links-trafficcontrol-hui.png"
+				],
+				"refer": [
+					"modules/service-subpage-links-weather.html",
+					"modules/service-subpage-links-express.html",
+					"modules/robot-mainlinkpage-surveys.html",
+					"modules/service-subpage-links-park.html",
+					"modules/service-subpage-links-subway.html",
+					"modules/service-subpage-links-bus.html",
+					"modules/service-subpage-links-airquality.html"
+				],
+				"priority": 0
+			},
+			"modules/service-subpage-links-weather.html": {
+				"resources": [
+					"css/service-subpage-links-weather.css",
+					"images/weather-airquality.png",
+					"images/weather-addcity.png",
+					"images/weatherborderbg-rain.png",
+					"js/grape.tools.js",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/weather-fine-sun3.png",
+					"css/weatherStyle.css"
+				],
+				"refer": [
+					"modules/service-subpage-weather-addcity.html"
+				],
+				"priority": 0
+			},
+			"modules/robot-mainlinkpage-surveys.html": {
+				"resources": [
+					"css/robot-mainlinkpage-survey.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/myself-submenu-titleimg3.png",
+					"js/jquery-1.11.3.min.js",
+					"js/url.properties.js"
+				],
+				"refer": [
+					"modules/robot-mainlinksubpage-surveysrobot.html"
+				],
+				"priority": 0
+			},
+			"modules/myself.html": {
+				"resources": [
+					"images/myself-submenu-titleimg1.png",
+					"images/myself-portrait-bg.png",
+					"images/myself-portrait-img.png",
+					"css/myself.css",
+					"images/myself-submenu-titleimg3.png",
+					"images/myself-submenu-titleimg2.png",
+					"js/jquery-1.11.3.min.js",
+					"js/url.properties.js",
+					"js/mui.min.js"
+				],
+				"refer": [
+					"modules/myself-personalcenter-login.html",
+					"modules/myself-subpage-myrequest.html",
+					"modules/myself-personalcenter-register.html",
+					"modules/myself-subpage-about.html",
+					"modules/myself-personalcenter-register.html",
+					"modules/myself-personalcenter-register.html",
+					"modules/myself-subpage-setting.html",
+					"modules/myself-subpage-about.html",
+					"modules/myself-personalcenter-passLogin.html",
+					"modules/myself-personalcenter.html",
+					"modules/myself-personalcenter-passLogin.html"
+				],
+				"priority": 0
+			},
+			"modules/service-subpage-links-subway.html": {
+				"resources": [
+					"css/service-subpage-links-subway.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css",
+					"js/mui.min.js"
+				],
+				"refer": [
+					"modules/robot-mainlinksubpage-surveysrobot.html"
+				],
+				"priority": 0
+			},
+			"modules/tabbar.html": {
+				"resources": [
+					"images/nav-myself.png",
+					"images/nav-home-choose.png",
+					"images/nav-home.png",
+					"images/nav-service.png",
+					"images/nav-robot-choose.png",
+					"images/nav-info.png",
+					"images/nav-info-choose.png",
+					"images/nav-service-choose.png",
+					"images/nav-myself-choose.png",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/service-subpage-links-bus.html": {
+				"resources": [
+					"css/service-subpage-links-bus.css",
+					"images/bus-startend-img.png",
+					"images/express-form-searchimg.png",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"css/robot-subpage-around.css",
+					"js/jquery-1.11.3.min.js"
+				],
+				"refer": [
+					"modules/service-subpage-linksbusline.html",
+					"modules/service-subpage-linksstartend.html"
+				],
+				"priority": 0
+			},
+			"modules/service-subpage-links-park.html": {
+				"resources": [
+					"css/robot-subpage-meetinglink-time.css",
+					"images/service-subpage-links-park.png",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/robot-subpage-around.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/jquery-1.11.3.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/service-subpage-links-airquality.html": {
+				"resources": [
+					"images/air-lvyouzhishu.png",
+					"images/air-chenlian.png",
+					"images/air-yuehui.png",
+					"js/jquery.AshAlom.gaugeMeter-2.0.0.min.js",
+					"images/air-ziwaixian.png",
+					"images/air-jiaotong.png",
+					"images/airquality-details.png",
+					"css/service-subpage-links-airquality.css",
+					"images/airquality-selectcity.png",
+					"images/progressbar.png",
+					"css/public-title.css",
+					"images/air-chuanyi.png",
+					"images/air-fangsai.png",
+					"images/air-qiche.png",
+					"images/air-lukuang.png",
+					"css/normalize.css",
+					"images/airquality-position.png",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/url.properties.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/robot-subpage-alltimelink-heatdistribution.html": {
+				"resources": [
+					"css/robot-subpage-alltimelink-heatdistribution.css",
+					"images/robot-subpage-alltimelink-heatdistributionimg.png",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/jquery-1.11.3.min.js",
+					"js/url.properties.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/service-subpage-links-express.html": {
+				"resources": [
+					"images/express-form-scanimg.png",
+					"images/express-form-companyimg.png",
+					"images/express-logo-yunda.png",
+					"images/express-logo-shentong.png",
+					"images/express-logo-EMS.png",
+					"images/express-logo-tiantian.png",
+					"images/express-logo-zhongtong.png",
+					"images/express-logo-yuantong.png",
+					"images/express-logo-quanfengkuaidi.png",
+					"images/express-logo-shunfeng.png",
+					"images/express-logo-debang.png",
+					"css/service-subpage-links-express.css",
+					"images/express-form-searchimg.png",
+					"images/express-logo-baishihuitong.png",
+					"images/express-logo-zaijisong.png",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/express-form-noexpressimg.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/service-subpage-weather-addcity.html": {
+				"resources": [
+					"js/mui.picker.js",
+					"js/mui.poppicker.js",
+					"css/service-subpage-weather-addcity.css",
+					"js/city.data.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.css",
+					"images/weatherborderbg-fine.png",
+					"js/jquery-1.11.3.min.js",
+					"js/grape.tools.js",
+					"js/url.properties.js",
+					"images/weather-fine-sun2.png",
+					"css/mui.min.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/robot-mainlinksubpage-surveysrobot.html": {
+				"resources": [
+					"css/robot-mainlinksubpage-surveysrobot.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"js/jquery-1.11.3.min.js",
+					"js/url.properties.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/robot-subpage-visitlink-transportation.html": {
+				"resources": [
+					"css/robot-subpage-visitlink-transportation.css",
+					"images/robot-subpage-visitlink-transportationimg.png",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/daju.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/home-subpage-search.html": {
+				"resources": [
+					"images/homesearch-head-leftarrows.png",
+					"css/home-subpage-search.css",
+					"images/info-head-graysearch.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/robot-mainlinkpage-trouble.html": {
+				"resources": [
+					"css/robot-mainlinkpage-trouble.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/url.properties.js",
+					"images/wifiHelpImg/wifiHelp.png"
+				],
+				"refer": [
+					"modules/wifi.html"
+				],
+				"priority": 0
+			},
+			"modules/myself-subpage-myrequest.html": {
+				"resources": [
+					"css/myself-subpage-myrequest.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/url.properties.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/home-subpage-editmodules.html": {
+				"resources": [
+					"images/home-subpage-editmodules.png",
+					"css/robot-subpage-news.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/home-subpage-editmodules.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/more-hospital.png",
+					"images/more-petrolstation.png",
+					"images/more-supermarket.png",
+					"images/more-publictoilet.png",
+					"images/more-chargingpile.png",
+					"images/more-park.png",
+					"images/more-hotel.png",
+					"images/more-arrows.png",
+					"images/more-food.png",
+					"js/jquery-1.11.3.min.js"
+				],
+				"refer": [
+					"modules/robot-subpage-around.html",
+					"modules/robot-subpage-aroundMap.html"
+				],
+				"priority": 0
+			},
+			"modules/sub-show-news.html": {
+				"resources": [
+					"images/news-share.png",
+					"css/sub-show-news.css",
+					"css/public-title.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/url.properties.js",
+					"fonts/mui.ttf",
+					"images/black.png"
+				],
+				"refer": [
+					"modules/share.html"
+				],
+				"priority": 0
+			},
+			"modules/robot-subpage-meetinglink-time.html": {
+				"resources": [
+					"images/robot-subpage-meetinglink-timeimg.png",
+					"css/robot-subpage-meetinglink-time.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/homesearch-head-leftarrows.png",
+					"js/jquery-1.11.3.min.js",
+					"js/url.properties.js",
+					"images/sub-showannouncement-bluearrows.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-register.html": {
+				"resources": [
+					"css/myself-personalcenter-register.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/url.properties.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-login.html": {
+				"resources": [
+					"css/myself-personalcenter-login.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/mui.min.js",
+					"js/url.properties.js",
+					"js/jquery-1.11.3.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"modules/myself-personalcenter-register_bak.html"
+				],
+				"priority": 0
+			},
+			"modules/service-subpage-linksstartend.html": {
+				"resources": [
+					"css/service-subpage-linksstartend.css",
+					"images/busline-station-img.png",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/service-subpage-linksbusline.html": {
+				"resources": [
+					"images/busline-station-img.png",
+					"css/service-subpage-linksbusline.css",
+					"js/jquery-1.11.3.min.js",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/info-subpage-channelcenter.html": {
+				"resources": [
+					"images/info-subpage-channelcenterimg.png",
+					"css/info-subpage-channelcenter.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-subpage-about.html": {
+				"resources": [
+					"css/myself-subpage-about.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/vlink-yizhuangLOGO.png",
+					"images/myself-about-phonenum.png",
+					"images/myself-about-guanwang.png",
+					"images/myself-about-email.png",
+					"images/myself-about-weichat.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js"
+				],
+				"refer": [
+					"modules/myself-subpage-QRcode.html"
+				],
+				"priority": 0
+			},
+			"modules/robot-subpage-around.html": {
+				"resources": [
+					"css/robot-subpage-around.css",
+					"images/robot-around-chaoshi.png",
+					"images/sub-showannouncement-bluearrows.png"
+				],
+				"refer": [
+					"modules/robot-subpage-aroundMap.html"
+				],
+				"priority": 0
+			},
+			"modules/robot-subpage-alltimelink-netticket.html": {
+				"resources": [
+					"css/robot-subpage-alltimelink-heatdistribution.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-login2.html": {
+				"resources": [
+					"css/myself-personalcenter-login.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/robot-subpage-aroundMap.html": {
+				"resources": [
+					"css/robot-subpage-around.css",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"images/sub-showannouncement-bluearrows.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-passLogin.html": {
+				"resources": [
+					"css/myself-personalcenter-login.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css",
+					"images/vlink-yizhuangLOGO.png",
+					"images/myself-login-username.png",
+					"images/myself-login-password.png",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"js/url.properties.js"
+				],
+				"refer": [
+					"modules/myself-personalcenter-quickLogin.html",
+					"modules/myself-personalcenter-refister2.html",
+					"modules/myself-personalcenter-forgetPassword.html"
+				],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-refister2.html": {
+				"resources": [
+					"css/mui.min.css",
+					"css/myself-personalcenter-login.css",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"js/url.properties.js",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/myself-login-phonenum.png",
+					"images/myself-login-password2.png",
+					"images/vlink-yizhuangLOGO.png",
+					"images/myself-login-username.png",
+					"images/myself-login-password.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-register_bak.html": {
+				"resources": [
+					"css/myself-personalcenter-login.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-quickLogin.html": {
+				"resources": [
+					"css/mui.min.css",
+					"css/myself-personalcenter-login.css",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"js/url.properties.js",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/myself-login-code.png",
+					"images/myself-login-phonenum.png",
+					"images/vlink-yizhuangLOGO.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-forgetPassword.html": {
+				"resources": [
+					"css/mui.min.css",
+					"css/myself-personalcenter-login.css",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"js/url.properties.js",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/myself-login-code.png",
+					"images/vlink-yizhuangLOGO.png",
+					"images/myself-login-username.png"
+				],
+				"refer": [
+					"modules/myself-personalcenter-updatePassword.html"
+				],
+				"priority": 0
+			},
+			"modules/myself-personalcenter-updatePassword.html": {
+				"resources": [
+					"css/mui.min.css",
+					"css/myself-personalcenter-login.css",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"js/url.properties.js",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/vlink-yizhuangLOGO.png",
+					"images/myself-login-password.png",
+					"images/myself-login-password2.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-personalcenter.html": {
+				"resources": [
+					"css/myself-personalcenter-login.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"modules/myself-personalcenter-updatePassword.html"
+				],
+				"priority": 0
+			},
+			"modules/robot-subpage-exhibitorintroduce.html": {
+				"resources": [
+					"css/robot-subpage-alltimelink-heatdistribution.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/sub-showannouncement-bluearrows.png",
+					"js/jquery.charfirst.pinyin.js",
+					"js/sort.js",
+					"js/jquery-1.11.3.min.js",
+					"js/url.properties.js"
+				],
+				"refer": [
+					"modules/robot-subpage-exhibitorintroduce-product.html"
+				],
+				"priority": 0
+			},
+			"modules/robot-subpage-exhibitionhallservice.html": {
+				"resources": [
+					"js/jquery-1.11.3.min.js",
+					"css/robot-subpage-exhibitionhallservice.css",
+					"images/daju.png",
+					"js/mui.min.js",
+					"css/swiper.min.css",
+					"css/mui.min.css",
+					"js/swiper.min.js",
+					"images/weatherborderbg-rain.png",
+					"images/sub-showannouncement-bluearrows.png",
+					"images/juyuwang001.png",
+					"js/pinchzoom.min.js",
+					"js/url.properties.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/robot-subpage-exhibitorintroduce-product.html": {
+				"resources": [
+					"css/robot-subpage-alltimelink-heatdistribution.css",
+					"css/mui.min.css",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"js/url.properties.js",
+					"images/sub-showannouncement-bluearrows.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/share.html": {
+				"resources": [
+					"css/mui.min.css",
+					"images/share-friend.png",
+					"images/share-wechat.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/wifi.html": {
+				"resources": [
+					"images/wifiImg/2.21.png",
+					"images/wifiImg/1.1.png",
+					"images/wifiImg/2.1.png",
+					"images/wifiImg/2.12.png",
+					"images/wifiImg/2.22.png",
+					"images/wifiImg/3.12.png",
+					"images/wifiImg/3.1.png",
+					"css/mui.min.css",
+					"js/jquery-1.11.3.min.js",
+					"js/mui.min.js",
+					"images/sub-showannouncement-bluearrows.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/myself-subpage-QRcode.html": {
+				"resources": [
+					"css/myself-subpage-QRcode.css",
+					"css/mui.min.css",
+					"images/myself-about-QRcode.png"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/monitor.png",
+				"images/alarm.png",
+				"images/blue-home.png",
+				"css/mui.css",
+				"images/blue-monitor.png",
+				"images/blue-set.png",
+				"images/home.png",
+				"images/set.png",
+				"js/mui.js"
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网速测试</title>
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-subpage-alltimelink-speedtest.css" rel="stylesheet" />
+	</head>
+	<body>
+		<img src="../images/robot-subpage-alltimelink-speedtestimg.png"/>
+	<a id="btn_goback"></a>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+	</script>
+</html>

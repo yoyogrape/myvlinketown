@@ -1,0 +1,383 @@
+/*-===============内容开始===============-*/
+
+
+/*-------------头部展示开始-------------*/
+
+.airquality-body {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.airquality-head {
+	width: 100%;
+	/*background-color: #999999;*/
+}
+
+.airquality-head-position {
+	margin-top: 30px;
+}
+
+.airquality-head-position span {
+	font-size: 38px;
+}
+
+.airquality-head-position img {
+	position: relative;
+	top: 14px;
+	left: 14px;
+}
+
+.airquality-head-info img {
+	position: absolute;
+	right: 0px;
+	top: 14px;
+}
+
+.airquality-head {
+	position: relative;
+}
+
+.airquality-head {
+	height: 800px;
+	/*background-color: azure;*/
+}
+
+canvas {
+	position: absolute;
+	left: calc((100% - 700px)/2);
+	top: 80px;
+}
+
+.GaugeMeter span:first-child {
+	display: none;
+}
+.airquality-num {
+	width: 280px;
+	height: 160px;
+	
+	position: absolute;
+	left: calc((100% - 280px)/2);
+	top: 300px;
+	text-align: center;
+}
+.airquality-num span{
+	font-size: 160px;
+}
+
+.airquality-head-showdata{
+	position: relative;
+}
+.airquality-text{
+	width: 400px;
+	height: 160px;
+	position: absolute;
+	left: calc((100% - 400px)/2);
+	top: 500px;
+	text-align: center;
+}
+.airquality-text span{
+	font-size: 50px;
+}
+
+/*-------------头部展示结束-------------*/
+
+
+/*-------------位置信息展示开始-------------*/
+
+.airquality-main-position {
+	color: #333333;
+	height: 500px;
+}
+
+.airquality-item-right .airquality-item-name {
+	padding-left: 50px;
+}
+
+.airquality-item-name span {
+	font-size: 38px;
+}
+
+.airquality-main-title span {
+	font-size: 34px;
+}
+
+.airquality-main-title img {
+	position: relative;
+	top: 15px;
+	left: 8px;
+}
+
+.airquality-item-num span {
+	font-size: 68px;
+}
+
+.airquality-item-left,
+.airquality-item-right {
+	float: left;
+	overflow: hidden;
+	width: calc( 50% - 2px);
+}
+
+.airquality-item-splitline {
+	float: left;
+	height: 60px;
+	width: 2px;
+	background: #B6B6B6;
+	position: relative;
+	top: 96px;
+}
+
+.airquality-item-param {
+	width: 100%;
+	height: 100px;
+	margin-top: 25px;
+}
+
+.airquality-item-right .airquality-item-param {
+	padding-left: 50px;
+	width: 100%;
+}
+
+.airquality-item-num,
+.airquality-item-level {
+	float: left;
+}
+
+.airquality-item-num {
+	line-height: 100px;
+	height: 100px;
+	width: 28%;
+}
+
+.airquality-item-level {
+	line-height: 100px;
+	height: 100px;
+	width: 60%;
+	text-align: right;
+	position: relative;
+}
+
+.airquality-item-level span {
+	font-size: 44px;
+	padding-right: 50px;
+}
+
+
+/*.airquality-item-level span:after {
+	content: "";
+	position: absolute;
+	top: 18px;
+	right: 0px;
+	width: 20px;
+	height: 68px;
+	background-color: red;
+	border-radius: 10px;
+}*/
+
+.airquality-item-splitline {}
+
+.airquality-body-item {
+	height: 178px;
+	padding-top: 38px;
+	border-bottom: 2px solid #B6B6B6;
+}
+
+
+/*---各种污染的颜色背景---*/
+
+
+/*优*/
+
+.airquality-you>span:after {
+	content: "";
+	position: absolute;
+	top: 18px;
+	right: 0px;
+	width: 20px;
+	height: 68px;
+	background-color: #00FF00;
+	border-radius: 10px;
+}
+
+
+/*轻度污染*/
+
+.airquality-qingdu>span:after {
+	content: "";
+	position: absolute;
+	top: 18px;
+	right: 0px;
+	width: 20px;
+	height: 68px;
+	background-color: #FEA500;
+	border-radius: 10px;
+}
+
+
+/*中度污染*/
+
+.airquality-zhongdu>span:after {
+	content: "";
+	position: absolute;
+	top: 18px;
+	right: 0px;
+	width: 20px;
+	height: 68px;
+	background-color: #FE0000;
+	border-radius: 10px;
+}
+
+
+/*重度污染*/
+
+.airquality-Height-zhongdu>span:after {
+	content: "";
+	position: absolute;
+	top: 18px;
+	right: 0px;
+	width: 20px;
+	height: 68px;
+	background-color: #81007F;
+	border-radius: 10px;
+}
+
+
+/*-------------位置信息展示结束-------------*/
+
+
+/*-------------污染物展示结束-------------*/
+
+.airquality-main-pollutant {
+	height: 730px;
+	color: #333333;
+	margin-top: 80px;
+	/*background-color: azure;*/
+}
+
+.airquality-pollutant-title {}
+
+.airquality-pollutant-title span {
+	font-size: 38px;
+}
+
+.pollutant-item-left {
+	float: left;
+	width: 45%;
+}
+
+.pollutant-item-right {
+	float: right;
+	width: 45%;
+}
+
+.airquality-pollutant-item {
+	height: 200px;
+	margin-top: 30px
+}
+
+.pollutant-subitem-up {
+	position: relative;
+}
+
+.pollutant-subitem-up span:first-child {
+	font-size: 68px;
+}
+
+.pollutant-subitem-up span:last-child {
+	font-size: 40px;
+	position: absolute;
+	right: 0px;
+	top: 35px;
+}
+
+.pollutant-subitem-middle span:first-child {
+	font-size: 38px;
+}
+
+.pollutant-subitem-middle span:last-child {
+	position: relative;
+	left: 70%;
+	font-size: 25px;
+	color: #999999;
+}
+
+.pollutant-subitem-down {
+	margin-top: 20px;
+}
+
+
+/*-------------污染物展示结束-------------*/
+
+
+/*-------------生活指数展示开始-------------*/
+
+.airquality-foot-lifenum {
+	height: 1200px;
+	color: #333333;
+	margin-top: 100px;
+	/*background-color: gainsboro;*/
+}
+
+.lifenum-body-item {
+	height: 270px;
+	margin-top: 80px;
+	/*background-color: gainsboro;*/
+}
+
+.airquality-foot-lifenum span {
+	font-size: 38px;
+}
+
+.lifenum-item-left,
+.lifenum-item-center,
+.lifenum-item-right {
+	float: left;
+	width: calc(100% / 3);
+	text-align: center;
+}
+
+.lifenum-item-left {
+	/*background-color: sandybrown;*/
+}
+
+.lifenum-item-center {
+	/*background-color: #29A0FC;*/
+}
+
+.lifenum-item-right {
+	/*background-color: greenyellow;*/
+}
+
+.lifenum-item-name span {
+	font-size: 34px;
+}
+
+.lifenum-item-name {
+	padding-top: 20px;
+	color: #999999;
+}
+
+.lifenum-item-ioc {
+	border: 1px solid #949494;
+	border-radius: 50%;
+	width: 140px;
+	height: 140px;
+	margin: 0 auto;
+}
+
+.lifenum-item-ioc img {
+	position: relative;
+	top: 32px;
+}
+
+.lifenum-item-type {
+	margin-top: 10px;
+}
+
+.airquality-lifenum-body {}
+
+
+/*-------------生活指数展示结束-------------*/
+
+
+/*-===============内容结束===============-*/

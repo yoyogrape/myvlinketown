@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>满意度调查</title>
+		<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-mainlinkpage-survey.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/jquery-1.11.3.min.js">
+		</script>
+		<script type="text/javascript" src="../js/url.properties.js">
+		</script>
+	</head>
+
+	<body style="background-color: #ffffff;">
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>满意度调查</span>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+		<div id="mainBox" class="mainlink-suivey-body">
+
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var subpageNews = null;
+		mui.plusReady(function() {
+			//预加载页面mui.preload必须放在plusReady事件中
+			subpageNews = mui.preload({
+				url: 'robot-mainlinksubpage-surveysrobot.html',
+				id: 'robot-mainlinksubpage-surveysrobot'
+			});
+			//			var subpageNews = mui.preload({
+			//				url: 'service-subpage-links-express.html',
+			//				id: 'service-subpage-links-express'
+			//			});
+		})
+
+
+		var suggestion = {
+			init: function() {
+                this.getData();
+			},
+			getData: function() {
+				var $mainBox = $("#mainBox");
+				var param ={
+					condition:{
+						state:0
+					},
+					order:"desc",
+					rowCount:20,
+					sort:"createTime",
+					startRow:0
+				}
+				$.ajax({
+					type: "post",
+					url: URLS.getGreeList,
+					async: true,
+					dataType: "json",
+					contentType:"application/json;charset=utf-8",
+					data:JSON.stringify(param),
+					success: function(data) {
+
+
+						if(data.code == 200) {
+							data = data.data;
+							var str = suggestion.formateHtml(data);
+
+							$mainBox.html(str);
+
+							$mainBox.find(".suivey-item-robot").on("tap", function() {
+								var data = $(this).attr("data-data");
+								if(subpageNews != null) {
+									subpageNews.show("slide-in-right", 300, false);
+									mui.fire(subpageNews, "getData", {
+										data: data
+									});
+								}
+							});
+						}
+
+					}
+				});
+
+			},
+		formateHtml	:function (data) {
+			var str = "";
+			$.each(data, function(index, item) {
+				str += '<div data-data=' + JSON.stringify(item) + ' class="suivey-item-robot">\
+				<div class="suiveyitem-text">\
+					<span>' + item.title + '</span>\
+				</div>\
+				<div class="suiveyitem-img">\
+					<img src="../images/myself-submenu-titleimg3.png" />\
+				</div>\
+			</div>\
+			<div class="suiveyitem-bottomline"></div>';
+			});
+			
+			return str;
+
+		}
+
+		}
+		
+	    window.addEventListener("suggestion",function(){
+
+	    	 suggestion.init();
+	    })
+	</script>
+
+</html>

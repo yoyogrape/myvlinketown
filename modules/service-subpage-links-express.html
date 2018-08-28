@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>快递查询</title>
+		<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/service-subpage-links-express.css" rel="stylesheet" />
+	</head>
+
+	<body style="background-color: #ffffff;">
+		<div class="subpagelinks-express-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>快递查询</span>
+			<div class="express-form">
+				<div class="express-form-company">
+					<img src="../images/express-form-companyimg.png" />
+					<input type="text" name="expCompany" id="expCompany" placeholder="请选择快递公司" readonly="readonly" />
+					<div class="express-company-list" style="display: none;">
+						<div class="express-company-listbg"></div>
+						<ul>
+							<li id="helloword">
+								<img src="../images/express-logo-shunfeng.png" />
+								<span id="shunfeng">顺丰快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-EMS.png" />
+								<span id="ems">EMS</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-shentong.png" />
+								<span id="shentong">申通快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-yuantong.png" />
+								<span id="yuantong">圆通快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-zhongtong.png" />
+								<span id="zhongtong">中通快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-yunda.png" />
+								<span id="yunda">韵达快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-tiantian.png" />
+								<span id="tiantian">天天快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-debang.png" />
+								<span id="debangwuliu">德邦快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-baishihuitong.png" />
+								<span id="huitongkuaidi">汇通快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-quanfengkuaidi.png" />
+								<span id="quanfengkuaidi">全峰快递</span>
+								<div class="express-item-bottomline"></div>
+							</li>
+							<li>
+								<img src="../images/express-logo-zaijisong.png" />
+								<span id="zhaijisong">宅急送</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="form-bottomborder-line"></div>
+				<div class="express-form-ordernum">
+					<img src="../images/express-form-searchimg.png" />
+					<input type="text" name="expOrder" id="expOrder" placeholder="请输入单号" value="" />
+				</div>
+				<img src="../images/express-form-scanimg.png" />
+			</div>
+		</div>
+		<div class="subpagelinks-express-body" id="expressBody">
+			<!--<div class="express-body-item">
+				<div class="express-bodyitem-when">
+					<div class="express-bodyitem-time">
+						<span>09:44</span>
+					</div>
+					<div class="express-bodyitem-date">
+						<span>2018-05-23</span>
+					</div>
+				</div>
+				<div class="express-bodyitem-info">
+					<span>北京主城区公司新东苑服务部 在北京主城区公司新东苑服务部快件已被签收 已签收北京主城区公司新东苑服务部 在北京主城区公司新东苑服务部快件已被签收 已签收北京主城区公司新东苑服务部 在北京主城区公司新东苑服务部快件已被签收 已签收</span>
+				</div>
+			</div>-->
+			<!--<img src="../images/express-form-noexpressimg.png" />-->
+		</div>
+	</body>
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+		mui.plusReady(function() {
+
+		});
+	</script>
+
+	<script>
+		var express = {
+			init: function() {
+					this.createNoExpress();
+				this.bindEvent();
+			},
+			//生成【无快递信息】图片
+			createNoExpress: function() {
+				var noExpressImg = $("#expressBody").empty().append("<img>");
+				$("#expressBody>img").attr("src", "../images/express-form-noexpressimg.png")
+			},
+			//生成列表
+			createExpressItem: function(obj) {
+				//obj:{"time":"2018-06-11 09:55:16","ftime":"2018-06-11 09:55:16","context":"【北京市】 快件已在 【天通苑】 签收,签收人: 本人, 感谢使用中通快递,期待再次为您服务!","location":"天通苑"}
+				var expressWhen = obj.time.split(" ");
+				var fotmatTime = expressWhen[1].split(":");
+				fotmatTime = fotmatTime[0] + ":" + fotmatTime[1];
+
+				var str = '<div class="express-body-item">\
+				<div class="express-bodyitem-when">\
+					<div class="express-bodyitem-time">\
+						<span>' + fotmatTime + '</span>\
+					</div>\
+					<div class="express-bodyitem-date">\
+						<span>' + expressWhen[0] + '</span>\
+					</div>\
+				</div>\
+				<div class="express-bodyitem-info">\
+					<span>' + obj.context + '</span>\
+				</div>\
+			</div>';
+
+				return str;
+			},
+			//http://www.kuaidi100.com/query?type=zhongtong&postid=499415100866
+			//跨域请求快递数据
+			getExpressData: function() { //请求数据
+				var expCompany = $("input[name='expCompany']").attr("id");
+				var expOrder = $("#expOrder").val();
+				if("请输入单号" == expOrder || "expCompany" == expCompany) {
+					return;
+				}
+				mui.ajax({
+					type: "get",
+					url: URLS.express + "?jsoncallback=?",
+					async: true,
+					data: {
+						type: expCompany,
+						postid: parseInt(expOrder)
+					},
+					dataType: "jsonp",
+					jsonp: "jsoncallback",
+					timeout: 6000,
+					success: function(data) {
+						data = JSON.parse(data); //将数据转换成json对象
+						var $expressBody = $("#expressBody").empty();
+						var str = "";
+						$.each(data.data, function(index, item) { //遍历
+							str += express.createExpressItem(item);
+						});
+						$expressBody.html(str); //将拼接好的字符串添加进页面进行渲染
+						//返回数据：{"message":"ok","nu":"499415100866","ischeck":"1","condition":"F00","com":"zhongtong","status":"200","state":"3","data":[{"time":"2018-06-11 09:55:16","ftime":"2018-06-11 09:55:16","context":"【北京市】 快件已在 【天通苑】 签收,签收人: 本人, 感谢使用中通快递,期待再次为您服务!","location":"天通苑"},{"time":"2018-06-11 07:53:39","ftime":"2018-06-11 07:53:39","context":"【北京市】 【天通苑】 的杨亚魁13370112052（13370112052） 正在第1次派件, 请保持电话畅通,并耐心等待","location":"天通苑"},{"time":"2018-06-11 05:58:51","ftime":"2018-06-11 05:58:51","context":"【北京市】 快件到达 【天通苑】","location":"天通苑"},{"time":"2018-06-10 13:22:27","ftime":"2018-06-10 13:22:27","context":"【北京市】 快件离开 【北京】 发往 【天通苑】","location":"北京"},{"time":"2018-06-10 13:03:38","ftime":"2018-06-10 13:03:38","context":"【北京市】 快件到达 【北京】","location":"北京"},{"time":"2018-06-09 04:53:49","ftime":"2018-06-09 04:53:49","context":"【深圳市】 快件离开 【深圳中心】 发往 【北京】","location":"深圳中心"},{"time":"2018-06-09 04:53:02","ftime":"2018-06-09 04:53:02","context":"【深圳市】 快件到达 【深圳中心】","location":"深圳中心"},{"time":"2018-06-09 02:00:03","ftime":"2018-06-09 02:00:03","context":"【深圳市】 快件离开 【深圳布吉】 发往 【北京】","location":"深圳布吉"},{"time":"2018-06-08 15:46:59","ftime":"2018-06-08 15:46:59","context":"【深圳市】 【深圳布吉】（0755-89573600、0755-84033660、0755-84707800） 的 牛先生 （18565650587） 已揽收","location":"深圳布吉"}]}
+					},
+					error: function(xhr, type, errorThrown) {
+						//						plus.nativeUI.toast(errorThrown);
+					}
+				});
+			},
+			bindEvent: function() {
+				//监听软键盘的搜索按钮
+				document.getElementById("expOrder").addEventListener("keypress", function(event) {
+					if(event.keyCode == "13") {
+						document.activeElement.blur(); //收起虚拟键盘
+						$("#expressBody").empty();
+						express.getExpressData();
+					}
+				});
+
+				//选择快递公司
+				mui("input[name='expCompany']")[0].addEventListener("tap", function() {
+					$(".express-company-list").attr("style", "display: block;");
+				});
+
+				mui(".express-company-list").on("tap", ".express-company-list ul li", function() {
+					//获取对应id,然后将id给input的id，ajax请求的时候用
+					var expCompanyId = $(this)[0].children[1].getAttribute('id');
+					$("input[name='expCompany']").attr("id", expCompanyId)
+					var expCompany = $(this)[0].children[1].innerText;
+					$("input[name='expCompany']").val(expCompany);
+					var expLogoSrc = $(this)[0].children[0].getAttribute("src");
+					$(".express-form-company>img").attr("src", expLogoSrc);
+					$(".express-company-list").attr("style", "display: none;");
+				});
+			}
+		}
+
+		//监听事件重新进图页面清空之前的查询记录
+		document.addEventListener("cleanList", function() {
+			$(".express-company-list").attr("style", "display: none;");
+			$("input[name='expCompany']").attr("id", "expCompany");
+			$(".express-form-company>img").attr("src", "../images/express-form-companyimg.png");
+			$("#expCompany").val("请选择快递公司");
+	     	express.init();
+		});
+	</script>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>公交线路详情</title>
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/service-subpage-linksbusline.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!--  --------------标题：显示多少路公交车---------------  -->
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>公交车</span>
+		</div>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+		<!--  -----------------始末站title开始-----------------  -->
+		<div class="busline-main">
+			<div class="busline-body-station">
+				<span>海户屯路</span>
+				<img src="../images/busline-station-img.png" />
+				<span>宽街口南站</span>
+			</div>
+			<div class="busline-body-bustime">
+				<div class="start-bustime">
+					<span>首</span>
+					<span>05:20</span>
+				</div>
+				<div class="end-bustime">
+					<span>末</span>
+					<span>22:20</span>
+				</div>
+			</div>
+			<div class="busline-main-bottomline"></div>
+		</div>
+		<!--  -----------------始末站title结束-----------------  -->
+
+		<!--  -----------------始末站详情开始-----------------  -->
+		<div class="busline-body">
+			<div class="busline-body-item">
+				<div class="item-num">
+					<span>2</span>
+				</div>
+				<div class="item-text">
+					<span>沙子口站</span>
+				</div>
+			</div>
+			<div class="busline-body-item">
+				<div class="item-num">
+					<span>3</span>
+				</div>
+				<div class="item-text">
+					<span>沙子口站</span>
+				</div>
+			</div>
+			<div class="busline-body-item">
+				<div class="item-num">
+					<span>4</span>
+				</div>
+				<div class="item-text">
+					<span>沙子口站</span>
+				</div>
+			</div>
+		</div>
+		<!--  -----------------始末站详情结束-----------------  -->
+	</body>
+	<script type="text/javascript">
+		//添加newId自定义事件监听
+		document.addEventListener('creatBuslineList', function(event) {
+			//获得事件参数
+			var swEntityBody = event.detail.swEntity;
+			creatBusStationHtml(swEntityBody);
+		});
+		//生产页面
+		function creatBusStationHtml(swEntity) {
+			$(".mainlink-suivey-title>span").text(swEntity.Name + "公交车");
+			$(".busline-body-station span:first-child").text(swEntity.startStation);
+			$(".busline-body-station span:last-child").text(swEntity.endStation);
+
+			$(".start-bustime span:last-child").text(swEntity.startTime);
+			$(".end-bustime span:last-child").text(swEntity.endTime);
+			var buslineListHtml = "";
+			for(var i = 0; i < swEntity.Stations.length; i++) {
+				var station = swEntity.Stations[i];
+				var stationHtml = '<div class="busline-body-item"><div class="item-num"><span>' + (i+1) + '</span></div><div class="item-text"><span>' + station.Name + '</span></div></div>';
+				buslineListHtml += stationHtml;
+			}
+
+			$(".busline-body").empty().append(buslineListHtml).append('');
+		}
+	</script>
+
+</html>

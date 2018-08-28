@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style type="text/css">
+			body {
+				background: transparent;
+			}
+			
+			.mui-bar {
+				box-shadow: none;
+				/*border-top: 1px solid red;*/
+				/*box-shadow: 0px -1px 1px #E0E1E5;*/
+			}
+			
+			a .mui-tab-label {
+				color: #888888;
+			}
+			
+			a.mui-active .mui-tab-label {
+				color: #29A0FC;
+			}
+			
+			.mui-tabbar-center {
+				display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				height: 46px;
+				text-align: center;
+				vertical-align: middle;
+			}
+			
+			.mui-tabbar-center img {
+				position: absolute;
+				bottom: 17px;
+				display: block;
+				width: 62px;
+				left: calc((100% - 70px)/2);
+			}
+			
+			#robot-tabtitle {
+				font-size: 11px;
+				position: absolute;
+				left: calc((100% - 60px)/2);
+				bottom: 0px;
+			}
+			
+			.mui-bar-tab {
+				background: transparent;
+				height:46px
+			}
+			
+			.mui-bar-tab .mui-tab-item .mui-icon {
+				top: 8px;
+			}
+			
+			.top-line {
+				background-color: #E0E1E5;
+				width: 100%;
+				height: 1px;
+				position: absolute;
+				bottom: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="top-line"></div>
+		<nav class="mui-bar mui-bar-tab mui-botton-bar">
+			<a class="mui-tab-item " href="modules/home.html">
+				<img class="mui-icon" src="../images/nav-home.png" />
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="modules/information.html">
+				<img class="mui-icon" src="../images/nav-info.png" />
+				<span class="mui-tab-label">资讯</span>
+			</a>
+			<a id="defaultTab" class="mui-tabbar-center mui-active" href="modules/robot.html">
+				<img src="../images/nav-robot-choose.png" />
+				<span class="mui-tab-label" id="robot-tabtitle">机器人大会</span>
+			</a>
+			<a class="mui-tab-item" href="modules/service.html">
+				<img class="mui-icon" src="../images/nav-service.png" />
+				<span class="mui-tab-label">铁岭服务</span>
+			</a>
+			<a class="mui-tab-item" href="modules/myself.html">
+				<img class="mui-icon" src="../images/nav-myself.png" />
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			//mui初始化
+			mui.init();
+			mui.plusReady(function() {
+				// 设置系统状态栏背景色
+				plus.navigator.setStatusBarBackground('#1B82D1');
+			});
+			//选项卡点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				// 获取当前点击的选项
+				var targetTab = this.getAttribute('href');
+				// 获取图标对象
+				var targetIcon = mui(this.children[0])[0];
+				// 初始化
+				mui('.mui-bar-tab .mui-tab-item img').each(function(index, item) {
+					var itemSrc = item.getAttribute('src');
+					if(itemSrc.indexOf('choose')) {
+						item.src = itemSrc.replace('-choose.png', '.png');
+					}
+				});
+				if("modules/robot.html" != targetTab) {
+					// 如果点击的是不是robot将图片改变颜色
+					// 设置当前的图标
+					targetIcon.src = targetIcon.getAttribute('src').replace('.png', '-choose.png');
+					mui("nav a:nth-child(3)")[0].classList.remove("mui-active");
+					
+				} else {
+					//点击robot按钮的时候将tab中的蓝色字体样式去掉
+					document.getElementsByClassName("mui-active")[0].classList.remove("mui-active");
+					mui("nav a:nth-child(3)")[0].classList.add("mui-active");
+				}
+				// 当前选项值传到父webview
+				if(window.plus) {
+					var currWs = plus.webview.currentWebview();
+					// 触发详情页面的targetTab事件
+					mui.fire(currWs.parent(), 'targetTab', {
+						targetTab: targetTab
+					});
+				}
+			});
+
+			// 自定义事件，模拟点击"首页选项卡"（暂时不用）
+			document.addEventListener('gohome', function() {
+				var defaultTab = document.getElementById("defaultTab");
+				// 模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				// 切换选项卡高亮
+				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+				if(defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});
+		</script>
+	</body>
+
+</html>

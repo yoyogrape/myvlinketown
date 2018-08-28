@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>周边</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/home-subpage-editmodules.css" rel="stylesheet" />
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+	</head>
+
+	<body style="background-color: #F5F5F5;">
+		<div style="height: 40px;"></div>
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>周边</span>
+		</div>
+
+		<!-- ---功能区开始--- -->
+		<div class="home-ability-body">
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-park.png" alt="" />
+					<span>停车场</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-chargingpile.png" alt="" />
+					<span>充电桩</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-petrolstation.png" alt="" />
+					<span>加油站</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-publictoilet.png" alt="" />
+					<span>公厕</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-supermarket.png" alt="" />
+					<span>超市</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-food.png" alt="" />
+					<span>美食</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-hotel.png" alt="" />
+					<span>酒店</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+			<div class="home-ability-item">
+				<div class="bility-item-content">
+					<img src="../images/more-hospital.png" alt="" />
+					<span>医院</span>
+				</div>
+				<div class="bility-item-arrows">
+					<img src="../images/more-arrows.png" />
+				</div>
+			</div>
+		</div>
+
+		<!-- ---功能区结束--- -->
+
+	</body>
+
+	<script type="text/javascript ">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+		var subpageAroundMap = null;
+		mui.plusReady(function() {
+			 subpageAroundMap = mui.preload({
+				url: 'robot-subpage-aroundMap.html',
+				id: 'robot-subpage-aroundMap',
+			});
+
+		});
+	
+		var editmodules = {
+			 init:function(){
+
+			 	this.bindEvent();
+			 },
+			 bindEvent:function(){
+			 	
+		mui(".home-ability-body").on("tap", ".home-ability-item", function() {
+			var site_str = $(this).find('span').text();
+
+			
+			if(subpageAroundMap) {
+
+				
+				    subpageAroundMap.show("slide-in-right",300,false);
+					mui.fire(subpageAroundMap, 'initMap', {
+				site_str: site_str
+			});
+			}
+
+		
+
+		
+
+		});
+		
+			 }
+		};
+		window.addEventListener("editmodules",function(){
+			editmodules.init();
+		})
+	</script>
+
+</html>

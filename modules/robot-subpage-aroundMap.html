@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>铁岭周边</title>
+		<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="../css/robot-subpage-around.css" rel="stylesheet" />
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=K1C2i95nP91kQLp3wkIASAGQjMnHvNKu"></script>
+
+		<style type="text/css">
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				font-family: "微软雅黑";
+			}
+			
+			#allmap {
+				width: 100%;
+				height: 100%;
+			}
+			
+			p {
+				margin-left: 5px;
+				font-size: 14px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mainlink-suivey-title">
+			<img src="../images/sub-showannouncement-bluearrows.png" id="btn_goback" />
+			<span>搜周边</span>
+		</div>
+
+		<!--百度地图-->
+		<div id="allmap"></div>
+
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+			//---循环添加marker---
+			//			function addMarker(points) { // 创建图标对象   
+			//
+			//				// 创建标注对象并添加到地图   
+			//				for(var i = 0, pointsLen = points.length; i < pointsLen; i++) {
+			//					var point = new BMap.Point(points[i].lng, points[i].lat);
+			//					var marker = new BMap.Marker(point);
+			//					map.addOverlay(marker);
+			//					//给标注点添加点击事件。使用立即执行函数和闭包
+			//					(function() {
+			//						var thePoint = points[i];
+			//						marker.addEventListener("click", function() {
+			//							showInfo(this, thePoint);
+			//						});
+			//					})();
+			//
+			//				}
+			//
+			//			}
+			var aroundMap = {
+				init: function() {
+                      
+				},
+				createMap: function(place) {
+						// 百度地图API功能
+				var map = new BMap.Map("allmap"); // 创建Map实例
+				var mPoint = new BMap.Point(116.404, 39.915);
+				map.enableScrollWheelZoom();
+				map.centerAndZoom(mPoint, 13);
+				//======定位开始======
+				var geolocation = new BMap.Geolocation();
+				geolocation.getCurrentPosition(function(r) {
+					if(this.getStatus() == BMAP_STATUS_SUCCESS) {
+						var mk = new BMap
+							.Marker(r.point);
+						map.addOverlay(mk);
+						map.panTo(r.point);
+						//alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+
+						//---圆形关键字搜索---开始---
+						var circle = new BMap.Circle(r.point, 3000, {
+							fillColor: "blue",
+							strokeWeight: 1,
+							fillOpacity: 0.1,
+							strokeOpacity: 0.5
+						});
+						map.addOverlay(circle);
+						var local = new BMap.LocalSearch(map, {
+							renderOptions: {
+								map: map,
+								autoViewport: false
+							}
+						});
+						local.searchNearby(place, r.point, 3000);
+						//---圆形关键字搜索---结束---
+
+						//--------sjn----测试开始----
+						//返回查询结果面板中的listArr[i]
+						local.setSearchCompleteCallback(function(results) {
+							//							console.log(results.getPoi(0));
+						});
+						//获取地图上marker的数组信息
+						local.setMarkersSetCallback(function(poi) {
+							//							console.log(poi);
+
+						}); //监听marker点击事件
+						//				marker.addEventListener("click", function() {
+						//					this.openInfoWindow(infoWindow);
+						//				});
+						//--------sjn----测试结束---
+					} else {
+						alert('failed' + this.getStatus());
+					}
+				},{
+					enableHighAccuracy: true
+				}) //======定位结束======
+			 
+			}
+          }
+			window.addEventListener('initMap', function(event) {
+
+				//获得事件参数
+				var site_str = event.detail.site_str;
+				$('.mainlink-suivey-title span').text('附近' + site_str);
+				aroundMap.createMap(site_str);
+
+			});
+		</script>
+
+	</body>
+
+</html>

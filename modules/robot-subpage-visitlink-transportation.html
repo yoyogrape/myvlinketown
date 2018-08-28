@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>交通指南</title>
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=yes" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/robot-subpage-visitlink-transportation.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="btn_goback" style="height: 130px; width: 130px; position: absolute;">
+		</div>
+		<!--<img src="../images/robot-subpage-visitlink-transportationimg.png" />-->
+		<img style="height: 100%;" src="../images/daju.png" />
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		//返回主页
+		mui("#btn_goback")[0].addEventListener("tap", function() {
+			mui.back();
+		});
+	</script>
+
+</html>

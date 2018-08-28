@@ -1,0 +1,242 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+
+/*-- ---头部搜索框开始--- --*/
+
+.homesearch-head-search {
+	width: 100%;
+	height: 146px;
+	position: fixed;
+	top: 0px;
+	z-index: 5;
+	border-bottom: 1px solid #E0E1E5;
+	background-color: #ffffff
+}
+
+.homesearch-head-search>img {
+	display: block;
+	position: absolute;
+	top: 45px;
+	left: 40px;
+}
+
+.homesearch-head-search input {
+	width: 62%;
+	height: 88px;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	top: 29px;
+	padding-left: 104px;
+	border-radius: 10px;
+	border-width: 0;
+	font-size: 2.5rem;
+	font-weight: 500;
+	color: #666666;
+	background-color: #F4F5F7;
+	outline: none;
+}
+.homesearch-head-searchimg {
+	width: 58px;
+	height: 58px;
+	position: absolute;
+	left: 180px;
+	top: 44px;
+	z-index: 1;
+}
+
+.homesearch-head-searchimg img {
+	width: 58px;
+	height: 58px;
+}
+
+.homesearch-head-searchcharacter {
+	font-size: 2.6rem;
+	width: 100px;
+	height: 60px;
+	position: absolute;
+	right: 22px;
+	top: 40px;
+	line-height: 60px;
+	color: #1B82D1;
+}
+
+
+/*-- ---头部搜索框结束--- --*/
+
+
+/*-- ---搜索历史开始--- --*/
+
+.homesearch-sublink-title {
+	width: 100%;
+	height: 120px;
+	position: relative;
+}
+
+.homesearch-sublink-title>span {
+	color: #333333;
+	display: block;
+	width: 160px;
+	height: 53px;
+	position: relative;
+	left: 75px;
+	top: 32px;
+	font-size: 2.28rem;
+}
+
+.homesearch-sublink-title>span:after {
+	position: absolute;
+	content: "";
+	width: 10PX;
+	left: -30PX;
+	top: 8px;
+	background: #29A0FC;
+	height: 40px;
+}
+
+.homesearch-search-history {
+	height: 380px;
+	/*background-color: aquamarine;*/
+}
+
+.main-submenu-bottomborder {
+	background-color: #E0E1E5;
+	width: 96%;
+	height: 1px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	z-index: 2;
+}
+
+.homesearch-searchhistory-subtag {
+	float: left;
+	width: 49.8%;
+	text-align: center;
+	line-height: 130px;
+	font-size: 2.8rem;
+	color: #999999;
+}
+
+.searchhistory-subtagbody {
+	position: relative;
+}
+
+
+/*清除浮动*/
+
+.clranfloat:after {
+	content: "";
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both
+}
+
+.searchhistory-subtag-bottomborder {
+	background-color: #E0E1E5;
+	width: 96%;
+	height: 1px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	z-index: 3;
+	/*float: left;*/
+}
+
+.show-borderright-1px {
+	border-right: 1px solid #E0E1E5;
+}
+
+
+/*-- ---搜索历史结束--- --*/
+
+
+/*-- ---热门搜索开始--- --*/
+
+.homesearch-hotsearch {
+	height: 800px;
+}
+
+.homesearch-hotsearch-title {
+	width: 100%;
+	height: 120px;
+	position: relative;
+}
+
+.homesearch-hotsearch-title>span {
+	color: #333333;
+	display: block;
+	width: 160px;
+	height: 53px;
+	position: relative;
+	left: 75px;
+	top: 32px;
+	font-size: 2.5rem;
+}
+
+.homesearch-hotsearch-title>span:after {
+	position: absolute;
+	content: "";
+	width: 10PX;
+	left: -30PX;
+	top: 8px;
+	background: #29A0FC;
+	height: 40px;
+}
+
+.homesearch-hotsearch-text {
+	width: 100%;
+	height: 120px;
+	position: relative;
+}
+
+.homesearch-hotsearch-text span {
+	color: #333333;
+	display: block;
+	width: 85%;
+	float: left;
+	font-size: 2.6rem;
+	line-height: 120px;
+	left: 73px;
+	position: relative;
+	padding-left: 23px;
+}
+
+.homesearch-hotsearch-text span:first-child {
+	width: 50px;
+	padding-left: 0px;
+	color: #FF6666;
+}
+
+
+/*-- ---热门搜索结束--- --*/

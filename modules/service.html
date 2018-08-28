@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>service</title>
+		<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+
+		<link rel="stylesheet" type="text/css" href="../css/service.css" />
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+	</head>
+
+	<body>
+		<div style="height: 146px;"></div>
+		<div class="service-head-title">
+			<span>铁岭服务</span>
+		</div>
+		<div class="service-main-linksareas">
+			<div class=" service-links-meeting " style="height: 500px;">
+				<div class=" service-sublink-title ">
+					<span>公共服务</span>
+				</div>
+				<div class=" service-sublink-models ">
+					<div class="service-link-submodel" id="btn_weather">
+						<img src="../images/service-links-meteorological.png" />
+						<span>天气服务</span>
+					</div>
+					<div class="service-link-submodel" id="btn_air">
+						<img src="../images/service-links-airquality.png" />
+						<span>空气质量</span>
+					</div>
+					<div class="service-link-submodel" id="btn_express">
+						<img src="../images/service-links-express.png" />
+						<span>快递查询</span>
+					</div>
+					<div class="service-link-submodel" id="btn_park">
+						<img src="../images/service-links-park.png" />
+						<span>停车场查询</span>
+					</div>
+					<div class="service-link-submodel" id="btn_bus">
+						<img src="../images/service-links-bus.png" />
+						<span>公交查询</span>
+					</div>
+					<div class="service-link-submodel" id="btn_subway">
+						<img src="../images/service-links-subway.png" />
+						<span>地铁查询</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-trafficcontrol-hui.png" />
+						<span>尾号限行</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-education.png" />
+						<span>视频</span>
+					</div>
+				</div>
+			</div>
+
+			<div style="width: 100%;height: 30px;"></div>
+			<div class=" service-links-meeting " style="height: 500px;">
+				<div class=" service-sublink-title ">
+					<span>政务指南</span>
+				</div>
+				<div class=" service-sublink-models ">
+					<div class="service-link-submodel">
+						<img src="../images/service-links-education.png" />
+						<span>教育</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-forjob.png" />
+						<span>招聘</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-law.png" />
+						<span>法律顾问</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-exitandentry.png" />
+						<span>出入境查询</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-socialsecurityquery.png" />
+						<span>社保查询</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-MPFenquiries.png" />
+						<span>公积金查询</span>
+					</div>
+					<div class="service-link-submodel">
+						<img src="../images/service-links-workguide.png" />
+						<span>政务办事指南</span>
+					</div>
+				</div>
+			</div>
+			<div style="width: 100%;height: 30px;"></div>
+			<div class=" service-links-meeting ">
+				<div class=" service-sublink-title ">
+					<span>满意度</span>
+				</div>
+				<div class=" service-sublink-models ">
+					<div class="service-link-submodel" id="btn_surveys">
+						<img src="../images/service-links-survey.png" />
+						<span>满意度调查</span>
+					</div>
+				</div>
+			</div>
+			<div style="width: 100%;height: 30px; background-color: #ffffff;"></div>
+		</div>
+
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init(); //初始化mui
+		var subpageSurveys = null;//ok
+		var subpageExpress = null;//ok
+		var subpageBus = null;//ok
+		var subpagePark = null;//ok
+		var subpageSubway = null; //ok
+		var subpageAirquality = null; 
+		var subpageWeather = null;//ok
+		mui.plusReady(function() {
+			//预加载页面mui.preload必须放在plusReady事件中
+			 subpageExpress = mui.preload({
+				url: 'service-subpage-links-express.html',
+				id: 'service-subpage-links-express'
+			});
+			subpageSurveys = mui.preload({
+				url: 'robot-mainlinkpage-surveys.html',
+				id: 'robot-mainlinkpage-surveys',
+			});
+			 subpageBus = mui.preload({
+				url: 'service-subpage-links-bus.html',
+				id: 'service-subpage-links-bus',
+			});
+			 subpagePark = mui.preload({
+				url: 'service-subpage-links-park.html',
+				id: 'service-subpage-links-park',
+			});
+			 subpageSubway = mui.preload({
+				url: 'service-subpage-links-subway.html',
+				id: 'service-subpage-links-subway',
+			});
+			 subpageAirquality = mui.preload({
+				url: 'service-subpage-links-airquality.html',
+				id: 'service-subpage-links-airquality',
+			});
+
+			 subpageWeather = mui.preload({
+				url: 'service-subpage-links-weather.html',
+				id: 'service-subpage-links-weather'
+			});
+		
+			mui("#btn_weather")[0].addEventListener("tap", function() {
+			     if(subpageWeather){
+			       subpageWeather.show("slide-in-right",300,false); 	
+			     	//触发详情页面的newsId事件
+				mui.fire(subpageWeather, 'creatLocalWeather', {
+					id: 101010100
+				});
+
+			
+			     }
+				
+
+			});
+			mui("#btn_air")[0].addEventListener("tap", function() {
+				 if(subpageAirquality){
+				 	subpageAirquality.show("slide-in-right",300,false);
+				 	mui.fire(subpageAirquality,"ariQuality",{})
+				 }
+			});
+
+			mui("#btn_bus")[0].addEventListener("tap", function() {
+				 if(subpageBus){
+				 	subpageBus.show("slide-in-right",300,false);
+				 	mui.fire(subpageBus,"initBusMap",{site_str:"公交"});
+				 }
+			});
+			mui("#btn_park")[0].addEventListener("tap", function() {
+			      if(subpagePark){
+			      	 subpagePark.show("slide-in-right",300,false);
+			      	 mui.fire(subpagePark,"initParkMap",{site_str:"停车场"})
+			      }
+			});
+			mui("#btn_subway")[0].addEventListener("tap", function() {
+			     if(subpageSubway){
+			     	subpageSubway.show("slide-in-right",300,false);
+			     	mui.fire(subpageSubway,"initSubway",{});
+			     }
+			});
+
+			mui("#btn_express")[0].addEventListener("tap", function() {
+					if(subpageExpress){
+						  subpageExpress.show("slide-in-right",300,false);
+							mui.fire(subpageExpress, "cleanList", null);
+			
+					}
+			
+			});
+			mui("#btn_surveys")[0].addEventListener("tap", function() {
+				$.ajax({
+					url: URLS.getLoginUser,
+					type: "get",
+					dataType: "json",
+					async: false,
+					success: function(data) {
+						console.log(JSON.stringify(data));
+						if(data.code != 200) {
+
+							mui.openWindow({
+								id: 'myself-personalcenter-passLogin'
+							});
+
+						} else {
+						   if(subpageSurveys){
+						   	subpageSurveys.show("slide-in-right",300,false);
+						   }
+							mui.fire(subpageSurveys,"suggestion",{});
+						}
+					}
+				});
+
+			});
+		})
+	</script>
+
+</html>

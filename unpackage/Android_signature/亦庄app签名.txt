@@ -1,0 +1,30 @@
+别名: yizhuang
+创建日期: 2018-7-27
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=songjn, OU=com.vlink, O=com.vlink, L=dongcheng, ST=BJ, C=86
+发布者: CN=songjn, OU=com.vlink, O=com.vlink, L=dongcheng, ST=BJ, C=86
+序列号: 53669df3
+有效期开始日期: Fri Jul 27 16:08:28 CST 2018, 截止日期: Sat Apr 29 16:08:28 CST 2073
+证书指纹:
+         MD5: 70:BB:90:ED:B8:1B:15:C9:7C:D5:9D:E6:46:2F:4B:CE
+         SHA1: 82:78:B4:D0:78:B1:0D:63:A7:56:CB:C8:4A:6C:59:5B:54:4D:10:84
+         SHA256: AA:83:4A:56:C5:9E:2B:38:F5:AE:26:12:F0:AB:D7:AE:01:94:8C:55:4D:DC:7C:8E:1E:96:26:3B:10:9A:B4:B2
+         签名算法名称: SHA256withRSA
+         版本: 3
+
+扩展:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: FD 06 99 4E 7F 7A AB BD   24 3F 34 98 A7 B1 AA 89  ...N.z..$?4.....
+0010: E6 CB 8E 3F                                        ...?
+]
+]
+
+
+
+*******************************************
+*******************************************

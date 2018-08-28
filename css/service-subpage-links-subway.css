@@ -1,0 +1,100 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	height: 100%;
+	width: 100%;
+	font-family: "PingFang-SC-Bold";
+}
+
+
+.mainlink-suivey-title {
+	width: 100%;
+	height: 40px;
+	background-color: #1B82D1;
+	color: #ffffff;
+	position: fixed;
+	top: 0px;
+	z-index: 99999;
+}
+
+.mainlink-suivey-title img {
+	position: absolute;
+	left: 14px;
+	top: 6px;
+	width: 28px;
+}
+
+.mainlink-suivey-title span {
+	display: block;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+/*-- ------标题开始------ --*/
+
+.myresquest-body-title {
+	width: 100%;
+	height: 60px;
+	/*background-color: #FFFCF4;*/
+}
+
+.myresquest-body-title span {
+	font-size: 20px;
+	color: #333333;
+}
+
+.title-left,
+.title-center,
+.title-right {
+	float: left;
+	width: calc(100%/3);
+	line-height: 60px;
+	text-align: center;
+	height: 60px;
+	position: relative;
+}
+
+.title-bluebur:after {
+	content: "";
+	background-color: #1B82D1;
+	position: absolute;
+	left: calc((100% - 120px)/2);
+	width: 120px;
+	height: 4px;
+	top: 57px;
+	border-radius: 5px;
+}
+
+.body-title-bottomline {
+	width: 100%;
+	height: 1px;
+	background-color: #E0E1E5;
+}
+
+
+/*-- ------标题结束------ --*/

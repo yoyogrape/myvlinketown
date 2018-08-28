@@ -1,0 +1,210 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+.mainlink-suivey-title {
+	width: 100%;
+	height: 146px;
+	background-color: #1B82D1;
+	color: #ffffff;
+}
+
+.mainlink-suivey-title img {
+	position: absolute;
+	left: 40px;
+	top: 40px;
+}
+
+.mainlink-suivey-title span {
+	display: block;
+	text-align: center;
+	line-height: 146px;
+	font-size: 3rem;
+}
+
+
+/*-----------------始末站title开始-----------------*/
+
+.busline-main {
+	width: 90%;
+	height: 225px;
+	margin: 0 auto;
+	/*background-color: azure;*/
+	position: relative;
+}
+
+.busline-body-station {
+	padding-top: 36px;
+}
+
+.busline-body-station span {
+	font-size: 38px;
+	color: #333333;
+}
+
+.busline-body-station img {
+	position: relative;
+	top: 8px;
+	padding: 0 20px;
+}
+
+.start-bustime-ioc {}
+
+.start-bustime,
+.end-bustime {
+	float: left;
+	width: 160px;
+	height: 60px;
+}
+
+.start-bustime span:first-child {
+	font-size: 30px;
+	color: #14D914;
+	border: 1px solid #14D914;
+	border-radius: 50%;
+	width: 48px;
+	height: 48px;
+	display: block;
+	text-align: center;
+	line-height: 46px;
+}
+
+.start-bustime span:last-child,
+.end-bustime span:last-child {
+	font-size: 32px;
+	color: #999999;
+	position: relative;
+	left: 60px;
+	top: -46px;
+}
+
+.end-bustime span:first-child {
+	font-size: 30px;
+	color: #E51616;
+	border: 1px solid #E51616;
+	border-radius: 50%;
+	width: 48px;
+	height: 48px;
+	display: block;
+	text-align: center;
+	line-height: 46px;
+}
+
+.start-bustime span:last-child {}
+
+.busline-body-bustime {
+	height: 60px;
+	padding-top: 40px;
+}
+
+.end-bustime {
+	margin-left: 60px;
+}
+
+.busline-main-bottomline {
+	width: 115%;
+	height: 5px;
+	background-color: #ffffff;
+	position: absolute;
+	bottom: 0px;
+	left: -9%;
+	box-shadow: 0px 5px 5px #999999;
+}
+
+
+/*-----------------始末站title结束-----------------*/
+
+
+/*-----------------始末站详情开始-----------------*/
+
+.busline-body {
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 100px;
+}
+
+.busline-body-item {
+	height: 72px;
+	margin-top: 80px;
+	position: relative;
+}
+
+.item-num {
+	width: 60px;
+	height: 60px;
+	border: 6px solid #1B82D1;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.item-num span {
+	font-size: 36px;
+	line-height: 62px;
+	color: #333333;
+	;
+}
+
+.item-num:after {
+	content: "";
+	position: absolute;
+	left: 34px;
+	top: -84px;
+	width: 4px;
+	height: 88px;
+	background-color: #1B82D1;
+}
+
+.item-text {
+	color: #333333;
+	position: relative;
+	left: 110px;
+	top: -60px;
+	width: 80%;
+}
+
+.item-text span {
+	font-size: 36px;
+}
+
+.busline-body .busline-body-item:first-child {
+	margin-top: 60px;
+}
+
+.busline-body .busline-body-item:first-child .item-num:after {
+	content: "";
+	position: absolute;
+	left: 34px;
+	top: -59px;
+	width: 4px;
+	height: 62px;
+	background-color: #1B82D1;
+}
+
+
+/*-----------------始末站详情结束-----------------*/

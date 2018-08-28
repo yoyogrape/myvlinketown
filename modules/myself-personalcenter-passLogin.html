@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/myself-personalcenter-login.css" rel="stylesheet" />
+
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+	</head>
+
+	<body>
+		<div style="height: 40px;"></div>
+		<div class="mainlink-suivey-title">
+			<div style="height: 40px; width: 80px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>登录</span>
+		</div>
+
+		<div class="center">
+			<!--头部图片开始-->
+			<div class="center-headimg">
+				<img src="../images/vlink-yizhuangLOGO.png" />
+			</div>
+			<!--form表单-->
+			<div class="center-form">
+				<div class="center-form-input">
+					<img src="../images/myself-login-username.png" />
+					<input type="text" name="userName" placeholder="请输入用户名" />
+				</div>
+				<div class="center-form-input">
+					<img src="../images/myself-login-password.png" />
+					<input type="password" name="password" placeholder="请输入密码" />
+				</div>
+				<div class="center-form-link">
+					<div class="link-left" id="quickLogin">
+						<span>快速登录</span>
+					</div>
+					<div class="link-center">
+					</div>
+					<div class="link-right" id="forgetPassword">
+						<span>忘记密码</span>
+					</div>
+				</div>
+			</div>
+			<!--登录按钮-->
+			<div class="center-button">
+				<div class="btn-login" id="btn">
+					<span>登录</span>
+				</div>
+				<div class="btn-register" id="newUser">
+					<span>注册</span>
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var quickPage = null;
+		mui.init(); //初始化mui
+          var curWebView = null;
+		mui.plusReady(function() {
+			var self  =curWebView= plus.webview.currentWebview();
+
+			
+
+	        	window.addEventListener("toast",function(event){
+	        		  plus.nativeUI.toast(event.detail.message,{
+	        		  	verticalAlign:"top"
+	        		  });
+	        	})
+			var quickLogin = mui.preload({
+				url: "myself-personalcenter-quickLogin.html",
+				id: "myself-personalcenter-quickLogin"
+			});
+
+			var quickLogin = mui.preload({
+				url: "myself-personalcenter-forgetPassword.html",
+				id: "myself-personalcenter-forgetPassword"
+			});
+
+			var nreRegister = mui.preload({
+				url: "myself-personalcenter-refister2.html",
+				id: "myself-personalcenter-refister2"
+			});
+			mui("#quickLogin")[0].addEventListener("tap", function() {
+				setTimeout(function() {
+					self.hide("none"); //隐藏当前页面
+				}, 300)
+
+				mui.openWindow({
+					id: 'myself-personalcenter-quickLogin'
+				});
+			});
+			mui("#forgetPassword")[0].addEventListener("tap", function() {
+
+				mui.openWindow({
+					id: 'myself-personalcenter-forgetPassword'
+				});
+			});
+			mui("#newUser")[0].addEventListener("tap", function() {
+				setTimeout(function() {
+					self.hide("none"); //隐藏当前页面
+				}, 300)
+
+				mui.openWindow({
+					id: 'myself-personalcenter-refister2'
+				});
+			});
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+
+			var flag = true;
+
+			/*登录按钮*/
+
+			$("#btn")[0].addEventListener("tap", function() {
+
+				if(flag) {
+					var username = $("input[name='userName']").val();
+					var password = $("input[name='password']").val();
+
+					if(username.length == 0) {
+
+						mui.fire(curWebView,"toast",{
+							message:"请输入用户名!"
+						})
+						return;
+					}
+					if(password.length == 0) {
+				
+						
+						mui.fire(curWebView,"toast",{
+							message:"请输入密码!"
+						})
+						return;
+					}
+
+					$.ajax({
+						type: "post",
+						url: URLS.login,
+						contentType: "application/x-www-form-urlencoded",
+						dataType: "json",
+						data: {
+							userName: username,
+							password: password
+						},
+						success: function(data) {
+							if(data.code == 200) {
+								
+								mui.fire(curWebView,"toast",{
+							message:data.data
+						})
+
+								mui.back();
+								var cur = plus.webview.getWebviewById("modules/myself.html");
+
+								mui.fire(cur, "getLogin", null);
+
+							} else {
+									
+								mui.fire(curWebView,"toast",{
+							message:data.data
+						})
+							}
+							flag = true;
+						},
+						async: true,
+						error: function(xhr) {
+		
+								mui.fire(curWebView,"toast",{
+							message:"网络连接失败!"
+						})
+							flag = true;
+						}
+					});
+
+					flag = false;
+
+				}
+
+			});
+
+			window.addEventListener("back", function() {
+				mui.back();
+			})
+
+		})
+	</script>
+
+</html>

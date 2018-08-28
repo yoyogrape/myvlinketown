@@ -1,0 +1,311 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+.mainlink-trouble-title {
+	width: 100%;
+	height: 110px;
+	background-color: #1B82D1;
+	color: #ffffff;
+}
+
+.mainlink-trouble-title img {
+	position: absolute;
+	left: 40px;
+	top: 24px;
+}
+
+.mainlink-trouble-title span {
+	display: block;
+	text-align: center;
+	line-height: 110px;
+	font-size: 3rem;
+}
+
+.mainlink-trouble-body {
+	/*height: 1700px;*/
+}
+
+
+/*-- ------报障标题开始------ --*/
+
+.trouble-body-title {
+	width: 100%;
+	height: 120px;
+	/*background-color: #FFFCF4;*/
+}
+
+.trouble-body-title span {
+	font-size: 40px;
+	color: #333333;
+}
+
+.title-left-submit,
+.title-right-look {
+	float: left;
+	width: 50%;
+	line-height: 120px;
+	text-align: center;
+	height: 120px;
+	position: relative;
+}
+
+.title-bluebur:after {
+	content: "";
+	background-color: #1B82D1;
+	position: absolute;
+	left: calc((100% - 350px)/2);
+	width: 350px;
+	height: 7px;
+	top: 113px;
+	border-radius: 5px;
+}
+
+.body-title-bottomline {
+	width: 100%;
+	height: 1px;
+	background-color: #E0E1E5;
+}
+
+
+/*-- ------报障标题结束------ --*/
+
+
+/*-- ------报障表单开始------ --*/
+
+.trouble-body-form table {
+	width: 92%;
+	margin: 0 auto;
+	margin-bottom: 200px;
+	margin-top: 80px;
+	position: relative;
+}
+
+tr td:nth-child(1) {
+	/*background-color: goldenrod;*/
+	width: 180px;
+}
+
+td>span {
+	color: #333333;
+}
+
+table tr:nth-child(1),
+table tr:nth-child(3),
+table tr:nth-child(5) {
+	height: 100px;
+}
+
+table span {
+	font-size: 36px;
+}
+
+table input {
+	height: 78px;
+	font-size: 36px;
+	width: 93%;
+	background-color: #F7F7F7;
+	border: 2px solid #BFBFBF;
+	border-radius: 5px;
+	padding-left: 40px;
+	color: #666666;
+	outline: none;
+	line-height: 78px;
+}
+
+table textarea {
+	height: 300px;
+	font-size: 36px;
+	width: 93%;
+	background-color: #F7F7F7;
+	border: 2px solid #BFBFBF;
+	border-radius: 5px;
+	padding-left: 40px;
+	color: #666666;
+	outline: none;
+	resize: none;
+}
+
+table tr:nth-child(1) span {
+	position: relative;
+	top: -6px;
+}
+
+table tr:nth-child(3) span {
+	position: relative;
+	top: -6px;
+}
+
+table tr:nth-child(5) span {
+	position: relative;
+	top: -6px;
+}
+
+table tr:nth-child(7) span {
+	position: relative;
+	top: -118px;
+}
+
+.trouble-type-list {
+	/*background-color: azure;*/
+	width: 50%;
+	position: absolute;
+	left: 300px;
+	z-index: 5;
+	top: 339px;
+	color: #666666;
+	left: 226px;
+}
+
+.trouble-type-list ul li {
+	list-style-type: none;
+	height: 80px;
+	border-bottom: 1px solid #999999;
+	/*background-color: darkgray;*/
+}
+
+.trouble-type-list ul {
+	border: 1px solid #999999;
+	border-radius: 5px;
+	background-color: #ffffff;
+}
+
+.trouble-body-form {
+	position: relative;
+}
+
+.trouble-type-list ul li span {
+	font-size: 38px;
+	line-height: 80px;
+	padding-left: 46px;
+}
+
+.trouble-type-list ul li:last-child {
+	border-bottom: 0px;
+}
+
+
+/*-- ------报障表单结束------ --*/
+
+
+/*-- ------提交按钮开始------ --*/
+
+.trouble-body-submit {
+	width: 90%;
+	height: 110px;
+	background-color: #1B82D1;
+	text-align: center;
+	line-height: 110px;
+	border-radius: 10px;
+	margin: 0 auto;
+	position: relative;
+    bottom: 100px;
+}
+
+.trouble-body-submit span {
+	font-size: ;
+	color: #ffffff;
+	font-size: 40px
+}
+
+
+/*-- ------提交按钮结束------ --*/
+
+
+/*-- ------报障具体内容开始------ --*/
+
+.looktrouble-item {
+	width: 90%;
+	height: 240px;
+	margin: 0 auto;
+	/*background-color: #F0F0F0;*/
+}
+
+.looktrouble-item span {
+	font-size: 36px;
+}
+
+.item-text-contect {
+	overflow: hidden;
+	white-space: nowrap; //使其不换行
+	text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	width: 700px;
+	position: relative;
+	font-size: 40px;
+}
+
+.item-text-contect span {
+	color: #333333;
+}
+
+.item-text-time span {
+	color: #999999;
+}
+
+.looktrouble-item-text,
+.looktrouble-item-state {
+	float: left;
+}
+
+.looktrouble-item-text {
+	width: 80%;
+}
+
+.looktrouble-item-state {
+	width: 20%;
+}
+
+.item-bottomline {
+	width: 90%;
+	height: 1px;
+	background-color: #E0E1E5;
+	margin: 0 auto;
+}
+#wifiHelp {
+	    height: 80px;
+    line-height: 80px;
+    font-size: 28px;
+    text-decoration: underline;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: gray;
+    justify-content: center;
+    position: relative;
+    bottom: 50px;
+}
+#wifiHelp span {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: url(../images/wifiHelpImg/wifiHelp.png) no-repeat center center;
+	background-size: contain;
+}
+/*-- ------报障具体内容结束------ --*/

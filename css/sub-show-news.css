@@ -1,0 +1,35 @@
+.news-main,
+.news-body {
+	width: 90%;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
+.news-body {
+	text-align: justify;
+}
+
+.news-body span {
+	font-size: 48px;
+	line-height: 70px;
+}
+
+.news-title {
+	color: #333333;
+	text-align: left;
+}
+
+.news-title span {
+	font-size: 54px;
+	line-height: 68px;
+}
+
+.news-time {
+	color: #999999;
+	text-align: left;
+	padding-top: 20px;
+}
+
+.news-time span {
+	font-size: 38px;
+}

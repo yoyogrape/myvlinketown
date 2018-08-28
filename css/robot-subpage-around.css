@@ -1,0 +1,84 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+.mainlink-suivey-title {
+	width: 100%;
+	height: 40px;
+	background-color: #1B82D1;
+	color: #ffffff;
+}
+
+.mainlink-suivey-title img {
+	position: absolute;
+	left: 16px;
+	top: 6px;
+	width: 26px;
+}
+
+.mainlink-suivey-title span {
+	display: block;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+.around-site-item {
+	width: 25%;
+	float: left;
+	text-align: center;
+	/*background-color: azure;*/
+}
+
+.clean:after {
+	content: "";
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both
+}
+
+.around-site-body {
+	margin-top: 10px;
+}
+
+.site-neme {
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+.site-img img{
+	width: 50px;
+}
+
+.site-neme span{
+	font-size: 14px;
+	color: #333333;
+}

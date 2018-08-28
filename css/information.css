@@ -1,0 +1,279 @@
+/* 整体默认格式的解除 */
+
+body,
+div,
+iframe,
+ul,
+ol,
+dl,
+dt,
+dd,
+li,
+dl,
+i,
+h1,
+h2,
+h3,
+h4,
+table,
+th,
+td,
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "PingFang-SC-Bold";
+}
+
+
+/*-- ---头部搜索框开始--- --*/
+
+.info-head-search {
+	width: 100%;
+	height: 146px;
+	background-color: #1B82D1;
+	position: fixed;
+	top: 0px;
+	z-index: 2;
+}
+
+.info-head-search input {
+	width: 82%;
+	height: 88px;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	top: 29px;
+	padding-left: 104px;
+	border-radius: 10px;
+	border-width: 0;
+	font-size: 2.5rem;
+	font-weight: 500;
+	color: #666666;
+	outline: none
+}
+
+.info-head-searchimg {
+	width: 58px;
+	height: 58px;
+	position: absolute;
+	left: 70px;
+	top: 44px;
+	z-index: 1;
+}
+
+.info-head-searchimg img {
+	width: 58px;
+	height: 58px;
+}
+
+
+/*-- ---头部搜索框结束--- --*/
+
+
+/*-- ---头部标题开始--- --*/
+
+
+/*-- ---头部标题结束--- --*/
+
+
+/*-- ---滚动导航开始--- --*/
+
+
+/*导航部分*/
+
+#nav {
+	border-bottom: 1px solid #ebebeb;
+}
+
+#nav .swiper-wrapper {
+	color: #666666;
+}
+
+#nav .swiper-slide span {
+	margin: 0 5px;
+	text-align: center;
+	display: block;
+	line-height: 2.5;
+	font-size: 14px;
+}
+
+#nav .bar {
+	width: 50px;
+	height: 3px;
+	position: absolute;
+	bottom: 0px;
+}
+
+#nav .bar .color {
+	width: 36px;
+	margin: 0 auto;
+	height: 3px;
+	background: #ff4891;
+}
+
+#info-nav-noties {
+	position: fixed;
+	top: 110px;
+	background-color: #ffffff;
+	z-index: 2;
+	width: 100%;
+}
+
+#info-nav-noties>div {
+	height: 115px;
+	/*	background-color: #04CC93;*/
+}
+
+#nav .swiper-slide span {
+	font-size: 40px;
+}
+
+.select-slide {
+	color: rgba(27, 130, 209, 1);
+}
+
+
+/*
+#nav .bar {
+	height: 5px;
+}
+
+#nav .bar .color {
+	width: 70px;
+	margin: 0 auto;
+	height: 5px;
+	background: #1B82D1;
+}*/
+
+
+/*汉堡菜单*/
+
+.info-navnoties-hamburgermenu {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 5;
+	width: 134px;
+	height: 120px;
+	/* Safari 5.1 - 6.0 */
+}
+
+.info-navnoties-hamburgermenu img {
+	display: block;
+	position: relative;
+	top: 24px;
+	left: -30px;
+}
+
+.navnoties-hamburgermenu-left,
+.navnoties-hamburgermenu-right {
+	float: left;
+	width: 50%;
+	height: 115px;
+	background-color: white;
+}
+
+.navnoties-hamburgermenu-left {
+	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+.info-subpage-banner {
+	position:relative;
+	width: 100%;
+	height: auto;
+	
+}
+.info-subpage-banner img {
+	width: 100%;
+	height: auto;
+}.info-subpage-banner .stickTitle{
+	position: absolute;
+	width: 100%;
+	height: auto;
+	max-height: 40%;
+	background: rgba(0,0,0,0.3);
+	color: #fff;
+	bottom: 10px;
+	font-size: 61px;
+    line-height: 61px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+/*关联页面部分*/
+
+
+/*.scroll-news-body {
+	width: 100%;
+	height: 325px;
+	border-bottom: 1px solid #E0E1E5;
+}
+
+.news-body-img,
+.news-body-text {
+	float: left;
+}
+
+.news-body-img {
+	position: relative;
+	left: 3.2%;
+	top: 58px;
+}
+
+.news-body-img img {
+	width: 320px;
+	height: 212px;
+}
+
+.news-body-text {
+	width: 60%;
+	height: 212px;
+	position: relative;
+	top: 58px;
+	left: 5%;
+	color: #555555;
+}
+
+.news-body-text .news-time {
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+	font-size: 2.3rem;
+	color: #999999;
+}
+
+.news-body-text .news-eye {
+	position: absolute;
+	right: 30px;
+	bottom: 5px;
+	font-size: 2.3rem;
+	color: #999999;
+}
+
+.news-body-text .news-eye img {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	top: 13px;
+	left: -3px;
+}
+
+.news-body-text>span {
+	line-height: 56px;
+	font-size: 2.5rem;
+}*/
+
+
+/*-- ---滚动导航结束--- --*/
+
+
+/*-- ---今日要闻开始--- --*/
+
+
+/*-- ---今日要闻结束--- --*/

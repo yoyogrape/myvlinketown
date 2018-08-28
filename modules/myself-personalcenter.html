@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/myself-personalcenter-login.css" rel="stylesheet" />
+
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/url.properties.js"></script>
+	</head>
+
+	<body>
+		<div style="height: 40px;"></div>
+		<div class="mainlink-suivey-title">
+			<div style="height: 40px; width: 80px; position: absolute;" id="btn_goback">
+				<img src="../images/sub-showannouncement-bluearrows.png" />
+			</div>
+			<span>个人中心</span>
+		</div>
+
+		<div class="center">
+			<!--头部图片开始-->
+			<div class="center-headimg">
+				<img src="../images/vlink-yizhuangLOGO.png" />
+			</div>
+			<!--form表单-->
+			<div class="center-form">
+				<div class="center-form-input">
+					<img src="../images/myself-login-username.png" />
+					<input type="text" name="userName" placeholder="请输入用户名" />
+				</div>
+				<div class="center-form-input">
+					<img src="../images/myself-login-password.png" />
+					<input type="password" name="password" placeholder="请输入密码" />
+				</div>
+				<!--<div class="center-form-link">
+					<div class="link-left" id="quickLogin">
+						<span>快速登录</span>
+					</div>
+					<div class="link-center">
+					</div>
+					<div class="link-right" id="forgetPassword">
+						<span>忘记密码</span>
+					</div>
+				</div>-->
+			</div>
+			<!--登录按钮-->
+			<div class="center-button">
+				<div class="btn-login" id="btn">
+					<span>修改密码</span>
+				</div>
+				<div class="btn-login" id="loginOut">
+					<span>退出登录</span>
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var phone = null;
+		mui.init(); //初始化mui
+         var curWebView = null;
+		mui.plusReady(function() {
+			var self =curWebView = plus.webview.currentWebview();
+			window.addEventListener("toast",function(event){
+	        		  plus.nativeUI.toast(event.detail.message,{
+	        		  	verticalAlign:"top"
+	        		  });
+	        	})
+
+			var updatePage = mui.preload({
+				url: "myself-personalcenter-updatePassword.html",
+				id: "myself-personalcenter-updatePassword"
+			});
+
+			//返回主页
+			mui("#btn_goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+
+			/*登录按钮*/
+
+			$("#btn")[0].addEventListener("tap", function() {
+
+				if(updatePage) {
+					mui.fire(updatePage, 'update', { //触发事件
+						phone: phone
+					});
+					updatePage.show('slide-in-right', 300); //显示详情页
+
+				}
+
+			});
+
+			$("#loginOut")[0].addEventListener("tap", function() {
+
+				mui.alert("退出登录?", "退出", "确定", function() {
+					$.ajax({
+						type: "get",
+						url: URLS.logOut,
+						async: false,
+						success: function(data) {
+							if(data.code == 200) {
+
+								mui.fire(curWebView,"toast",{
+									message:"退出成功!"
+								})
+								var cur = plus.webview.getWebviewById("modules/myself.html");
+
+								mui.fire(cur, "getLogin", null);
+								mui.back();
+							} else {
+
+								mui.fire(curWebView,"toast",{
+									message:data.data
+								})
+							}
+						}
+					});
+
+				})
+
+			});
+
+		})
+
+		$.ajax({
+			url: URLS.getLoginUser,
+			type: "get",
+			dataType: "json",
+			async: false,
+			success: function(data) {
+
+				if(data.data) {
+					//console.log(JSON.stringify(data))
+					data = data.data;
+					phone = data["account"];
+					$("input[name='userName']").val(data["account"]);
+					$("input[name='password']").val(data["password"]);
+				}
+			}
+		});
+	</script>
+
+</html>

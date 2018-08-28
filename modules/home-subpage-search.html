@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>home的搜索页面</title>
+			<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+			<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/home-subpage-search.css" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+	</head>
+
+	<body>
+		<!-- ---头部搜索框开始--- -->
+		<!--站位div-->
+		<div style="width: 100%;height: 146px;"></div>
+		<div class="homesearch-head-search">
+			<img src="../images/homesearch-head-leftarrows.png" id="goback" />
+			<div class="homesearch-head-searchimg">
+				<img src="../images/info-head-graysearch.png" />
+			</div>
+			<input type="text" id="homesearch-search" value="请输入关键字" />
+			<div class="homesearch-head-searchcharacter">
+				<span>搜索</span>
+			</div>
+		</div>
+		<div style="height: 30px; background-color: #F5F5F5;"></div>
+
+		<script type="text/javascript">
+			mui.init(); //初始化mui
+			//返回主页
+			mui("#goback")[0].addEventListener("tap", function() {
+				mui.back();
+			});
+
+			$("#homesearch-search").focus(function() {
+				if($("#homesearch-search").val() == '请输入关键字') {
+					$(this).val("");
+				}
+			});
+			$("#homesearch-search").blur(function() {
+				if($("#homesearch-search").val() == '') {
+					$(this).val("请输入关键字");
+				}
+			});
+		</script>
+		<!-- ---头部搜索框结束--- -->
+
+		<!-- ---搜索历史开始--- -->
+		<div class="homesearch-search-history">
+			<div class=" homesearch-sublink-title">
+				<span>搜索历史</span>
+				<div class="main-submenu-bottomborder"></div>
+			</div>
+			<div class="searchhistory-subtagbody clranfloat">
+				<div class="homesearch-searchhistory-subtag show-borderright-1px">
+					<span>新闻</span>
+				</div>
+				<div class="homesearch-searchhistory-subtag">
+					<span>天气</span>
+				</div>
+				<div class="searchhistory-subtag-bottomborder"></div>
+			</div>
+			<div class="searchhistory-subtagbody clranfloat">
+				<div class="homesearch-searchhistory-subtag show-borderright-1px">
+					<span>星座</span>
+				</div>
+				<div class="homesearch-searchhistory-subtag">
+					<span>舌尖</span>
+				</div>
+				<div class="searchhistory-subtag-bottomborder"></div>
+			</div>
+		</div>
+		<div style="height: 30px; background-color: #F5F5F5;"></div>
+		<!-- ---搜索历史结束--- -->
+
+		<!-- ---热门搜索开始--- -->
+		<div class="homesearch-hotsearch">
+			<div class="homesearch-hotsearch-title">
+				<span>热门搜索</span>
+				<div class="main-submenu-bottomborder"></div>
+			</div>
+			<div class="homesearch-hotsearch-text">
+				<span>1.</span><span>红海行动</span>
+				<div class="main-submenu-bottomborder"></div>
+			</div>
+			<div class="homesearch-hotsearch-text">
+				<span style="color: #FBAF4F;">2.</span><span>舌尖</span>
+				<div class="main-submenu-bottomborder"></div>
+			</div>
+			<div class="homesearch-hotsearch-text">
+				<span style="color: #FFD000;">3.</span><span>星座匹配</span>
+				<div class="main-submenu-bottomborder"></div>
+			</div>
+		</div>
+
+		<!-- ---热门搜索结束--- -->
+
+	</body>
+
+</html>

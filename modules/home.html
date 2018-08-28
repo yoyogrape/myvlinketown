@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=0.4,minimum-scale=0.4,maximum-scale=0.4,user-scalable=no" />
+
+		<title>home</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/public-news-list.css" rel="stylesheet" />
+		<link href="../css/public-title-header.css" rel="stylesheet" />
+		<link href="../css/home.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/grape.tools.js"></script>
+		<script src="../js/url.properties.js"></script>
+		<style type="text/css">
+			.mui-pull-bottom-pocket {
+				position: relative;
+				bottom: 0;
+				height: 140px;
+				/*background-color: azure;*/
+			}
+			
+			.mui-pull-caption {
+				font-size: 30px;
+			}
+			
+			.mui-pull {
+				bottom: 70px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- ---头部标题开始--- -->
+		<div style="width: 100%;height: 110px;"></div>
+		<div class="home-head">
+			<div class="home-head-title">
+				<span>无限铁岭</span>
+			</div>
+			<!--<div class="home-head-search">
+				<img src="../images/home-head-search.png" />
+			</div>-->
+		</div>
+
+
+		<!-- ---头部标题结束--- -->
+
+		<!-- ---轮播图开始--- -->
+		<div  class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!--支持循环，需要重复图片节点-->
+				<!--<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="../images/banner4.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner1.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner2.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner3.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../images/banner4.jpg" /></a>
+				</div>
+				<!--支持循环，需要重复图片节点-
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="../images/banner1.jpg" /></a>
+				</div>-->
+			</div>
+		</div>
+		<script type="text/javascript">
+		</script>
+		<!-- ---轮播图结束--- -->
+
+		<div class="home-height" style="height: 20px; background-color: #E0E1E5;"></div>
+
+		<!-- ---功能区开始--- -->
+
+		<div class="home-ability">
+			<div class="home-ability-body">
+				<table>
+					<tr>
+						<td>
+							<div id="btn_weather">
+								<div class="ability-body-img">
+									<img src="../images/service-links-meteorological.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>天气服务</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div id="btn_air">
+								<div class="ability-body-img">
+									<img src="../images/service-links-airquality.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>空气质量</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div id="btn_express">
+								<div class="ability-body-img">
+									<img src="../images/service-links-express.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>快递查询</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div id="btn_subway">
+								<div class="ability-body-img">
+									<img src="../images/service-links-subway.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>地铁查询</span>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="btn_bus">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-bus.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>公交查询</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="ability-body-img">
+								<img src="../images/service-links-trafficcontrol-hui.png" />
+							</div>
+							<div class="ability-body-text">
+								<span>尾号限行</span>
+							</div>
+						</td>
+						<td>
+							<div id="btn_park">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-park.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>公共停车场</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div id="btn_more">
+								<div class="ability-body-img">
+									<img src="../images/robot-linkimg-more.png" />
+								</div>
+								<div class="ability-body-text">
+									<span>周边</span>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- ---功能区结束--- -->
+
+		<div class="home-height" style="height: 20px; background-color: #E0E1E5;"></div>
+
+		<!-- ---今日要闻开始--- -->
+
+		<!-- ---今日要闻开始--- -->
+		<!--上拉加载容器-->
+		<div class="home-scroll-news">
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view mui-table-view-chevron" id="list">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="home-scroll-news">
+			<div class="scroll-news-title">
+				<span>今日要闻</span>
+			</div>
+			<div class="scroll-news-item" id="">
+				<div class="scroll-news-body">
+					<div class="news-body-img">
+						<img src="../images/home-news1.png" />
+					</div>
+					<div class="news-body-text">
+						<span>春运即</span>
+						<div class="date-eyeBox">
+							<div class="news-time">
+								2018-01-31
+							</div>
+							<div class="news-eye">
+								10
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--无图片新闻
+			<div class="scroll-news-item auto" id="">
+				<div class="scroll-news-body-T">
+					<div class="news-body-text-T">
+						<span>春运即将拉开帷幕，</span>
+						<div class="date-eyeBox">
+							<div class="news-time-T">
+								2018-01-31
+							</div>
+							<div class="news-eye-T">
+								10
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--多图片新闻
+			<div class="scroll-news-item auto" id="">
+				<div class="scroll-news-body-IMGS">
+					<div class="news-body-text-IMGS">
+						<span>春运即将拉开</span>
+						<div class="news-body-imgs-IMGS">
+							<img src="../images/home-news4.png" />
+							<img src="../images/home-news2.png" />
+							<img src="../images/home-news1.png" />
+						</div>
+						<div class="date-eyeBox">
+							<div class="news-time-IMGS">
+								2018-01-31
+							</div>
+							<div class="news-eye-IMGS">
+								10
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--广告新闻
+			<div class="scroll-news-item auto" id="">
+				<div class="scroll-news-body-advertisement">
+					<div class="news-body-text-advertisement">
+						<span>春运即将拉开帷幕，退票潮将至“减漏”正幕，退票潮将至“减漏”正</span>
+						<div class="news-body-imgs-advertisement">
+							<img src="../images/home-news4.png" />
+						</div>
+						<div class="date-eyeBox">
+							<div class="news-time-IMGS news-time-advertisement">
+								<span>广告</span>
+								<span>2018-01-31</span>
+							</div>
+							<div class="news-eye-IMGS">
+								10
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		</div>
+		</div>
+
+		</div>-->
+		<!-- ---今日要闻结束--- -->
+
+	</body>
+	<script type="text/javascript">
+		var curWebView = null;
+		var subpageEditmodules = null;//优化完成
+		var subpageWeather = null;//优化完成
+		var subpageExpress = null;//优化完成
+		var subpageAirquality = null;//优化完成
+		var subpageBus = null; ////优化完成
+		var subpagePark = null;//优化完成
+		var subpageSubway = null;//优化完成
+		var subpageNews = null; //优化完成
+		mui.plusReady(function() {
+			curWebView = plus.webview.currentWebview();
+			
+
+	        	window.addEventListener("toast",function(event){
+	        		  plus.nativeUI.toast(event.detail.message,{
+	        		  	verticalAlign:"top"
+	        		  });
+	        	})
+	          window.addEventListener("showWaiting",function(){
+	          	  plus.nativeUI.showWaiting("", {
+						background: "rgba(0,0,0,0.1)",
+
+					});
+	          });
+	            window.addEventListener("closeWaiting",function(){
+							plus.nativeUI.closeWaiting();
+	          	 
+	          })
+			//预加载页面mui.preload必须放在plusReady事件中
+			 subpageEditmodules = mui.preload({
+				url: 'home-subpage-editmodules.html',
+				id: 'home-subpage-editmodules'
+			});
+		     subpageWeather = mui.preload({
+				url: 'service-subpage-links-weather.html',
+				id: 'service-subpage-links-weather'
+			});
+			 subpageExpress = mui.preload({
+				url: 'service-subpage-links-express.html',
+				id: 'service-subpage-links-express'
+			});
+			 subpageAirquality = mui.preload({
+				url: 'service-subpage-links-airquality.html',
+				id: 'service-subpage-links-airquality',
+			});
+			 subpageBus = mui.preload({
+				url: 'service-subpage-links-bus.html',
+				id: 'service-subpage-links-bus',
+			});
+			 subpagePark = mui.preload({
+				url: 'service-subpage-links-park.html',
+				id: 'service-subpage-links-park',
+			});
+			 subpageSubway = mui.preload({
+				url: 'service-subpage-links-subway.html',
+				id: 'service-subpage-links-subway',
+			});
+		//==================获取新闻列表开始 ==================
+
+			 subpageNews = mui.preload({
+				url: 'sub-show-news.html',
+				id: 'sub-show-news'
+			});
+
+			mui("#btn_bus")[0].addEventListener("tap", function() {
+			       if(subpageBus){
+			       	subpageBus.show("slide-in-right",300,false);
+			       	mui.fire(subpageBus,"initBusMap",{site_str:"公交"})
+			       	
+			       }
+			});
+			mui("#btn_park")[0].addEventListener("tap", function() {
+				if(subpagePark){
+					subpagePark.show("slid-in-right",300,false);
+					mui.fire(subpagePark,"initParkMap",{site_str:"停车场"})
+				}
+			});
+			mui("#btn_subway")[0].addEventListener("tap", function() {
+				 if(subpageSubway){
+				 subpageSubway.show("slide-in-right",300,false);	
+				 	mui.fire(subpageSubway,"initSubway",{});
+				 }
+			});
+			mui("#btn_air")[0].addEventListener("tap", function() {
+			   if(subpageAirquality){
+			   	subpageAirquality.show("slide-in-right",300,false);
+			   	mui.fire(subpageAirquality,"ariQuality",{});
+			   }
+			});
+
+
+			mui("#btn_weather")[0].addEventListener("tap", function() {
+			   if(subpageWeather){
+			   	subpageWeather.show("slide-in-right",300,false);
+			   		//触发详情页面的newsId事件
+				mui.fire(subpageWeather, 'creatLocalWeather', {
+					id: 101010100
+
+				});
+			   	
+			   }
+			
+
+
+			});
+
+			mui("#btn_express")[0].addEventListener("tap", function() {
+				//跳转快递页面清空信息
+				if(subpageExpress){
+					subpageExpress.show("slide-in-right",300,false);
+					mui.fire(subpageExpress,"cleanList",{});
+					
+					
+				}
+		
+			});
+			mui("#btn_more")[0].addEventListener("tap", function() {
+			
+				if(subpageEditmodules){
+					subpageEditmodules.show("slide-in-right",300,false);
+				mui.fire(subpageEditmodules,"editmodules",false)	
+				}
+				
+				
+			});
+
+	
+			var newsPage = null;
+			mui(".home-scroll-news").on("tap", ".scroll-news-item", function() {
+				//参数（新闻标题，时间，Id）：
+				var newsInfo = this.id;
+                  if(subpageNews){
+                  	
+                  	subpageNews.show("slide-in-right",300,false)
+                  		//触发详情页面的newsId事件
+				mui.fire(subpageNews, 'creatNewsInfo', {
+					newsInfo: newsInfo
+				});
+			
+                  }
+			
+
+			});
+
+			mui(".mui-slider-group").on("tap", ".mui-slider-item", function() {
+
+				var newsInfo = this.id;
+				var infoObj = JSON.parse(newsInfo);
+
+				if(infoObj.newsId == null) {
+
+					return;
+				}
+			      if(subpageNews){
+                  	
+                  	subpageNews.show("slide-in-right",300,false)
+                  		//触发详情页面的newsId事件
+				mui.fire(subpageNews, 'creatNewsInfo', {
+					newsInfo: newsInfo
+				});
+				}
+			});
+
+			//生成新闻列表
+
+			//==================获取新闻列表结束 ==================
+
+			var home = {
+				init: function() {
+				mui.fire(curWebView,"showWaiting",null);
+					this.initBanner();
+					this.initNewsList();
+	            
+				},
+				initBanner: function() {
+
+					//获得slider插件对象
+					var gallery = mui('.mui-slider');
+					setTimeout(function() {
+						gallery.slider({
+							interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+						});
+					}, 1500)
+					//请求轮播图片信息
+					//{"code":200,"data":[{"id":0,"imgSrc":"http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAWgOzAA4FnvsTn6A457.png","bannerType":"BANNER_ROBOT","sort":6,"hrefSrc":null,"minImgSrc":"http://10.168.10.131/group1/M00/00/00/CqgKg1tOolSAU9PAAA4FnvsTn6A972.png"}]}
+					mui.ajax({
+						type: "get",
+						url: URLS.getHomeBanner + "&jsoncallback=?",
+						async: true,
+						dataType: "jsonp",
+						jsonp: "jsoncallback",
+						timeout: 5000,
+						beforeSend:function(){
+							
+						},
+						success: function(data) {
+							//							console.log(data)
+							data = JSON.parse(data); //将数据转换成json对象
+							home.getHomeBanner(data);
+						},
+						complete:function(){
+
+						},
+						error: function(xhr, type, errorThrown) {
+							mui.fire(curWebView,"toast",{
+								message:"网络连接失败!"
+							})
+
+						}
+					});
+				},
+
+				getHomeBanner: function(data) {
+					var bannerHtmlList = '';
+					var firstBannerHtml = '';
+					var lastBannerHtml = '';
+
+					for(var i = 0; i < data.data.length; i++) {
+						var banner = data.data[i];
+
+						var fireObj = {};
+						if(banner.hrefSrc != null) {
+							fireObj.newsId = banner.hrefSrc;
+							fireObj.title = null;
+							fireObj.time = null;
+							fireObj.source = null;
+
+						}
+
+						var banenerHtml = '<div class="mui-slider-item" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><img src="' + banner.imgSrc + '"/></a></div>';
+						bannerHtmlList += banenerHtml;
+						if(i == 0) {
+							firstBannerHtml = '<div class="mui-slider-item mui-slider-item-duplicate" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><img src="' + banner.imgSrc + '"/></a></div>';
+						}
+						if(i == data.data.length - 1) {
+							lastBannerHtml = '<div class="mui-slider-item mui-slider-item-duplicate" id=\'' + JSON.stringify(fireObj) + '\'><a href="#"><img src="' + banner.imgSrc + '"/></a></div>';
+						}
+					}
+
+					$(".mui-slider-group").empty().append(lastBannerHtml).append(bannerHtmlList).append(firstBannerHtml);
+
+				},
+				initNewsList: function() {
+					//mui('#pullrefresh').pullRefresh().refresh(true);
+					searchText_str = ''
+					var jsonObj = {
+						condition: {
+							"newsColumnId": 2,
+							"isStick": 0
+						},
+						order: "desc",
+						rowCount: 5,
+						sort: "pushTime",
+						startRow: 0,
+						totalRecord: 0
+					}
+					if(searchText_str != '') {
+						//如果有输入关键字，说明是搜索调用，添加关键字搜索
+						jsonObj.condition.searchText = searchText_str;
+					} else {
+						jsonObj.condition.searchText = '';
+					}
+
+					//加载今日要闻title
+					var newsTitle = '<div class="scroll-news-title"><span>今日要闻</span></div>';
+					$("#list").empty().append(newsTitle)
+
+					//首次进入页面请求新闻列表
+					mui.ajax({
+						type: "post",
+						url: URLS.getNewsList + "?jsoncallback=?",
+						async: true,
+						data: JSON.stringify(jsonObj),
+						dataType: "jsonp",
+						contentType: "application/json;charset=utf-8",
+						jsonp: "jsoncallback",
+						headers: {
+							"Accept": "*/*"
+						},
+						timeout:6000,
+						success: function(data) {
+							data = JSON.parse(data); //将数据转换成json对象
+							home.creatNewsList(data);
+							home.addPullUpLoading(data); //绑定加载更多事件
+//							plus.nativeUI.closeWaiting();
+
+						},
+						complete:function(){
+							mui.fire(curWebView,"closeWaiting",null);
+						},
+						error: function(xhr, type, errorThrown) {
+							mui.fire(curWebView,"toast",{
+								message:"网络连接失败!"
+							})
+							mui.fire(curWebView,"closeWaiting",null);
+						}
+
+					});
+				},
+				startRowMark: 0,
+				addPullUpLoading: function(data) {
+
+					//成功以后进行绑定上拉刷新
+					mui.init({
+						pullRefresh: {　　
+							swipeBack: false, //关闭左滑关闭功能
+							container: "#pullrefresh", //下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+							up: {
+								auto: false,
+								show: true,
+								contentinit: '上拉显示更多',
+								contentdown: '上拉显示更多',
+								contentrefresh: '正在加载...',
+								callback: pulluploading
+							}
+						}
+					});
+					//上拉刷新的时候确定从第几条开始，然后检查搜索框是否有数据-----sjn-----加载的时候看是不是搜索，如果是搜索那么按照搜索条件进行加载数据。
+
+					var searchTextMark = searchText_str;
+					var count = 0,
+						total = data.data.totalRecord; //一共的条数判断是否加载完毕。
+					//执行上拉刷新
+					function pulluploading() {
+						var _self = this;
+						home.startRowMark += 5; //从第六条开始加载下一次的数据
+						var jsonObj = {
+							condition: {
+								"newsColumnId": 2
+							},
+							order: "desc",
+							rowCount: 5,
+							sort: "pushTime",
+							startRow: home.startRowMark,
+							totalRecord: total
+						}
+						if(searchTextMark != '') {
+							jsonObj.condition.searchText = searchTextMark;
+						} else {
+							jsonObj.condition.searchText = '';
+						}
+
+						mui.ajax({
+							type: "post",
+							url: URLS.getNewsList + "?jsoncallback=?",
+							async: true,
+							data: JSON.stringify(jsonObj),
+							dataType: "jsonp",
+							contentType: "application/json;charset=utf-8",
+							jsonp: "jsoncallback",
+							beforeSend:function(){
+								mui.fire(curWebView,"showWaiting",null);
+							},
+							headers: {
+								"Accept": "*/*"
+							},
+							timeout: 6000,
+							success: function(data) {
+
+								//下拉刷新获取数据成功
+								data = JSON.parse(data); //将数据转换成json对象
+//								console.log('---请求从第'+home.startRowMark+'条开始---');
+//								console.log('---显示的条数：' + $("#list").children("li").length+'--- 一共条数：'+total+'---')
+
+								if($("#list").children("li").length >= total) {
+									//判断如果加载到最后最后一条那么显示没有更多了；
+									_self.endPullupToRefresh(true);
+									return;
+								}
+
+								//否则就增加新闻
+								home.creatNewsList(data);
+//								plus.nativeUI.closeWaiting();
+								setTimeout(function() { //1.5秒后隐藏正在加载的样式
+									_self.endPullupToRefresh(false);
+								}, 1500);
+
+							},
+							complete:function(){
+								mui.fire(curWebView,"closeWaiting",null);
+							},
+							error: function(xhr, type, errorThrown) {
+									mui.fire(curWebView,"toast",{
+								message:"网络连接失败!"
+							})
+								//显示网络不可用
+								mui.fire(curWebView,"closeWaiting",null);
+							}
+
+						});
+
+					}
+
+				},
+
+				creatNewsList: function(data) {
+					var newList = '';
+
+					for(var i = 0; i < data.data.datas.length; i++) {
+						var news = data.data.datas[i];
+						var newsType = news.newsType;
+						var img_src = news.imgSrc;
+						var title = news.title;
+						var newsId = news.id;
+						var source = news.source;
+						var interviewNum = news.interviewNum;
+						var time1 = news.pushTime;
+						var time2 = '';
+						if(time1) {
+							time1 = news.pushTime.substring(0, news.pushTime.indexOf("T"));
+							time2 = news.pushTime.substring(0, news.pushTime.indexOf("T")) + " " + news.pushTime.substring(news.pushTime.indexOf("T") + 1, news.pushTime.indexOf(".000"));
+						}
+						var fireObj = {};
+						fireObj.title = title;
+						fireObj.newsId = newsId;
+						fireObj.time = time2;
+						fireObj.source = source;
+						var newHtml = '';
+						//---广告---
+						if(newsType == 'ADVERT_NEWS') {
+							newHtml = '<li><div class="scroll-news-item auto"id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-advertisement"><div class="news-body-text-advertisement"><span>' + title + '</span><div class="news-body-imgs-advertisement"><img src="' + img_src + '"/></div><div class="date-eyeBox"><div class="news-time-IMGS news-time-advertisement"><span>广告</span><span>' + time1 + '</span></div><div class="news-eye-IMGS">' + interviewNum + '</div></div></div></div></div></li>';
+						}
+						if(newsType == 'VIDEO_NEWS') {
+							newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body"><div class="news-body-play"><img src="../images/play.png"/></div><div class="news-body-img"><img src=\"' + img_src + '\"/></div><div class="news-body-text"><span>' + title + '</span><div class="date-eyeBox"><div class="news-time">' + time1 + '</div><div class="news-eye">' + interviewNum + '</div></div></div></div></div></li>';
+						}
+						if(newsType == 'TEXT_NEWS') {
+							newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-T"><div class="news-body-text-T"><span> ' + title + '</span><div class="date-eyeBox"><div class="news-time-T">' + time1 + '</div><div class="news-eye-T">' + interviewNum + '</div></div></div></div></div></li>';
+						}
+						if(newsType == 'IMAGE_NEWS') {
+							var miniImgSrc = news.miniImgSrc;
+							var imgArr;
+							if(miniImgSrc) {
+								imgArr = miniImgSrc.split(',');
+								if(imgArr.length > 1) { //多图片新闻
+									var img_srcs = '';
+									for(var j = 0; j < 3; j++) {
+										var img_src = '<img src=\"' + imgArr[j] + '\"/>';
+										img_srcs += img_src;
+									}
+									newHtml = '<li><div class="scroll-news-item auto" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-IMGS"><div class="news-body-text-IMGS"><span>' + title + '</span><div class="news-body-imgs-IMGS">' + img_srcs + '</div><div class="date-eyeBox"><div class="news-time-IMGS">' + time1 + '</div><div class="news-eye-IMGS">' + interviewNum + '</div></div></div></div></div></li>';
+								} else { //单图片新闻
+									newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body"><div class="news-body-img"><img src=\"' + img_src + '\"/></div><div class="news-body-text"><span>' + title + '</span><div class="date-eyeBox"><div class="news-time">' + time1 + '</div><div class="news-eye">' + interviewNum + '</div></div></div></div></div></li>';
+								}
+
+							}
+
+						}
+						if(img_src == "" || img_src == null) { //如果没有图片，视频按文字新闻处理
+							newHtml = '<li><div class="scroll-news-item" id=\'' + JSON.stringify(fireObj) + '\'><div class="scroll-news-body-T"><div class="news-body-text-T"><span> ' + title + '</span><div class="date-eyeBox"><div class="news-time-T">' + time1 + '</div><div class="news-eye-T">' + interviewNum + '</div></div></div></div></div></li>';
+
+						}
+						newList += newHtml;
+					}
+
+					$("#list").append(newList);
+				}
+
+			};
+            var flag = true;
+		    if(flag){
+		    		home.init();
+		    		flag = false;
+		    }
+
+			window.addEventListener("init", function() {
+
+				home.init();
+				if(mui('#pullrefresh').pullRefresh()){
+					mui('#pullrefresh').pullRefresh().refresh(true);
+				}
+				home.startRowMark = 0;
+			})
+
+		});
+	</script>
+
+	<script>
+	</script>
+
+</html>

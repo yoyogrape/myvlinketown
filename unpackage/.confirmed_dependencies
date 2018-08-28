@@ -1,0 +1,765 @@
+{
+  "index.html": {
+    "resources": [
+      "images/blue-alarm.png",
+      "modules/home.html",
+      "css/index.css",
+      "images/nav-robot.png",
+      "images/nav-myself.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "images/nav-service.png",
+      "css/mui.min.css",
+      "images/nav-home-choose.png",
+      "images/nav-info.png",
+      "images/nav-home.png",
+      "css/app.css",
+      "images/nav-info-choose.png",
+      "images/nav-service-choose.png",
+      "images/nav-myself-choose.png",
+      "images/nav-robot1.png"
+    ],
+    "refer": [
+      "modules/robot.html",
+      "modules/information.html",
+      "modules/home.html",
+      "modules/service.html",
+      "modules/myself.html"
+    ]
+  },
+  "modules/home.html": {
+    "refer": [
+      "modules/home-subpage-search.html",
+      "modules/sub-show-news.html",
+      "modules/home-subpage-editmodules.html",
+      "modules/service-subpage-links-weather.html",
+      "modules/service-subpage-links-express.html",
+      "modules/service-subpage-links-park.html",
+      "modules/service-subpage-links-airquality.html",
+      "modules/service-subpage-links-subway.html",
+      "modules/service-subpage-links-bus.html"
+    ],
+    "resources": [
+      "images/robot-linkimg-bus.png",
+      "css/home.css",
+      "images/banner2.jpg",
+      "images/banner1.jpg",
+      "images/banner4.jpg",
+      "images/home-news1.png",
+      "images/service-links-airquality.png",
+      "js/jquery-1.11.3.min.js",
+      "images/home-news4.png",
+      "images/home-news-eye.png",
+      "js/grape.tools.js",
+      "images/robot-linkimg-more.png",
+      "js/url.properties.js",
+      "images/home-news2.png",
+      "images/robot-linkimg-trafficcontrol.png",
+      "js/mui.min.js",
+      "images/service-links-meteorological.png",
+      "images/service-links-express.png",
+      "css/mui.min.css",
+      "images/home-head-search.png",
+      "images/banner3.jpg",
+      "images/robot-linkimg-park.png",
+      "images/service-links-subway.png",
+      "css/public-news-list.css",
+      "css/public-title-header.css",
+      "images/service-links-exitandentry.png",
+      "images/play.png",
+      "fonts/mui.ttf"
+    ]
+  },
+  "modules/robot.html": {
+    "refer": [
+      "modules/robot-subpage-visitlink-transportation.html",
+      "modules/robot-subpage-meetinglink-time.html",
+      "modules/robot-subpage-meetinglink-theme.html",
+      "modules/robot-subpage-news.html",
+      "modules/robot-subpage-meetinglink-LOGOannotation.html",
+      "modules/robot-subpage-alltimelink-speedtest.html",
+      "modules/robot-subpage-alltimelink-heatdistribution.html",
+      "modules/robot-subpage-alltimelink-actualthermal.html",
+      "modules/home-subpage-search.html",
+      "modules/robot-mainlinkpage-trouble.html",
+      "modules/robot-mainlinkpage-surveys.html",
+      "modules/home-subpage-editmodules.html",
+      "modules/service-subpage-links-weather.html",
+      "modules/sub-show-news.html",
+      "modules/robot-subpage-around.html",
+      "modules/robot-subpage-alltimelink-netticket.html",
+      "modules/robot-subpage-exhibitorintroduce.html",
+      "modules/robot-subpage-exhibitionhallservice.html"
+    ],
+    "resources": [
+      "images/robot-linkimg-submittrouble.png",
+      "images/robot-linkimg-trafficguide.png",
+      "images/banner2.jpg",
+      "images/robot-head-bannerimg.png",
+      "images/weather-fine-sun2.png",
+      "images/banner4.jpg",
+      "images/home-YiZhuang.png",
+      "images/robot-linkimg-heatmap.png",
+      "js/grape.tools.js",
+      "images/robot-linkimg-more.png",
+      "css/robot.css",
+      "images/robot-linkimg-venuetour.png",
+      "images/robot-linkimg-trafficcontrol.png",
+      "images/banner1.jpg",
+      "images/banner3.jpg",
+      "images/robot-linkimg-meetingtime.png",
+      "images/robot-linkimg-park.png",
+      "images/home-news-eye.png",
+      "images/home-news1.png",
+      "js/url.properties.js",
+      "images/home-news2.png",
+      "js/mui.min.js",
+      "images/home-head-search.png",
+      "js/jquery-1.11.3.min.js",
+      "images/home-news4.png",
+      "css/public-news-list.css",
+      "css/mui.min.css",
+      "css/public-title-header.css",
+      "images/weather-fine-cloudy.png",
+      "images/play.png",
+      "fonts/mui.ttf",
+      "images/robot-linkimg-ticket.png",
+      "images/robot-linkimg-salvation.png",
+      "images/weather-fine-rain.png"
+    ]
+  },
+  "modules/information.html": {
+    "refer": [
+      "modules/sub-show-news.html",
+      "modules/info-subpage-channelcenter.html",
+      "modules/home-subpage-search.html"
+    ],
+    "resources": [
+      "images/home-news1.png",
+      "images/news-banner-caijing.jpg",
+      "js/jquery-1.11.3.min.js",
+      "images/news-banner-jiankang.jpg",
+      "images/home-news4.png",
+      "js/swiper.min.js",
+      "images/home-news-eye.png",
+      "js/url.properties.js",
+      "images/news-banner-redian.jpg",
+      "css/information.css",
+      "images/home-news2.png",
+      "css/swiper.min.css",
+      "images/home-head-search.png",
+      "images/info-subpage-YiZhuangbanner.png",
+      "images/news-banner-beijing.jpg",
+      "images/info-nav-menu.png",
+      "images/news-banner-shijiebei.jpg",
+      "css/public-news-list.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/public-title-header.css",
+      "images/play.png",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js"
+    ]
+  },
+  "main.html": {
+    "resources": [
+      "modules/home.html",
+      "modules/information.html",
+      "modules/robot.html",
+      "modules/myself.html",
+      "modules/service.html",
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css",
+      "modules/tabbar.html"
+    ],
+    "refer": [
+      "modules/tabbar.html",
+      "modules/home.html",
+      "modules/information.html",
+      "modules/myself.html",
+      "modules/robot.html",
+      "modules/service.html"
+    ]
+  },
+  "modules/service.html": {
+    "refer": [
+      "modules/service-subpage-links-weather.html",
+      "modules/service-subpage-links-express.html",
+      "modules/robot-mainlinkpage-surveys.html",
+      "modules/service-subpage-links-park.html",
+      "modules/service-subpage-links-subway.html",
+      "modules/service-subpage-links-bus.html",
+      "modules/service-subpage-links-airquality.html"
+    ],
+    "resources": [
+      "images/service-links-airquality.png",
+      "images/service-links-workguide.png",
+      "images/service-links-survey.png",
+      "images/service-links-forjob.png",
+      "images/service-links-MPFenquiries.png",
+      "css/service.css",
+      "images/service-links-law.png",
+      "images/service-links-education.png",
+      "images/service-links-bus.png",
+      "images/service-links-meteorological.png",
+      "images/service-links-express.png",
+      "images/service-links-socialsecurityquery.png",
+      "images/service-links-park.png",
+      "images/service-links-exitandentry.png",
+      "images/service-links-subway.png",
+      "images/service-links-trafficcontrol.png",
+      "js/mui.min.js",
+      "js/jquery-1.11.3.min.js",
+      "js/url.properties.js",
+      "images/service-links-trafficcontrol-hui.png"
+    ]
+  },
+  "modules/service-subpage-links-weather.html": {
+    "refer": [
+      "modules/service-subpage-weather-addcity.html"
+    ],
+    "resources": [
+      "css/service-subpage-links-weather.css",
+      "images/weather-airquality.png",
+      "images/weather-addcity.png",
+      "images/weatherborderbg-rain.png",
+      "js/grape.tools.js",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/weather-fine-sun3.png",
+      "css/weatherStyle.css"
+    ]
+  },
+  "modules/robot-mainlinkpage-surveys.html": {
+    "refer": [
+      "modules/robot-mainlinksubpage-surveysrobot.html"
+    ],
+    "resources": [
+      "css/robot-mainlinkpage-survey.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/myself-submenu-titleimg3.png"
+    ]
+  },
+  "modules/myself.html": {
+    "refer": [
+      "modules/myself-personalcenter-login.html",
+      "modules/myself-subpage-myrequest.html",
+      "modules/myself-personalcenter-register.html",
+      "modules/myself-subpage-setting.html",
+      "modules/myself-subpage-about.html",
+      "modules/myself-personalcenter-login2.html",
+      "modules/myself-personalcenter-passLogin.html",
+      "modules/myself-personalcenter.html"
+    ],
+    "resources": [
+      "images/myself-submenu-titleimg1.png",
+      "images/myself-portrait-bg.png",
+      "images/myself-portrait-img.png",
+      "css/myself.css",
+      "images/myself-submenu-titleimg3.png",
+      "images/myself-submenu-titleimg2.png",
+      "js/jquery-1.11.3.min.js",
+      "js/url.properties.js",
+      "js/mui.min.js"
+    ]
+  },
+  "modules/service-subpage-links-subway.html": {
+    "refer": [
+      "modules/robot-mainlinksubpage-surveysrobot.html"
+    ],
+    "resources": [
+      "css/service-subpage-links-subway.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ]
+  },
+  "modules/tabbar.html": {
+    "resources": [
+      "images/nav-myself.png",
+      "images/nav-home-choose.png",
+      "images/nav-home.png",
+      "images/nav-service.png",
+      "images/nav-robot-choose.png",
+      "images/nav-info.png",
+      "images/nav-info-choose.png",
+      "images/nav-service-choose.png",
+      "images/nav-myself-choose.png",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "modules/service-subpage-links-bus.html": {
+    "refer": [
+      "modules/service-subpage-linksbusline.html",
+      "modules/service-subpage-linksstartend.html"
+    ],
+    "resources": [
+      "css/service-subpage-links-bus.css",
+      "images/bus-startend-img.png",
+      "images/express-form-searchimg.png",
+      "images/sub-showannouncement-bluearrows.png",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "css/robot-subpage-around.css"
+    ]
+  },
+  "modules/service-subpage-links-park.html": {
+    "resources": [
+      "css/robot-subpage-meetinglink-time.css",
+      "images/service-subpage-links-park.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/robot-subpage-around.css",
+      "images/sub-showannouncement-bluearrows.png"
+    ],
+    "refer": []
+  },
+  "modules/service-subpage-links-airquality.html": {
+    "resources": [
+      "images/air-lvyouzhishu.png",
+      "images/air-chenlian.png",
+      "images/air-yuehui.png",
+      "js/jquery.AshAlom.gaugeMeter-2.0.0.min.js",
+      "images/air-ziwaixian.png",
+      "images/air-jiaotong.png",
+      "images/airquality-details.png",
+      "css/service-subpage-links-airquality.css",
+      "images/airquality-selectcity.png",
+      "images/progressbar.png",
+      "css/public-title.css",
+      "images/air-chuanyi.png",
+      "images/air-fangsai.png",
+      "images/air-qiche.png",
+      "images/air-lukuang.png",
+      "css/normalize.css",
+      "images/airquality-position.png",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/url.properties.js"
+    ],
+    "refer": []
+  },
+  "modules/robot-subpage-alltimelink-heatdistribution.html": {
+    "resources": [
+      "css/robot-subpage-alltimelink-heatdistribution.css",
+      "images/robot-subpage-alltimelink-heatdistributionimg.png",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/service-subpage-links-express.html": {
+    "resources": [
+      "images/express-form-scanimg.png",
+      "images/express-form-companyimg.png",
+      "images/express-logo-yunda.png",
+      "images/express-logo-shentong.png",
+      "images/express-logo-EMS.png",
+      "images/express-logo-tiantian.png",
+      "images/express-logo-zhongtong.png",
+      "images/express-logo-yuantong.png",
+      "images/express-logo-quanfengkuaidi.png",
+      "images/express-logo-shunfeng.png",
+      "images/express-logo-debang.png",
+      "css/service-subpage-links-express.css",
+      "images/express-form-searchimg.png",
+      "images/express-logo-baishihuitong.png",
+      "images/express-logo-zaijisong.png",
+      "images/sub-showannouncement-bluearrows.png",
+      "images/express-form-noexpressimg.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/service-subpage-weather-addcity.html": {
+    "resources": [
+      "js/mui.picker.js",
+      "js/mui.poppicker.js",
+      "css/service-subpage-weather-addcity.css",
+      "js/city.data.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "images/weatherborderbg-fine.png",
+      "js/jquery-1.11.3.min.js",
+      "js/grape.tools.js",
+      "js/url.properties.js",
+      "images/weather-fine-sun2.png",
+      "css/mui.min.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "modules/robot-mainlinksubpage-surveysrobot.html": {
+    "resources": [
+      "css/robot-mainlinksubpage-surveysrobot.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "modules/robot-subpage-visitlink-transportation.html": {
+    "resources": [
+      "css/robot-subpage-visitlink-transportation.css",
+      "images/robot-subpage-visitlink-transportationimg.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/daju.png"
+    ],
+    "refer": []
+  },
+  "modules/home-subpage-search.html": {
+    "resources": [
+      "images/homesearch-head-leftarrows.png",
+      "css/home-subpage-search.css",
+      "images/info-head-graysearch.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/robot-mainlinkpage-trouble.html": {
+    "resources": [
+      "css/robot-mainlinkpage-trouble.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/url.properties.js",
+      "images/wifiHelpImg/wifiHelp.png"
+    ],
+    "refer": [
+      "modules/wifi.html"
+    ]
+  },
+  "modules/myself-subpage-myrequest.html": {
+    "resources": [
+      "css/myself-subpage-myrequest.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/url.properties.js"
+    ],
+    "refer": []
+  },
+  "modules/home-subpage-editmodules.html": {
+    "resources": [
+      "images/home-subpage-editmodules.png",
+      "css/robot-subpage-news.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/home-subpage-editmodules.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "images/more-hospital.png",
+      "images/more-petrolstation.png",
+      "images/more-supermarket.png",
+      "images/more-publictoilet.png",
+      "images/more-chargingpile.png",
+      "images/more-park.png",
+      "images/more-hotel.png",
+      "images/more-arrows.png",
+      "images/more-food.png"
+    ],
+    "refer": [
+      "modules/robot-subpage-around.html",
+      "modules/robot-subpage-aroundMap.html"
+    ]
+  },
+  "modules/sub-show-news.html": {
+    "resources": [
+      "images/news-share.png",
+      "css/sub-show-news.css",
+      "css/public-title.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/url.properties.js",
+      "fonts/mui.ttf",
+      "images/black.png"
+    ],
+    "refer": [
+      "modules/share.html"
+    ]
+  },
+  "modules/robot-subpage-meetinglink-time.html": {
+    "resources": [
+      "images/robot-subpage-meetinglink-timeimg.png",
+      "css/robot-subpage-meetinglink-time.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/homesearch-head-leftarrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/url.properties.js",
+      "images/sub-showannouncement-bluearrows.png"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter-register.html": {
+    "resources": [
+      "css/myself-personalcenter-register.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/url.properties.js"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter-login.html": {
+    "resources": [
+      "css/myself-personalcenter-login.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/mui.min.js",
+      "js/url.properties.js",
+      "js/jquery-1.11.3.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/service-subpage-linksstartend.html": {
+    "resources": [
+      "css/service-subpage-linksstartend.css",
+      "images/busline-station-img.png",
+      "images/sub-showannouncement-bluearrows.png",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "modules/service-subpage-linksbusline.html": {
+    "resources": [
+      "images/busline-station-img.png",
+      "css/service-subpage-linksbusline.css",
+      "js/jquery-1.11.3.min.js",
+      "images/sub-showannouncement-bluearrows.png",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "modules/info-subpage-channelcenter.html": {
+    "resources": [
+      "images/info-subpage-channelcenterimg.png",
+      "css/info-subpage-channelcenter.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/robot-subpage-around.html": {
+    "refer": [
+      "modules/robot-subpage-aroundMap.html"
+    ],
+    "resources": [
+      "css/robot-subpage-around.css",
+      "images/robot-around-chaoshi.png",
+      "images/sub-showannouncement-bluearrows.png"
+    ]
+  },
+  "modules/myself-subpage-about.html": {
+    "resources": [
+      "images/vlink-yizhuangLOGO.png",
+      "images/myself-about-phonenum.png",
+      "images/myself-about-guanwang.png",
+      "images/myself-about-email.png",
+      "images/myself-about-weichat.png",
+      "css/myself-subpage-about.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "modules/myself-subpage-QRcode.html"
+    ]
+  },
+  "modules/robot-subpage-alltimelink-netticket.html": {
+    "resources": [
+      "css/robot-subpage-alltimelink-heatdistribution.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter-login2.html": {
+    "resources": [
+      "css/myself-personalcenter-login.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/robot-subpage-aroundMap.html": {
+    "resources": [
+      "css/robot-subpage-around.css"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter-passLogin.html": {
+    "resources": [
+      "css/myself-personalcenter-login.css",
+      "css/mui.min.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "js/url.properties.js",
+      "images/vlink-yizhuangLOGO.png",
+      "images/myself-login-username.png",
+      "images/myself-login-password.png"
+    ],
+    "refer": [
+      "modules/myself-personalcenter-refister2.html",
+      "modules/myself-personalcenter-register_bak.html",
+      "modules/myself-personalcenter-quickLogin.html",
+      "modules/myself-personalcenter-forgetPassword.html"
+    ]
+  },
+  "modules/myself-personalcenter-refister2.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/myself-personalcenter-login.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "js/url.properties.js",
+      "images/sub-showannouncement-bluearrows.png",
+      "images/myself-login-phonenum.png",
+      "images/myself-login-password2.png"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter-register_bak.html": {
+    "resources": [
+      "css/myself-personalcenter-login.css"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter-quickLogin.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/myself-personalcenter-login.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "js/url.properties.js",
+      "images/sub-showannouncement-bluearrows.png",
+      "images/myself-login-code.png",
+      "images/myself-login-phonenum.png"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter-forgetPassword.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/myself-personalcenter-login.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "js/url.properties.js",
+      "images/sub-showannouncement-bluearrows.png",
+      "images/myself-login-code.png"
+    ],
+    "refer": [
+      "modules/myself-personalcenter-updatePassword.html"
+    ]
+  },
+  "modules/myself-personalcenter-updatePassword.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/myself-personalcenter-login.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "js/url.properties.js",
+      "images/sub-showannouncement-bluearrows.png"
+    ],
+    "refer": []
+  },
+  "modules/myself-personalcenter.html": {
+    "resources": [
+      "css/myself-personalcenter-login.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "css/mui.min.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "js/url.properties.js"
+    ],
+    "refer": [
+      "modules/myself-personalcenter-updatePassword.html"
+    ]
+  },
+  "modules/robot-subpage-exhibitorintroduce.html": {
+    "resources": [
+      "css/robot-subpage-alltimelink-heatdistribution.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/sub-showannouncement-bluearrows.png",
+      "js/jquery.charfirst.pinyin.js",
+      "js/sort.js"
+    ],
+    "refer": [
+      "modules/robot-subpage-exhibitorintroduce-product.html"
+    ]
+  },
+  "modules/robot-subpage-exhibitionhallservice.html": {
+    "resources": [
+      "js/jquery-1.11.3.min.js",
+      "css/robot-subpage-exhibitionhallservice.css",
+      "images/daju.png",
+      "js/mui.min.js",
+      "css/swiper.min.css",
+      "css/mui.min.css",
+      "js/swiper.min.js",
+      "images/weatherborderbg-rain.png",
+      "images/sub-showannouncement-bluearrows.png",
+      "images/juyuwang001.png",
+      "js/pinchzoom.min.js"
+    ],
+    "refer": []
+  },
+  "modules/robot-subpage-exhibitorintroduce-product.html": {
+    "resources": [
+      "css/robot-subpage-alltimelink-heatdistribution.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "modules/share.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/share-friend.png",
+      "images/share-wechat.png"
+    ],
+    "refer": []
+  },
+  "modules/wifi.html": {
+    "resources": [
+      "images/wifiImg/2.21.png",
+      "images/wifiImg/1.1.png",
+      "images/wifiImg/2.1.png",
+      "images/wifiImg/2.12.png",
+      "images/wifiImg/2.22.png",
+      "images/wifiImg/3.12.png",
+      "images/wifiImg/3.1.png",
+      "css/mui.min.css"
+    ]
+  },
+  "modules/myself-subpage-QRcode.html": {
+    "resources": [
+      "css/myself-subpage-QRcode.css",
+      "css/mui.min.css",
+      "images/myself-about-QRcode.png"
+    ]
+  }
+}
